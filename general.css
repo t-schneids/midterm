@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    background-color:blanchedalmond;
+    font-family: sans-serif;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navlist {
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0;
+    font-size: large;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.navlist li a {
+    transition-duration: 0.4s;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+/* Logo specific modifications */
+.logo li a {
+    float: left;
+    padding: 14px 4px;
+}
+
+.logo li:first-child a img{
+    width: 70px;
+    height: 50px;
+    background-color: transparent;
+}
+
+.logo li:first-child a {
+    padding: 0;
+}
+
+/* navigation tab specific highlighting */
+.tabs li a{
+    float: right;
+}
+
+.tabs li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+}
+
+.tabs li a:active {
+    background-color: (255, 255, 255, 0.4);
+    border-radius: 25px;
+}
