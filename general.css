@@ -7,7 +7,7 @@ body {
 .nav {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 99;
 }
 
 .navlist {
@@ -23,7 +23,6 @@ body {
 
 .navlist li a {
     transition-duration: 0.4s;
-    display: block;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -32,6 +31,7 @@ body {
 
 /* Logo specific modifications */
 .logo li a {
+    display: block;
     float: left;
     padding: 14px 4px;
 }
@@ -46,17 +46,66 @@ body {
     padding: 0;
 }
 
-/* navigation tab specific highlighting */
-.tabs li a{
-    float: right;
+.tabGroup {
+    list-style-type: none;
+    font-size: large;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-200%);
+    transition: transform 0.5s;
+    margin-top: 42px;
+    margin-right: 11px;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: auto;
+    z-index: 99;
+    background: black; 
+    border-radius: 5%;
 }
 
-.tabs li a:hover {
+
+/* navigation tab specific highlighting */
+.tabGroup li a{
+    float: right;
+    transition-duration: 0.4s;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+.tabGroup li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 25px;
 }
 
-.tabs li a:active {
+.tabGroup li a:active {
     background-color: (255, 255, 255, 0.4);
     border-radius: 25px;
+}
+
+.hamburger {
+    position: fixed;
+    z-index: 100;
+    top: 12px;
+    right: 12px;
+    padding: 3px;
+    border: black solid 1px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.closeIcon {
+    display: none;
+}
+
+.menuIcon {
+    display: block;
+}
+
+/* Class added and removed by JS for hamburger menu */
+.showMenu {
+    transform: translateY(0);
 }
