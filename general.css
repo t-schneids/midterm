@@ -10,7 +10,7 @@ body {
 
 @font-face {
     font-family: Noteworthy;
-    src: url(Noteworthy.woff);
+    src: url(Noteworthy.ttf);
 }
 
 .nav {
