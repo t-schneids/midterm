@@ -1,7 +1,16 @@
+* {
+    font-family: Noteworthy;
+}
+
 body {
     margin: 0;
     background-color:blanchedalmond;
-    font-family: sans-serif;
+    font-family: Noteworthy;
+}
+
+@font-face {
+    font-family: Noteworthy;
+    src: url(Noteworthy.woff);
 }
 
 .nav {
@@ -19,31 +28,47 @@ body {
     font-size: large;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    
 }
 
-.navlist li a {
+/* .navlist li a {
     transition-duration: 0.4s;
     color: white;
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
-}
+} */
 
-/* Logo specific modifications */
-.logo li a {
-    display: block;
-    float: left;
-    padding: 14px 4px;
+
+
+.logo .logo-text {
+    display: flex;
+    /* justify-content: center; /* Center the content horizontally */
+   /* align-items: center; Center the content vertically */
+    font-family: Noteworthy;
+    color: black;
+    font-weight: bold;
+    font-size: 38px;
+    
 }
 
 .logo li:first-child a img{
-    width: 70px;
-    height: 50px;
+    padding-top: 4px;
+    width: 92px;
+    height: 83px;
     background-color: transparent;
 }
 
-.logo li:first-child a {
-    padding: 0;
+/* Style the "RESCUE WAGGIN'" title */
+.logo li:nth-child(2) a {
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    font-family: Noteworthy;
+    color: black;
+    font-weight: bold;
+    font-size: 38px;
+    padding: 0; /* Remove padding if needed */
 }
 
 .tabGroup {
