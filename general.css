@@ -35,6 +35,8 @@ body {
     width: 92px;
     height: 83px;
     background-color: transparent;
+    padding-bottom: 3px;
+    padding-top: 2px;
 }
 
 .logo a {
@@ -51,6 +53,8 @@ body {
 
 .logo span {
     padding-left: 30%;
+    position: relative;
+    top: 7px;
 }
 
 .tabGroup {
