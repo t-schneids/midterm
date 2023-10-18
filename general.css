@@ -109,3 +109,30 @@ body {
 .showMenu {
     transform: translateY(0);
 }
+
+/* Footer Styling */
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+    color: white !important;
+    background-color: rgba(0, 0, 0, 0.15);
+    text-align: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    font-size: medium;
+}
+
+footer p a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+footer p a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+}
