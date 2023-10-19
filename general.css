@@ -48,13 +48,12 @@ body {
     padding: 0;
     display: inline-block;
     vertical-align: middle;
-    width: 100%;
+    width: 60%;
 }
 
 .logo span {
-    padding-left: 30%;
-    position: relative;
-    top: 7px;
+    float: right;
+    padding-top: 15px;
 }
 
 .tabGroup {
