@@ -7,6 +7,115 @@
         <!-- links library for hamburger and close icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="general.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+        <style>
+            footer {
+                position: relative !important;
+            }
+            h1 {
+                text-align: center;
+            }
+
+            .row {
+                display: flex;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-bottom: 30px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            .column {
+                flex: 50%;
+            }
+        </style>
+
+        <script>
+
+            //populates the subtotal, etc with information from the 
+            //table based on if they want a service or not
+            $(document).ready(function() {
+                $(".choice select").change(function() {
+                    index = parseInt(this.name);
+                    price = services[index].cost;
+                    chosen = this.selectedIndex;
+                    totalCost = price * chosen;
+                    totalCost = totalCost.toFixed(2);
+                    
+                    // Update subtotal bar
+                    subtotal = parseInt(document.forms[0].subtotal.value, 10);
+                    subtotal += parseInt(totalCost);
+                    document.forms[0].subtotal.value = subtotal.toFixed(2);
+
+                    taxAmount = .0625 * subtotal;
+                    document.forms[0].tax.value = taxAmount.toFixed(2);
+
+                    final = taxAmount + subtotal;
+                    document.forms[0].total.value = final.toFixed(2);
+                })
+            });
+
+            function Dog(name, breed, age) {
+                this.name = name;
+                this.breed = breed;
+                this.age = age;
+            }
+
+            function Service(name, cost) {
+                this.name = name;
+                this.cost = cost;
+            }  
+
+            services = new Array (
+                new Service("Vaccinations", 400),
+                new Service("Spay/neuter surgery", 450),
+                new Service("Leash and Collar", 30)
+            )
+
+            dogs = new Array (
+                new Dog("Jackson", "Lab", 5),
+                new Dog("Dory", "Golden Retriever", 3),
+                new Dog("Lola", "Doodle", 8),
+                new Dog("Max", "Bulldog", 4)
+            )
+
+            //populate a select with options for each dog in the array
+            function selectDog(name) {
+                var temp = "";
+                temp = "<select name='" + name + "' size='1'>";
+	            for (j = 0; j < dogs.length; j++) {
+                    temp += "<option>" + "\"" + dogs[j].name + "\"" + " the " + dogs[j].breed + ", age " + dogs[j].age + "</option>";
+                }
+	            temp+= "</select>"; 
+	            return temp;
+            }
+
+            function tableData(content, className="" ) {
+                return "<td class = '" + className + "'>" + content + "</td>";
+            }
+
+            //collect all inputs in user info class and check that there is actual data there
+            function validateForm() {
+                userInfo = document.querySelectorAll(".userInfo");
+                for (let i = 0; i < userInfo.length - 1; i++) {
+                    if (userInfo[i].value == "") {
+                        alert("Missing " + userInfo[i].name + ". Please enter " + userInfo[i].name + " information");
+
+                        return false;
+                    }
+                }
+
+                email = userInfo[userInfo.length - 1].value;
+                emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (!email.match(emailPattern)) {
+                    alert("Email does not match specified format. Please retry")
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>
 
     </head>
     <body>
@@ -51,8 +160,83 @@
 
         
         <div class="content">
-            <h1>THIS IS ADOPTION PAGE</h1>
+            <h1>Adopt a Dog!</h1>
+            <div class="row" id="row1">
+                <div class="column">
+                    <h2>Adoption Information:</h2>
+                    <p>Taking care of a dog ...</p>
+                </div>
+                <div class="column">
+                    <!-- give form event handler for submitting -->
+                    <form onsubmit="return validateForm()">
 
+                        <p><label>First Name*:</label> <input class="userInfo"
+                            type="text"  name='first name' /></p>
+                        <p><label>Last Name*:</label>  <input class="userInfo"
+                            type="text"  name='last name' /></p>
+                        <p><label>Street*:</label> <input class="userInfo"
+                            type="text" name='street' /></p>
+                        <p><label>City*:</label> <input class="userInfo"
+                            type="text" name='city' /></p>
+                        <p><label>Email*:</label> <input class="userInfo"
+                            type="text"  name='email' /></p>
+        
+                        <table border="0" cellpadding="3">
+                          <tr>
+                            <th>Choose a Dog!</th>
+                          </tr>
+                        <script>
+                            
+                          var s = "";
+                              s += "<tr>";
+                              s += tableData(selectDog("quan"), 
+                                             "selectQuantity");
+                              s+= "</tr>";
+                          document.writeln(s);
+                        </script>
+                        </table>
+
+                        <h3>Optional Services</h3>
+                        <table border="0" cellpadding="3">
+                            <tr>
+                                <th>Choice</th>
+                                <th>Service</th>
+                                <th>Price</th>
+                              </tr>
+                            <script>
+                                //make a table for the services we have
+                                var p=""
+                                for (i = 0; i < services.length; i++) {
+                                    p += "<tr>";
+                                    p += tableData("<select name='" + i + "'> <option value=\"no\">No</option> <option value=\"yes\">Yes</option> </select>", "choice")
+                                    p += tableData(services[i].name, 
+                                                    "serviceName");
+                                    p += tableData("$" + 
+                                          services[i].cost.toFixed(2), "cost");
+                                    p += "</tr>"
+                                }
+                                document.write(p);
+                            </script>
+                        </table>
+
+                        <p class="subtotal"><label>Subtotal</label>: 
+                           $ <input type="text"  name='subtotal' id="subtotal" 
+                                value="0" readonly/>
+                        </p>
+                        <p class="tax"><label>Mass tax 6.25%:</label>
+                          $ <input type="text" value="0" name='tax' id="tax" 
+                                   readonly/>
+                        </p>
+                        <p class="total"><label>Total:</label> $ 
+                            <input type="text" value="0" name='total' 
+                                   id="total" readonly/>
+                        </p>
+                        
+                        <input type ="submit" value = "Submit Order" />
+                        
+                        </form>
+                </div>
+            </div>
 
             <footer>
                 <h4> &copy; 2023 Rescue Waggin' </h4>
