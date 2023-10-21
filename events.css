@@ -1,0 +1,53 @@
+.header {
+        color: rgb(209,21,28);
+        text-align: center;
+}
+
+hr {
+        border: 2px solid rgb(209,21,28); /* Change the color and style as desired */
+        margin: 20px 0; /* Adjust spacing above and below the line */
+}
+
+.image1 img {
+        padding-top: 23px;
+        width: 400px;
+        height: auto;
+        float: left;
+        padding-left: 10px;
+}
+
+.image1 h1 {
+        color: black;
+        font-size: 25px;
+        padding-bottom: 10px;
+}
+
+.image1 p {
+        color: black;
+        font-size: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
+        display: inline;
+}
+
+.image2 img {
+        padding-top: 12px;
+        width: 400px;
+        height: auto;
+        float: right;
+        padding-right: 10px;
+}
+
+.image2 h1 {
+        color: black;
+        font-size: 25px;
+        padding-bottom: 10px;
+}
+
+.image2 p {
+        color: black;
+        font-size: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
+        display: inline;
+}
