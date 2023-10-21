@@ -144,6 +144,8 @@ footer ul.nav {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex; /* Make the navigation items display horizontally */
+    justify-content: flex-end;
 }
 
 footer li {
