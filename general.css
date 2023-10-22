@@ -156,3 +156,9 @@ footer li {
     margin: 7px;
     align-items: center;
 }
+
+@media (max-width: 900px) {
+    .CompanyName {
+        font-size: 30px;
+    }
+}
