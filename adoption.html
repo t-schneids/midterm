@@ -39,13 +39,18 @@
                     index = parseInt(this.name);
                     price = services[index].cost;
                     chosen = this.selectedIndex;
-                    totalCost = price * chosen;
-                    totalCost = totalCost.toFixed(2);
+                    totalCost = price.toFixed(2);
                     
                     // Update subtotal bar
-                    subtotal = parseInt(document.forms[0].subtotal.value, 10);
-                    subtotal += parseInt(totalCost);
-                    document.forms[0].subtotal.value = subtotal.toFixed(2);
+                    if (chosen) {
+                        subtotal = parseInt(document.forms[0].subtotal.value);
+                        subtotal += parseInt(totalCost);
+                        document.forms[0].subtotal.value = subtotal.toFixed(2);
+                    } else {
+                        subtotal = parseInt(document.forms[0].subtotal.value);
+                        subtotal -= parseInt(totalCost);
+                        document.forms[0].subtotal.value = subtotal.toFixed(2);
+                    }
 
                     taxAmount = .0625 * subtotal;
                     document.forms[0].tax.value = taxAmount.toFixed(2);
