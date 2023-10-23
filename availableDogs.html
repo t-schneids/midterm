@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Midterm</title>
+        <title>Available Dogs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="general.css">
         <!-- links library for hamburger and close icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="general.js"></script>
 
+        <style>
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+            .content{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+    
+            .description {
+                display: block;
+                max-width: 400px;
+            }
+            footer{
+                position: relative;
+            }
+        </style>
     </head>
     <body>
         <nav class="nav">
@@ -49,19 +74,134 @@
             <div class="closeIcon material-icons"> close</div>
         </button>
 
-
+        <h1 style="text-align: center">Available Dogs</h1>
         <div class="content">
-            <h1>THIS IS AVAILABLE DOGS PAGE</h1>
-
-
-            <footer>
-                <h4> &copy; 2023 Rescue Waggin' </h4>
-                <ul class="nav">
-                    <li> <a href="https://www.gmail.com"><img src="gmailLogo.png" style="width:25px;height:20px;"></a> </li>
-                    <li> <a href="https://www.instagram.com"><img src="instagramLogo.png" style="width:20px;height:20px;"></a> </li>
-                    <li> <a href="https://www.facebook.com"><img src="facebookLogo.png" style="width:20px;height:20px;"></a> </li>
-                </ul>
-            </footer>
+            <!-- BEGIN CARDS-->
+            <div id="card11" class="card">
+                <img src="/dog_imgs/Bella.jpg" alt="Dog 2">
+                <p>Bella</p>
+                <div class="description">
+                    <p>Age: 6 months</p>
+                    <p> Bella is a lively and intelligent Australian Shepherd puppy. 
+                        She's a quick learner and loves to play. 
+                        With her striking coat and expressive eyes, she's a great choice for an active family ready to provide training and stimulation for this bright young pup.</p>
+                </div>
+            </div>
+            <div id="card1" class="card">
+                <img src="/dog_imgs/Charlie.jpg" alt="Dog 1">
+                <p>Charlie</p>
+                <div class="description">
+                    <p>Age: 4 years </p>
+                    <p> Friendly and loyal, Charlie is the perfect companion for an active family. 
+                    He loves fetch, long walks, and is great with kids. His shiny white coat and gentle eyes will steal your heart. </p>
+                </div>
+            </div>
+            <div id="card2" class="card">
+                <img src="/dog_imgs/Daisy.jpg" alt="Dog 2">
+                <p>Daisy</p>
+                <div class="description">
+                    <p>Age: 2 years</p>
+                    <p> Daisy is a bundle of energy and affection. She's the ultimate family dog, always ready to play or cuddle. 
+                        Her golden fur and warm eyes radiate happiness. </p>
+                </div>
+            </div>
+            <div id="card3" class="card">
+                <img src="/dog_imgs/Duke.jpg" alt="Dog 2">
+                <p>Duke</p>
+                <div class="description">
+                    <p>Age: 3 years </p>
+                    <p>  Duke signature trait is his curiosity. He's a lovable and sociable pup with a nose for adventure. 
+                        He enjoys sniffing out new scents during long walks and is great with kids.</p>
+                </div>
+            </div>
+            <div id="card4" class="card">
+                <img src="/dog_imgs/Lucy.jpg" alt="Dog 2">
+                <p>Lucy</p>
+                <div class="description">
+                    <p>Age: 5 years</p>
+                    <p> Lucy is a charming and spirited West Highland Terrier. 
+                        Her bright white coat and perky ears give her an irresistible, confident appearance. 
+                        Lucy is known for her friendly and vivacious personality, always ready for a game of fetch or a brisk walk. 
+                        She's a loyal companion who enjoys spending quality time with her humans and is sure to add a touch of happiness to your life.</p>
+                </div>
+            </div>
+            <div id="card5" class="card">
+                <img src="/dog_imgs/Luna.jpg" alt="Dog 2">
+                <p>Luna</p>
+                <div class="description">
+                    <p>Age: 3 years </p>
+                    <p> Luna is a sweet and affectionate Pitbull who adores cuddles and belly rubs. She's great with kids and is a wonderful family dog. 
+                    Her loving nature and expressive eyes will win your heart.</p>
+                </div>
+            </div>
+            <div id="card6" class="card">
+                <img src="/dog_imgs/Max.jpg" alt="Dog 2">
+                <p>Max</p>
+                <div class="description">
+                    <p>Age: 1 year </p>
+                    <p> Max is the Einstein of dogs, known for his intelligence and agility. 
+                        He loves to learn new tricks and would be a perfect fit for an active owner who can keep him engaged.</p>
+                </div>
+            </div>
+            <div id="card7" class="card">
+                <img src="/dog_imgs/Milo.jpg" alt="Dog 2">
+                <p>Milo</p>
+                <div class="description">
+                    <p>Age: 4 years </p>
+                    <p> Milo is a protective and loyal Pitbull who forms a strong bond with his owner. He's known for his courage and intelligence. 
+                        His striking appearance and unwavering loyalty make him a remarkable companion.</p>
+                </div>
+            </div>
+            <div id="card8" class="card">
+                <img src="/dog_imgs/Rocky.jpg" alt="Dog 2">
+                <p>Rocky</p>
+                <div class="description">
+                    <p> Age: 3 years </p>
+                    <p> Rocky is a charming and elegant boy with a fluffy coat. 
+                       He enjoys leisurely strolls and will be your loyal, well-groomed companion.</p>
+                </div>
+            </div>
+            <div id="card9" class="card">
+                <img src="/dog_imgs/Rosie.jpg" alt="Dog 2">
+                <p>Rosie</p>
+                <div class="description">
+                    <p>Age: 2 years</p>
+                    <p> Rosie is a strong and loyal Pitbull with a heart of gold. 
+                        She's a true people-pleaser, always eager to make you smile. 
+                        Her muscular build and shiny coat make her a beaultiful companion for those who appreciate the breed.</p>
+                </div>
+            </div>
+            <div id="card10" class="card">
+                <img src="/dog_imgs/Sadie_Bailey.jpg" alt="Dog 2">
+                <p>Sadie and Bailey</p>
+                <div class="description">
+                    <p>Age: Sadie - 5 years, Sam - 4 years</p>
+                    <p>This inseparable pair of Chihuahuas, Sadie and Bailey, are the definition of double the love. 
+                        Sadie is a bit more reserved, while Bailey is the extrovert. 
+                        They are both adorable and will bring endless happiness to your home.</p>
+                </div>
+            </div>
+            <div id="card12" class="card">
+                <img src="/dog_imgs/Filou.jpg" alt="Dog 2">
+                <p>Filou</p>
+                <div class="description">
+                    <p> Age: 6 months</p>
+                    <p>Filou, the male Golden Retriever puppy, is an absolute bundle of joy.
+                        His fluffy, golden coat and expressive, mischievous eyes make him utterly charming. Filou is as playful as they come and has an adventurous spirit. He loves to explore, fetch, and cuddle up with his humans.
+                        This little guy is ready to fill your home with laughter and warmth, and he's eager to become your new best friend.</p>
+                </div>                
+            </div>
+            <!-- END -->
         </div>
+
+        <footer>
+            <h4> &copy; 2023 Rescue Waggin' </h4>
+            <ul class="nav">
+                <li> <a href="https://www.gmail.com"><img src="gmailLogo.png" style="width:25px;height:20px;"></a> </li>
+                <li> <a href="https://www.instagram.com"><img src="instagramLogo.png" style="width:20px;height:20px;"></a> </li>
+                <li> <a href="https://www.facebook.com"><img src="facebookLogo.png" style="width:20px;height:20px;"></a> </li>
+            </ul>
+        </footer>
+
     </body>
 </html>
