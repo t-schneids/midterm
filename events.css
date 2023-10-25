@@ -1,53 +1,77 @@
-.header {
+footer {
+        position: relative !important;
+    }
+
+    strong {
         color: rgb(209,21,28);
+    }
+
+    h1 {
+        color: rgb(209,21,28);
+        margin: 25px;
+        font-size: 40px;
+        margin-bottom: -20px;
         text-align: center;
-}
+    }
 
-hr {
-        border: 2px solid rgb(209,21,28); /* Change the color and style as desired */
-        margin: 20px 0; /* Adjust spacing above and below the line */
-}
+    h2 {
+        color: black;
+        text-align: center;
+        margin: 25px;
+        margin-bottom: -27px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: lighter;
+    }
 
-.image1 img {
-        padding-top: 23px;
-        width: 400px;
+    #clickHere {
+        color: rgb(209,21,28);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    #stories {
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        margin: 10px; 
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+        font-size: 18px;   
+        color: black;
+        
+    }
+
+    td {
+        padding: 20px;
+        width: 50%;
+    }
+
+    #stories img {
+        max-width: 100%;
         height: auto;
-        float: left;
-        padding-left: 10px;
-}
+        border-radius: 25px;
+    }
 
-.image1 h1 {
-        color: black;
-        font-size: 25px;
-        padding-bottom: 10px;
-}
+    tr {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+    }
 
-.image1 p {
-        color: black;
-        font-size: 18px;
-        padding-left: 10px;
-        padding-right: 10px;
-        display: inline;
-}
+    @media (max-width: 1150px) {     
+        td {
+            /* display: flex; */
+            text-align: center;
+            margin-bottom: 20px; 
+            width: 100%;
+            padding: 5px;
+            flex-basis: 100%;
+        }
 
-.image2 img {
-        padding-top: 12px;
-        width: 400px;
-        height: auto;
-        float: right;
-        padding-right: 10px;
-}
-
-.image2 h1 {
-        color: black;
-        font-size: 25px;
-        padding-bottom: 10px;
-}
-
-.image2 p {
-        color: black;
-        font-size: 18px;
-        padding-left: 10px;
-        padding-right: 10px;
-        display: inline;
-}
+        tr {
+            display: flex;
+            flex-wrap: wrap;
+            width: fit-content;
+            align-items: center;
+        }
+    }
