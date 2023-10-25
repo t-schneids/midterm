@@ -18,6 +18,7 @@
                 color: black;
                 text-align: center;
                 margin: 25px;
+                margin-bottom: -20px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                 font-weight: lighter;
             }
@@ -29,7 +30,7 @@
                 font-weight: 600;
             }
     
-            #stories {
+            #stories {  
                 text-align: center;
                 padding: 20px;
                 display: flex;
@@ -57,7 +58,8 @@
                 align-items: center;
             }
     
-            @media (max-width: 1150px) {     
+            @media (max-width: 1150px) {    
+                 
                 td {
                     display: flex;
                     text-align: center;
@@ -67,7 +69,6 @@
                     flex-basis: 100%;
                 }
             }
-
     
         </style>
         <title>Midterm</title>
@@ -84,7 +85,7 @@
                 <li> 
                     <a href="index.html"> 
                         <img src="logo.png" alt="company logo">
-                        <span class="CompanyName">RESCUE WAGGIN'</span>
+                        <!-- <span class="CompanyName">RESCUE WAGGIN'</span> -->
                     </a> 
                 </li>
             </div> 
@@ -128,7 +129,7 @@
             </h2>
             <table id="stories">
                 <tr>
-                    <td id="image"> <img src="rescue1.jpg" height=600/> </td>
+                    <td id="image"> <img src="rescue1Resize.jpg" width = 500/> </td>
                     <td> Meet the Smith family and their rescued Boxer, Buster. Buster's journey 
                         began in adversity when he was found abandoned and mistreated, struggling to 
                         survive on the streets. Someone with a heart for animals reached out to our shelter, 
@@ -175,235 +176,3 @@
         </div>
     </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <style type="text/css">
-            footer {
-                position: relative !important;
-            }
-    
-            h1 {
-                color: rgb(209,21,28);
-                margin: 25px;
-                font-size: 40px;
-                margin-bottom: -20px;
-            }
-    
-            h2 {
-                color: black;
-                margin: 25px;
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                font-weight: lighter;
-            }
-    
-            #clickHere {
-                color: navy;
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                text-decoration: none;
-                font-weight: lighter;
-            }
-    
-            #stories {
-                text-align: center;
-                padding: 20px;
-                margin: 10px;  
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
-                font-size: 18px;   
-                color: black;
-                
-            }
-    
-            td {
-                padding: 20px; /* You can adjust this value to control the spacing */
-            }
-
-            .description p {
-                color: black;
-                margin: 25px;
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                font-weight: lighter;
-            }
-    
-            @media (max-width: 1150px) {     
-                    #stories td {
-                        display: inline-block;
-                        text-align: center;
-                        margin-bottom: 20px; 
-                    }
-            }
-
-            .story {
-                display:flex;
-                flex-direction: row;
-                align-items: center;
-                margin: 10px;
-                padding: 10px;
-                border: 1px solid #ccc;
-            }
-
-            .content{
-                /* display: flex; */
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-    
-        </style>
-        <title>Midterm</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="general.css">
-        links library for hamburger and close icons
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="general.js"></script>
-    </head>
-    <body>
-        <nav class="nav">
-            <ul class="navlist">
-            <div class="logo">
-                <li> 
-                    <a href="index.html"> 
-                        <img src="logo.png" alt="company logo">
-                        <span class="CompanyName">RESCUE WAGGIN'</span>
-                    </a> 
-                </li>
-            </div> 
-            </ul>
-        </nav>
-
-        <ul class="tabGroup">
-            <li> 
-                <a class="tabs" href="aboutUs.html" > ABOUT US</a> 
-            </li>
-            <li>
-                <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
-            </li>
-            <li>
-            <a class="tabs" href="adoption.html"> ADOPTION</a>
-            </li>
-            <li>
-                <a class="tabs" href="availableDogs.html"> AVAILABLE DOGS</a>
-            </li>
-            <li>
-                <a class="tabs" href="contact.html"> CONTACT US</a>
-            </li>
-            <li>
-                <a class="tabs" href="events.html"> EVENTS </a>
-            </li>
-        </ul>
-
-        <button class="hamburger">
-            <div class="menuIcon material-icons"> menu</div>
-            <div class="closeIcon material-icons"> close</div>
-        </button>
-
-        <div class="content">
-            <h1>Recent Rescues</h1>
-            <h2>
-                Discover heartwarming stories of people who have found their fur-ever friend with us! 
-                </br> If these stories inspire you to join our community of adopters,
-                <a id="clickHere" href="availableDogs.html"> click here </a>
-                to explore the dogs currently available for adoption. 
-            </h2>
-            <div class="content">
-                <div id="dog1" class="story">
-                    <div class="image">
-                        <img src="rescue1.jpg" height=600/> 
-                    </div>
-                    <div clas="description">
-                        <p>
-                            Meet the Smith family and their rescued Boxer, Buster. Buster's journey 
-                        began in adversity when he was found abandoned and mistreated, struggling to 
-                        survive on the streets. Someone with a heart for animals reached out to our shelter, 
-                        Rescue Waggin, and together, we took him in, giving Buster a chance at a new life as he awaited a new family. 
-                        Then, the Smiths entered his life. They welcomed Buster into their family, and 
-                        in doing so, they lit up his world and he lit up theirs. The Smiths' home soon filled with the 
-                        infectious joy of Buster's tail-wagging enthusiasm. Buster's transformation was nothing short of 
-                        remarkable. From a dog who had faced abandonment and hardship, 
-                        he became a beloved family member, filling their days with companionship and love. 
-                        Buster's story is a testament to the incredible transformation that can happen through 
-                        adoption, a heartwarming tale of a dog and a family finding hope and happiness together.
-                        </p>
-                    </div>
-                </div>
-                <div id="dog2" class="story">
-                    <div class="image">
-                        <img src="rescue2.jpg"/>
-                    </div>
-                    <div class="description">
-                        <p>Meet the Hartman family and their rescued Golden Retriever, Sunny. Sunny's journey 
-                            began when his previous owners could no longer provide the care he deserved. With heavy hearts, 
-                            they made the difficult decision to bring him to our shelter, Rescue Waggin. The Hartman family's 
-                            hearts were touched when they visited our shelter. Drawn by Sunny's radiant spirit and unmistakable 
-                            charm, they knew he was meant to be a part of their lives. They opened their hearts and home to 
-                            this lovable Golden Retriever, and in doing so, they gave Sunny the loving, forever family he
-                             had been waiting for.</p>
-                    </div>
-                </div>
-                <div id="dog3" class="story">
-                    <div class="image">
-                        <img src="rescue4.jpg" width = 600/>
-                    </div>
-                    <div class="description">
-                        Meet the  Adams family and their beloved mixed-breed companion, Lucky. 
-                        Lucky's adventure began when he was found as a stray, wandering the streets with a 
-                        spirit full of curiosity and a heart yearning for a home. Our shelter, Rescue Waggin, 
-                        became his refuge. The Adams family entered Lucky's world when they decided to open 
-                        their hearts to the magic of mixed-breed dogs. Drawn by Lucky's one-of-a-kind charm 
-                        and magnetic personality, they brought him into their lives. Lucky quickly became an 
-                        inseparable part of the Adams family. His mix of traits and personalities made every 
-                        day an adventure. His playful nature, unwavering loyalty, and the ever-surprising 
-                        combinations of characteristics brought endless laughter and happiness to their household.
-                    </div>
-                </div>
-            </div> -->
-            <!-- <table id="stories">
-                <tr>
-                    <td id="image"> <img src="rescue1.jpg" height=600/> </td>
-                    <td id="image"> Meet the Smith family and their rescued Boxer, Buster. Buster's journey 
-                        began in adversity when he was found abandoned and mistreated, struggling to 
-                        survive on the streets. Someone with a heart for animals reached out to our shelter, 
-                        Rescue Waggin, and together, we took him in, giving Buster a chance at a new life as he awaited a new family. 
-                        Then, the Smiths entered his life. They welcomed Buster into their family, and 
-                        in doing so, they lit up his world and he lit up theirs. The Smiths' home soon filled with the 
-                        infectious joy of Buster's tail-wagging enthusiasm. Buster's transformation was nothing short of 
-                        remarkable. From a dog who had faced abandonment and hardship, 
-                        he became a beloved family member, filling their days with companionship and love. 
-                        Buster's story is a testament to the incredible transformation that can happen through 
-                        adoption, a heartwarming tale of a dog and a family finding hope and happiness together.</td>
-                </tr>
-                <tr>
-                    <td id="image"> <img src="rescue2.jpg"/> </td>
-                    <td id="image"> Meet the Hartman family and their rescued Golden Retriever, Sunny. Sunny's journey 
-                        began when his previous owners could no longer provide the care he deserved. With heavy hearts, 
-                        they made the difficult decision to bring him to our shelter, Rescue Waggin. The Hartman family's 
-                        hearts were touched when they visited our shelter. Drawn by Sunny's radiant spirit and unmistakable 
-                        charm, they knew he was meant to be a part of their lives. They opened their hearts and home to 
-                        this lovable Golden Retriever, and in doing so, they gave Sunny the loving, forever family he
-                         had been waiting for.</td>
-                </tr>
-                <tr>
-                    <td> <img src="rescue4.jpg" width = 600/> </td>
-                    <td> Meet the  Adams family and their beloved mixed-breed companion, Lucky. 
-                        Lucky's adventure began when he was found as a stray, wandering the streets with a 
-                        spirit full of curiosity and a heart yearning for a home. Our shelter, Rescue Waggin, 
-                        became his refuge. The Adams family entered Lucky's world when they decided to open 
-                        their hearts to the magic of mixed-breed dogs. Drawn by Lucky's one-of-a-kind charm 
-                        and magnetic personality, they brought him into their lives. Lucky quickly became an 
-                        inseparable part of the Adams family. His mix of traits and personalities made every 
-                        day an adventure. His playful nature, unwavering loyalty, and the ever-surprising 
-                        combinations of characteristics brought endless laughter and happiness to their household.</td>
-                </tr>
-            </table> -->
-            <!-- <footer>
-                <h4> &copy; 2023 Rescue Waggin' </h4>
-                <ul class="nav">
-                    <li> <a href="https://www.gmail.com"><img src="gmailLogo.png" style="width:25px;height:20px;"></a> </li>
-                    <li> <a href="https://www.instagram.com"><img src="instagramLogo.png" style="width:20px;height:20px;"></a> </li>
-                    <li> <a href="https://www.facebook.com"><img src="facebookLogo.png" style="width:20px;height:20px;"></a> </li>
-                </ul>
-            </footer>
-        </div>
-    </body>
-</html> -->
