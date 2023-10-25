@@ -16,6 +16,8 @@
             h1 {
                 margin: 10px;
                 color: rgb(209,21,28);
+                text-align: center;
+                font-size: 35px;;
             }
 
             p {
@@ -31,9 +33,35 @@
             td img {
                 border-radius: 25px;
             }
-            table {
+            .about {
                 margin-left: 50px;
                 margin-right: 50px;
+            }
+
+            .facts {
+                text-align: center;
+                margin: 0 auto; 
+                width: 65%; 
+                background-color: rgba(152, 106, 79, 0.2);
+                border-radius: 25px;
+            }
+
+            @media (max-width: 1000px) {     
+                td {
+                    /* display: flex; */
+                    text-align: center;
+                    margin-bottom: 20px; 
+                    width: 100%;
+                    padding: 5px;
+                    flex-basis: 100%;
+                }
+
+                tr {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: fit-content;
+                    align-items: center;
+                }
             }
         </style>
 
@@ -80,7 +108,7 @@
 
         
         <div class="content">
-            <table>
+            <table class="about">
                 <tr>
                     <td>
                         <img src="adoptMe.jpg" height="300">
@@ -90,6 +118,25 @@
                         <p> At Rescue Waggin, we believe that every dog deserves a second chance at a 
                             happy, loving home. Our mission is simple yet profound: to rescue, rehabilitate, 
                             and rehome dogs in need, creating heartwarming tales of transformation and wagging tails.</p>
+                    </td>
+                </tr>
+            </table>
+
+            <h1>Our Impact</h1>
+
+            <table class="facts">
+                <tr>
+                    <td>
+                        <img src="heartPaw.jpg" height="200">
+                        <p>Over 2,000 dogs have been rescued</p>
+                    </td>
+                    <td>
+                        <img src="Phone.jpg" height="210">
+                        <p>We recieve over 20 calls per week about dogs in need </p>
+                    </td>
+                    <td>
+                        <img src="homeHeart.jpg" height="210">
+                        <p>Over 1,500 dogs re-homed </p>
                     </td>
                 </tr>
             </table>
