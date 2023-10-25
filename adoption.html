@@ -17,10 +17,35 @@
                 text-align: center;
             }
 
+            label {
+                width: 130px;
+                display: flex;
+            }
+
+            form {
+                background-color: rgb(246, 207, 66);
+                padding: 10px;
+                border-radius: 25px;
+            }
+
+            .contact a {
+                text-decoration: none;
+                font-weight: 800;
+                color: black;
+            }
+
+            .contact {
+                width: fit-content;
+                background-color: rgb(246, 207, 66);
+                border-radius: 25px;
+                padding: 14px 16px;
+            }
+
             .row {
                 display: flex;
                 flex-direction: row;
-                padding-left: 5px;
+                flex-wrap: wrap;
+                padding-left: 10px;
                 padding-right: 5px;
                 padding-bottom: 30px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -30,6 +55,7 @@
                 display: flex;
                 flex-direction: column;
                 flex: 50%;
+                align-items: center;
             }
         </style>
 
@@ -81,10 +107,18 @@
             )
 
             dogs = new Array (
-                new Dog("Jackson", "Lab", 5),
-                new Dog("Dory", "Golden Retriever", 3),
-                new Dog("Lola", "Doodle", 8),
-                new Dog("Max", "Bulldog", 4)
+                new Dog("Bella", "Australian Shepard", "6 months"),
+                new Dog("Charlie", "Mutt", "4 years"),
+                new Dog("Daisy", "Mutt", "2 years"),
+                new Dog("Duke", "Chihuahua", "3 years"),
+                new Dog("Lucy", "West Highland Terrior", "5 years"),
+                new Dog("Luna", "Pitbull", "3 years"),
+                new Dog("Max", "Golden Retriever", "1 year"),
+                new Dog("Milo", "Pitbull", "4 years"),
+                new Dog("Rocky", "Mutt", "3 years"),
+                new Dog("Rosie", "Pitbull", "2 years"),
+                new Dog("Sadie and Bailey", "Chihuahuas", "5 and 4 years"),
+                new Dog("Filou", "Golden Retriever", "6 months")
             )
 
             //populate a select with options for each dog in the array
@@ -171,10 +205,50 @@
             <h1>Adopt a Dog!</h1>
             <div class="row" id="row1">
                 <div class="column">
-                    <h2>Adoption Information:</h2>
-                    <p>Taking care of a dog ...</p>
+                    <h2>Adoption Responsibilities and Guidelines:</h2>
+                    <p>Welcome to our dog adoption page! We're thrilled that you're considering adopting a furry friend. Dog adoption is a rewarding experience, but it also comes with significant responsibilities. This page is designed to guide you through the adoption process and allow you to submit a request for adoption</p>
+
+                    <h3>Adoption Process Overview</h3>
+                    <p>Adopting a dog is a multi-step process to ensure the best fit for both you and the dog. Here's a brief overview of what to expect:</p>
+                    <ol>
+                        <li><strong>Application Submission: </strong>Start by submitting an adoption application on our website.</li>
+                        <li><strong>Screening:</strong> Our team will review your application and may conduct a home visit.</li>
+                        <li><strong>Approval:</strong> If your application is approved, you can proceed with adopting a dog</li>
+                    </ol>
+
+                    <h3>Dog Adoption Criteria</h3>
+                    <p>To adopt a dog, you should meet the following criteria:</p>
+                    <ol>
+                        <li><strong>Age:</strong>You must be at least 18 years old to adopt.</li>
+                        <li><strong>Residence:</strong> You should have a stable living environment suitable for a dog.</li>
+                    </ol>
+
+                    <h3>Choosing the Right Dog</h3>
+                    <p>Selecting the right dog for your lifestyle is crucial. Consider factors like size, breed, energy level, and temperament when making your decision.</p>
+
+                    <h3>Time Commitment</h3>
+                    <p>Dogs require daily care, including feeding, grooming, exercise, and training. Plan to spend several hours each day with your new companion.</p>
+
+                    <h3>Financial Responsibility</h3>
+                    <p>Adoption fees are just the beginning. Be prepared for ongoing costs, including food, veterinary care, grooming, and unexpected expenses.</p>
+
+                    <h3>Exercise, Play, and Nutrition</h3>
+                    <p>Dogs need daily exercise and playtime to stay happy and healthy. Daily walks and interactive play are important.Also choose high-quality dog food and establish a regular feeding schedule. Consult with your vet for dietary recommendations.
+                    </p>
+
+                    <h3>Veterinary Care</h3>
+                    <p>Regular vet visits for vaccinations, check-ups, and preventive care are essential. Spaying or neutering is also crucial for your dog's health and well-being.</p>
+
+                    <h3>Additional Questions and Information</h3>
+                    <div class="contact">
+                    <a href="contact.html">Contact Us!</a>
+                </div>
+
+
+
                 </div>
                 <div class="column">
+                    <h2>Adoption Request</h2>
                     <!-- give form event handler for submitting -->
                     <form onsubmit="return validateForm()">
 
@@ -227,7 +301,7 @@
                             </script>
                         </table>
 
-                        <p class="subtotal"><label>Subtotal</label>: 
+                        <p class="subtotal:"><label>Subtotal:</label>
                            $ <input type="text"  name='subtotal' id="subtotal" 
                                 value="0" readonly/>
                         </p>
