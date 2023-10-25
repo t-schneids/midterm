@@ -59,19 +59,17 @@ body {
 .tabGroup {
     list-style-type: none;
     font-size: large;
-    position: fixed;
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    transform: translateY(-200%);
-    transition: transform 0.5s;
-    margin-top: 42px;
+    flex-direction: row;
+    margin-top: 20px;
     margin-right: 11px;
     top: 0;
     right: 0;
     width: fit-content;
     height: auto;
     z-index: 99;
-    background: navy; 
+    background: transparent; 
     border-radius: 5%;
 }
 
@@ -80,14 +78,14 @@ body {
 .tabGroup li a{
     float: right;
     transition-duration: 0.4s;
-    color: white;
+    color: black;
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
 }
 
 .tabGroup li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.348);
     border-radius: 25px;
 }
 
@@ -105,6 +103,7 @@ body {
     border: black solid 1px;
     background-color: white;
     cursor: pointer;
+    transform: translateY(-200%);
 }
 
 .closeIcon {
@@ -113,11 +112,6 @@ body {
 
 .menuIcon {
     display: block;
-}
-
-/* Class added and removed by JS for hamburger menu */
-.showMenu {
-    transform: translateY(0);
 }
 
 /* Footer Styling */
@@ -156,8 +150,46 @@ footer li {
     align-items: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 995px) {
     .CompanyName {
         font-size: 30px;
+    }
+
+    .hamburger {
+        transform: translateY(0);
+        transition: transform 0.5s;
+    }
+
+    .tabGroup li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .tabGroup {
+        list-style-type: none;
+        font-size: large;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(-200%); 
+        transition: transform 0.5s;
+        margin-top: 42px;
+        margin-right: 11px;
+        top: 0;
+        right: 0;
+        width: fit-content;
+        height: auto;
+        z-index: 99;
+        background: navy; 
+        border-radius: 5%;
+        opacity: 0;
+    }
+
+    .tabGroup li a {
+        color: white;
+    }
+
+    /* Class added and removed by JS for hamburger menu */
+    .showMenu {
+        transform: translateY(0);
     }
 }

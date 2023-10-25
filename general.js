@@ -9,7 +9,7 @@ window.onload = function() {
     closeIcon.style.display = "none";
 
     function toggle() {
-        if (tabGroup.classList.contains("showMenu")) {
+         if (tabGroup.classList.contains("showMenu")) {
             //close the menu
             tabGroup.classList.remove("showMenu");
             closeIcon.style.display = "none";
@@ -17,6 +17,7 @@ window.onload = function() {
         } else {
             //open the menu
             tabGroup.classList.add("showMenu");
+            tabGroup.style.opacity = 1;
             closeIcon.style.display = "block";
             menuIcon.style.display = "none";
         }
