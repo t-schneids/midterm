@@ -39,17 +39,6 @@ body {
     padding-top: 2px;
 }
 
-.logo a {
-    text-decoration: none;
-    font-family: Noteworthy;
-    color: rgb(209,21,28);
-    font-weight: bold;
-    font-size: 38px;
-    padding: 0;
-    display: inline-block;
-    vertical-align: middle;
-    width: 60%;
-}
 
 .logo span {
     float: right;
@@ -99,6 +88,7 @@ body {
     border-radius: 25px;
 }
 
+/* Hamburger menu desigj */
 .hamburger {
     position: absolute;
     z-index: 100;
@@ -155,6 +145,8 @@ footer li {
     align-items: center;
 }
 
+
+/* Media Queries for responsive design */
 @media (max-width: 995px) {
     .CompanyName {
         font-size: 30px;
@@ -187,6 +179,10 @@ footer li {
         background: navy; 
         border-radius: 5%;
         opacity: 0;
+    }
+
+    #current {
+        color: yellow;
     }
 
     .tabGroup li a {
