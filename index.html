@@ -7,6 +7,73 @@
         <!-- links library for hamburger and close icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="general.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+        <style>
+            #slide {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+            }
+
+            #slide img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: 100vh;
+                /* object-fit: contain;
+                transition: transform 3s ease-in-out; */
+            }
+        </style>
+
+
+        <script language="javascript">
+            images = ["slideshow1.jpg", "slideshow2.jpg"];
+            var imageIndex=0;
+
+        //     $(document).ready(function () {
+        //         startSlideshow();
+        //     });
+
+        // function startSlideshow() {
+        //     setInterval(nextSlide, 5000);
+        // }
+
+        // function nextSlide() {
+        //     imageIndex++;
+        //     if (imageIndex === images.length) {
+        //         imageIndex = 0;
+        //     }
+        //     displayImage();
+        // }
+
+        // function displayImage() {
+        //     $("#slide img").css("transform", "translateX(-100%)");
+        //     setTimeout(function () {
+        //         $("#slide img").attr("src", images[imageIndex]);
+        //         $("#slide img").css("transform", "translateX(0)");
+        //     }, 1000); // Delay the transition by 1 second.
+        // } 
+
+        $(document).ready(function() {
+            //alert("hi")
+            slideShow();
+        })
+    
+        function slideShow()
+        {
+            $("#slide img").fadeOut(2000,nextSlide);
+        }
+    
+        function nextSlide()
+        {
+            imageIndex++;
+            imageIndex= imageIndex== images.length?0: imageIndex;
+            $("#slide img").attr("src", images[imageIndex]);
+            $("#slide img").fadeIn(2000,slideShow);
+        }
+        
+            </script>
 
     </head>
     <body>
@@ -49,7 +116,16 @@
         </button>
 
         <div class="content">
-            <h1>THIS IS HOME PAGE</h1>
+            <div id='slides-wrapper'>
+                <div id='slide'>
+                    <img src="slideshow1.jpg" />
+                </div>
+            </div>
+
+
+
+
+
 
             <footer>
                 <h4> &copy; 2023 Rescue Waggin' </h4>
