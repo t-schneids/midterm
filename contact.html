@@ -25,6 +25,28 @@
                 display: flex;
                 flex-direction: column;
             }
+            #contactForm{
+                display: table;
+            }
+            #contactForm p{
+                display: table-row;
+                text-align: center;
+            }
+            #contactForm label{
+                display: table-cell;
+                align-items: center;
+                text-align: center;
+                padding-bottom: 5px;
+            }
+            #contactForm input{
+                display: table-cell;
+            }
+            #contact-form-wrapper{
+                text-align: center;
+            }
+            #left{
+                text-align: center;
+            }
 
         </style>
 
@@ -74,34 +96,39 @@
                 <div id="contact-information">
                     <h2>Contact Information</h2>
                     <p>
-                        <strong>Organization Name:</strong> Your Dog Rescue Organization<br>
-                        <strong>Physical Address:</strong> 123 Main Street, City, State, ZIP<br>
-                        <strong>Mailing Address:</strong> P.O. Box 456, City, State, ZIP<br>
-                        <strong>Phone:</strong> (123) 456-7890<br>
-                        <strong>Email:</strong> <a href="mailto:contact@yourrescue.org">contact@yourrescue.org</a>
+                        <span style="font-size: 18pt">Rescue Waggin</span><br>
+                        <strong>Phone:</strong> 1 (800) 456-7890<br>
+                        <strong>Email:</strong> <a href="mailto:contact@rescuewaggin.org">contact@rescuewaggin.org</a><br>
+                        419 Boston Avenue, Medford, MA, 02155<br>
                     </p>
+
+                    <div id="contact-form-wrapper">
+                        <h2>Contact Us</h2>
+                        <form action="#" method="post" id="contactForm">
+                        <p>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required><br>
+                        </p>
+                        <p>   
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required><br>
+                        </p>
+                        <p>
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" required><br>
+                        </p>
+                        <p>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea><br>
+                        </p>
+                            <input type="submit" value="Submit" id="contact-submit">
+                        </form>
+                    </div>
+
                     <div id="operating-hours">
                         <h2>Operating Hours</h2>
                         <p>Monday - Friday: 9:00 AM - 5:00 PM<br>
-                        Saturday - Sunday: Closed</p>
-                    </div>
-                    <div id="contact-form">
-                        <h2>Contact Form</h2>
-                        <form action="process_contact_form.php" method="post">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required><br>
-                
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required><br>
-                
-                            <label for="subject">Subject:</label>
-                            <input type="text" id="subject" name="subject" required><br>
-                
-                            <label for="message">Message:</label>
-                            <textarea id="message" name="message" rows="5" required></textarea><br>
-                
-                            <input type="submit" value="Submit">
-                        </form>
+                        Saturday - Sunday: 9:00 AM - 3:00 PM</p>
                     </div>
                 </div>
             </div>
