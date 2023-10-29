@@ -55,11 +55,27 @@
                 position: relative !important;
             }
             #img{
-                border-radius: 45%;
+                border-radius: 10%;
+                max-width: 400px;
             }
             body{
                 display: flex;
                 flex-direction: column;
+            }
+            #contact-form{
+                margin-bottom: 20px;
+            }
+            #submitButtons{
+                text-align: center;
+                width: 100%;
+                display: inline-block;
+            }
+            #middle
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
             }
 
         </style>
@@ -110,42 +126,41 @@
                     <h1>Contact Information</h2>
                     <div class="contactContainer">
                     <p>
-                        <strong>Organization Name:</strong> </br> Your Dog Rescue Organization<br> </br> 
-                        <strong>Physical Address:</strong> </br> 123 Main Street, City, State, ZIP<br> </br> 
-                        <strong>Mailing Address:</strong> </br> P.O. Box 456, City, State, ZIP<br> </br>  
-                        <strong>Phone:</strong> (123) 456-7890<br> </br>
-                        <strong>Email:</strong> <a href="mailto:contact@yourrescue.org">contact@yourrescue.org</a>
+                        Rescue Waggin &trade; <br/><br/>
+                        <strong>Phone:</strong> 1 (800) 456-7890 <br/><br>
+                        <strong>Email:</strong> <a href="mailto:contact@yourrescue.org">contact@rescuewaggin.org</a><br/><br/>
+                        419 Boston Avenue, Medford, MA, 02155<br> <br/> 
                     </p>
                     </div>
                     <div id="contact-form">
                         <h2>Contact Form</h2>
                         <div class = "contactForm">
-                        <form action="process_contact_form.php" method="post">
-                            <label for="name">Name:</label> <br/>
-                            <input type="text" id="name" name="name" required><br> <br/>
-                
-                            <label for="email">Email:</label> <br/>
-                            <input type="email" id="email" name="email" required><br> <br/>
-                
-                            <label for="subject">Subject:</label> <br/>
-                            <input type="text" id="subject" name="subject" required><br> <br/>
-                
-                            <label for="message">Message:</label> <br/>
-                            <textarea id="message" name="message" rows="5" required></textarea><br> <br/>
-                            <input type="submit" value="Submit">
-                        </form>
+                            <form action="process_contact_form.php" method="post">
+                                <label for="name">Name:</label> <br/>
+                                <input type="text" id="name" name="name" required><br> <br/>
+                    
+                                <label for="email">Email:</label> <br/>
+                                <input type="email" id="email" name="email" required><br> <br/>
+                    
+                                <label for="subject">Subject:</label> <br/>
+                                <input type="text" id="subject" name="subject" required><br> <br/>
+                    
+                                <label for="message">Message:</label> <br/>
+                                <textarea id="message" name="message" rows="5" required></textarea><br> <br/>
+                                <input type="submit" value="Submit">
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </br></br>
+        <br/><br/>
             <div id="middle">
-                <img id="img" src="dog_imgs/contactUS2.jpg"/>
+                <img id="img" src="dog_imgs/contactUS.png"/>
                 <div id="operating-hours">
                     <h2>Operating Hours</h2>
                     <div class="operatingHours">
                         <p>Monday - Friday: 9:00 AM - 5:00 PM<br>
-                            Saturday - Sunday: Closed</p>
+                            Saturday - Sunday: 9:00 AM - 3:00 PM</p>
                     </div>
                 </div>
             </div>
@@ -177,7 +192,7 @@
                 <br/> <label>Card Number: &nbsp; </label> <input type="text" name="cardNum" />
                 <br/>
                 <br/> <label>Expiration date: &nbsp; </label> <input type="text" name="expDate" />
-                <label>CVV: &nbsp; </label> <input type="text" name="CVV" />
+                <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" />
                     
                 <br/> <br/> 
                 <input type="submit" />
