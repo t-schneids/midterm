@@ -56,10 +56,13 @@
             footer{
                 position: relative !important;
             }
+
             #img{
                 border-radius: 10%;
                 max-width: 400px;
+                margin-bottom: -50px;
             }
+
             body{
                 display: flex;
                 flex-direction: column;
@@ -67,6 +70,13 @@
             #contact-form{
                 margin-bottom: 20px;
             }
+
+            #sub {
+                display: block; 
+                margin: 0 auto;
+                text-align: center;
+            }
+
             #middle
             {
                 display: flex;
@@ -150,7 +160,7 @@
                     
                                 <label for="message">Message:</label> <br/>
                                 <textarea id="message" name="message" rows="5" required></textarea><br> <br/>
-                                <input type="submit" value="Submit">
+                                <input id="sub" type="submit" value="Submit">
                             </form>
                         </div>
                     </div>
@@ -183,13 +193,18 @@
                 <br/> <br/> <br/>
                 <p1> <strong>Donation Amount:</strong></p1>
                 <br/>
-                <br/> <label> $5 </label> <input type="radio" name="amount" value="five" />
-                <br/> <label> $10 </label> <input type="radio" name="amount" value="ten" />
-                <br/> <label> $25 </label> <input type="radio" name="amount" value="25" />
-                <br/> <label> $50 </label> <input type="radio" name="amount" value="50" />
-                <br/> <label> $100 </label> <input type="radio" name="amount" value="100" />
-                    
-                <br/> <br/> <br/>
+
+                <input type="radio" name="amount" value="five" />
+                <label> $5 </label> </br>
+                <input type="radio" name="amount" value="ten" />
+                <label> $10 </label> </br>
+                <input type="radio" name="amount" value="25" />
+                <label> $25 </label> </br>
+                <input type="radio" name="amount" value="50" />
+                <label> $50 </label> </br>
+                <input type="radio" name="amount" value="100" />
+                <label> $100 </label> </br>
+                <br/>
                 <p1> <strong>Payment Information:</strong></p1>
                 <br/>
                 <br/> <label>Card Number: &nbsp; </label> <input type="text" name="cardNum" />
@@ -198,7 +213,7 @@
                 <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" />
                     
                 <br/> <br/> 
-                <input type="submit" />
+                <input id="sub" type="submit" />
                 </form>
                 </div>
             </div>
