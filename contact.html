@@ -11,12 +11,13 @@
             .content{
                 display: flex;
                 justify-content: space-evenly;
-                padding-top: 30px;
-                height: 730px;
+                padding-top: 22px;
+                height: 100%;
             }
 
             h1 {
                 text-align: center;
+                color: rgb(209,21,28);
             }
 
             h2 {
@@ -33,19 +34,21 @@
             }
             
             .contactForm {
+                background-color: rgba(152, 106, 79, 0.2);
+                padding: 10px;
+                border-radius: 25px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
             .donateContainer {
+                background-color: rgba(152, 106, 79, 0.2);
+                padding: 10px;
+                border-radius: 25px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
             .contactContainer p {
                 text-align: center;
-            }
-
-            strong {
-                color: rgb(209,21,28);
             }
 
             footer{
@@ -109,8 +112,8 @@
                     <p>
                         <strong>Organization Name:</strong> </br> Your Dog Rescue Organization<br> </br> 
                         <strong>Physical Address:</strong> </br> 123 Main Street, City, State, ZIP<br> </br> 
-                        <strong>Mailing Address:</strong> </br> P.O. Box 456, City, State, ZIP<br> </br>  </br> 
-                        <strong>Phone:</strong> (123) 456-7890<br> </br> 
+                        <strong>Mailing Address:</strong> </br> P.O. Box 456, City, State, ZIP<br> </br>  
+                        <strong>Phone:</strong> (123) 456-7890<br> </br>
                         <strong>Email:</strong> <a href="mailto:contact@yourrescue.org">contact@yourrescue.org</a>
                     </p>
                     </div>
@@ -118,13 +121,13 @@
                         <h2>Contact Form</h2>
                         <div class = "contactForm">
                         <form action="process_contact_form.php" method="post">
-                            <label for="name">Name:</label>
+                            <label for="name">Name:</label> <br/>
                             <input type="text" id="name" name="name" required><br> <br/>
                 
-                            <label for="email">Email:</label>
+                            <label for="email">Email:</label> <br/>
                             <input type="email" id="email" name="email" required><br> <br/>
                 
-                            <label for="subject">Subject:</label>
+                            <label for="subject">Subject:</label> <br/>
                             <input type="text" id="subject" name="subject" required><br> <br/>
                 
                             <label for="message">Message:</label> <br/>
@@ -135,6 +138,7 @@
                     </div>
                 </div>
             </div>
+        </br></br>
             <div id="middle">
                 <img id="img" src="dog_imgs/contactUS2.jpg"/>
                 <div id="operating-hours">
@@ -152,11 +156,11 @@
                 <div class="donateContainer">
                 <p1><strong> Personal Information: </strong></p1>
                 <br/>
-                <br/> <label> First name: &nbsp; </label> <input type="text" name="firstName" /> 
+                <br/> <label> First name: &nbsp; </label> <br/> <input type="text" name="firstName" /> 
                 <br/>
-                <br/> <label> Last name: &nbsp; </label> <input type="text" name="lastName" /> 
+                <br/> <label> Last name: &nbsp; </label> <br/> <input type="text" name="lastName" /> 
                 <br/>
-                <br/> <label>Email Address: &nbsp; </label> <input type="email" name="email" />
+                <br/> <label>Email Address: &nbsp; </label> <br/> <input type="email" name="email" />
                     
                 <br/> <br/> <br/>
                 <p1> <strong>Donation Amount:</strong></p1>
