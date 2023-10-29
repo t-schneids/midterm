@@ -133,7 +133,7 @@
                 display: none;
                 align-items: center;
                 justify-content: center;
-                border-bottom: 2px solid red;
+                color: black;
             }
 
             /* media query for responsive design */
@@ -173,6 +173,10 @@
                     text-align: center;
                 }
 
+                .textOverlaySmall h1 {
+                    color: black;
+                }
+
                 #slide img {
                     height: 40vh;
                 }
@@ -182,27 +186,17 @@
 
 
         <script language="javascript">
-            images = ["slideshow1.jpg", "slideshow2.jpg"];
+            images = ["images/slideshow4.jpg", "images/slideshow3.jpg", 
+                      "images/slideshow1.jpg", "images/slideshow5.jpg",
+                      "images/slideshow2.jpg"];
             var imageIndex=0;
 
             $(document).ready(function() {
-                //alert("hi")
                 stall();
-                // let width = $(window).width();
-                // $(window).on("scroll", function() {
-                //     var scroll = width - Math.min(width, $(document).scrollTop());
-                //     if (scroll < 70) {
-                //         scroll = 0;
-                //     }
-                //     $("#slide img").css({
-                //         width: scroll,
-                //         height: scroll
-                //     });
-                // });
             })
             
             function stall() {
-                setTimeout(slideShow, 6500);
+                setTimeout(slideShow, 5500);
             }
 
 
@@ -267,7 +261,7 @@
             <div id='slidesWrapper'>
                     <div id='slide'>
                         <div id="overlay"></div>
-                        <img src="slideshow1.jpg"/>
+                        <img src="images/slideshow4.jpg"/>
                     </div>
                     <div class="textOverlay">
                         <h1>We are Rescue Waggin'</h1>
