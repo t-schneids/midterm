@@ -10,10 +10,11 @@
         <style>
             .content{
                 display: flex;
-                justify-content: space-evenly;
+                justify-content:space-evenly;
                 padding-top: 22px;
                 height: 100%;
                 flex-wrap: wrap;
+                flex-direction: row;
             }
 
             h1 {
@@ -73,6 +74,12 @@
                 justify-content: space-evenly;
                 align-items: center;
             }
+            @media (max-width: 725px) {
+                .content{
+                    justify-content: center;
+                }
+              }
+              
 
         </style>
 
