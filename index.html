@@ -10,20 +10,174 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
         <style>
+            footer {
+                position: relative !important;
+            }
+
+            h1 {
+                margin: 10px;
+                color: rgb(209,21,28);
+                text-align: center;
+                font-size: 40px;
+            }
+
+            p {
+                margin: 10px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: lighter;
+                font-size: 20px;
+            }
+
+            .ourStory li { 
+                margin-right: 25px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: lighter;
+                font-size: 20px;
+            }
+
+            td img {
+                border-radius: 25px;
+            }
+            .about {
+                display: flex;
+                justify-content: center; /* Center the table horizontally */
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 0 20px; /* Add some horizontal padding for spacing */
+            }
+
+            .about td {
+                padding: 20px; /* Add some padding to the individual cells for spacing */
+                width:50%;
+            }
+
+            .about h1 {
+                text-align: center;
+            }
+            
+            .facts {
+                text-align: center;
+                margin: 0 auto; 
+                width: 65%; 
+                background-color: rgba(152, 106, 79, 0.2);
+                border-radius: 25px;
+                margin-bottom: 30px;
+            }
+
+            /* HEHEHE */
+            footer {
+                position: relative;
+            }
+
+            #slidesWrapper {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                max-height: 90vh;
+            }
+
+            #overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg,rgba(255,255,255,.9) 5%,rgba(255,255,255,.75) 20%,rgba(255,255,255,0) 60%); 
+                z-index: 1;
+            }
+
             #slide {
                 position: relative;
                 overflow: hidden;
                 width: 100%;
+                z-index: 0;
             }
 
             #slide img {
                 max-width: 100%;
-                max-height: 100%;
-                width: auto;
-                height: 100vh;
-                /* object-fit: contain;
-                transition: transform 3s ease-in-out; */
+                max-height: 100vh;
+                width: 100%;
+                height: 90vh;
+                object-fit: cover;
+                z-index: 0;
             }
+
+            /* text overlay styling */
+            .textOverlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding-top: 35vh;
+                padding-left: 30px;
+                width: 32%; 
+                height: 100%;
+                display: block;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                align-items: center;
+                justify-content: center;
+                z-index: 100;
+                font-size: 20px;
+            }
+
+            .textOverlay p{
+                font-weight: 400;
+                font-size: large;
+                
+            }
+
+            .textOverlay h1 {
+                color: black;
+            }
+
+            .textOverlaySmall {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 2px solid red;
+            }
+
+            /* media query for responsive design */
+            @media (max-width: 1000px) {     
+                td {
+                    /* display: flex; */
+                    text-align: center;
+                    margin-bottom: 20px; 
+                    width: 100%;
+                    padding: 5px;
+                    flex-basis: 100%;
+                }
+
+                tr {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: fit-content;
+                    align-items: center;
+                }
+
+                .about h1 {
+                    text-align: center;
+                }
+
+                .textOverlay {
+                    display: none;
+                }
+
+                .textOverlaySmall {
+                    margin: 10px;
+                    display: block;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    padding: 0 23px;
+                    text-align: center;
+                }
+
+                #slide img {
+                    height: 40vh;
+                }
+            }
+
         </style>
 
 
@@ -31,49 +185,41 @@
             images = ["slideshow1.jpg", "slideshow2.jpg"];
             var imageIndex=0;
 
-        //     $(document).ready(function () {
-        //         startSlideshow();
-        //     });
+            $(document).ready(function() {
+                //alert("hi")
+                stall();
+                // let width = $(window).width();
+                // $(window).on("scroll", function() {
+                //     var scroll = width - Math.min(width, $(document).scrollTop());
+                //     if (scroll < 70) {
+                //         scroll = 0;
+                //     }
+                //     $("#slide img").css({
+                //         width: scroll,
+                //         height: scroll
+                //     });
+                // });
+            })
+            
+            function stall() {
+                setTimeout(slideShow, 6500);
+            }
 
-        // function startSlideshow() {
-        //     setInterval(nextSlide, 5000);
-        // }
 
-        // function nextSlide() {
-        //     imageIndex++;
-        //     if (imageIndex === images.length) {
-        //         imageIndex = 0;
-        //     }
-        //     displayImage();
-        // }
-
-        // function displayImage() {
-        //     $("#slide img").css("transform", "translateX(-100%)");
-        //     setTimeout(function () {
-        //         $("#slide img").attr("src", images[imageIndex]);
-        //         $("#slide img").css("transform", "translateX(0)");
-        //     }, 1000); // Delay the transition by 1 second.
-        // } 
-
-        $(document).ready(function() {
-            //alert("hi")
-            slideShow();
-        })
-    
-        function slideShow()
-        {
-            $("#slide img").fadeOut(2000,nextSlide);
-        }
-    
-        function nextSlide()
-        {
-            imageIndex++;
-            imageIndex= imageIndex== images.length?0: imageIndex;
-            $("#slide img").attr("src", images[imageIndex]);
-            $("#slide img").fadeIn(2000,slideShow);
-        }
+            function slideShow()
+            {
+                $("#slide img").fadeOut(2000,nextSlide);
+            }
         
-            </script>
+            function nextSlide()
+            {
+                imageIndex++;
+                imageIndex= imageIndex== images.length?0: imageIndex;
+                $("#slide img").attr("src", images[imageIndex]);
+                $("#slide img").fadeIn(2000,stall);
+            }
+        
+        </script>
 
     </head>
     <body>
@@ -116,11 +262,115 @@
         </button>
 
         <div class="content">
-            <div id='slides-wrapper'>
-                <div id='slide'>
-                    <img src="slideshow1.jpg" />
-                </div>
+
+
+            <div id='slidesWrapper'>
+                    <div id='slide'>
+                        <div id="overlay"></div>
+                        <img src="slideshow1.jpg"/>
+                    </div>
+                    <div class="textOverlay">
+                        <h1>We are Rescue Waggin'</h1>
+                        <p>A dog loving organization dedicated to the rescue,
+                            rehabilitation, and re-homing of dogs in need.
+                        </p>
+                    </div>
             </div>
+
+            <div class="textOverlaySmall">
+                <h1>We are Rescue Waggin'</h1>
+                <p>A dog loving organization dedicated to the rescue,
+                    rehabilitation, and re-homing of dogs in need.
+                </p>
+            </div>
+
+            <table class="about">
+                <tr>
+                    <td>
+                        <h1>Our Mission</h1>
+                        <p> At Rescue Waggin', we believe that every dog deserves a second 
+                            chance at a happy, loving home. Our mission is simple yet profound: 
+                            to rescue, rehabilitate, and rehome dogs in need, creating 
+                            heartwarming tales of transformation and wagging tails that inspire 
+                            hope and bring joy to both dogs and the people who adopt them.</p>
+                    </td>
+                    <td>
+                        <!-- <img src="adoptMe.jpg" height="300"> -->
+    
+                        <h1>What We Do</h1>
+                        <p>Our dedicated team of animal lovers works tirelessly to rescue dogs from a variety of 
+                            situations, providing them with the care and attention they deserve. We nurse them back 
+                            to health, both physically and emotionally, ensuring that they are ready for their forever 
+                            homes. Our commitment to positive training and socialization ensures that each dog is 
+                            well-prepared for a new life filled with love and companionship.</p>
+    
+                    </td>
+                </tr>
+            </table>
+    
+    
+            <h1>Our Impact</h1>
+    
+            <table class="facts">
+                <tr>
+                    <td>
+                        <img src="images/heartPaw.jpg" height="200">
+                        <p>Over 2,000 dogs have been rescued</p>
+                    </td>
+                    <td>
+                        <img src="images/Phone.jpg" height="210">
+                        <p>We recieve over 20 calls per week about dogs in need </p>
+                    </td>
+                    <td>
+                        <img src="images/homeHeart.jpg" height="210">
+                        <p>Over 1,500 dogs re-homed </p>
+                    </td>
+                </tr>
+            </table>
+            
+    
+            <table class="about" style="margin-left: 20px;">
+                <tr>
+                    <td>
+                        <h1>Why Choose Rescue Waggin'</h1>
+                        <p> When you adopt from Rescue Waggin, you're not just giving a dog a home; you're giving 
+                            them a second chance at a life filled with happiness and security. We take pride in matching 
+                            dogs with families, making sure it's a perfect fit for both. Our goal is to create countless 
+                            heartwarming stories of wagging tails and lifelong bonds. <br> <br> Join us in our mission to make 
+                            the world a better place for these wonderful dogs. Together, we can rewrite their stories from 
+                            hardship to happiness, one wagging tail at a time.</p>
+                        <td style="text-align: center;">
+                            <img src="adoptMe.jpg" height="400">
+                        </td>
+                    </td>
+                </tr>
+            </table>
+            <h1>Our Story</h1>
+            <p>The story of Rescue Waggin is a tapestry woven from the life experiences and unwavering dedication of 
+            our four remarkable founders: Teddy Schneider, Lindsay Garfinkel, Mehr Dewan, and Lucas Rosa de Souza.</p>
+                    
+                   
+            <ul class="ourStory">
+                <li> Teddy has been a passionate advocate for dogs since he grew up in a home filled with rescue dogs and he 
+                    formed profound bonds with them. His extraordinary rescue story of his own pup, Fido, inspired him to 
+                    take action. For Teddy, every dog deserves a hero, and he decided to be that hero for as many as he could.</li>
+                <li> Lindsay is a skilled veterinary technician and she has seen countless dogs suffering from neglect and abandonment. 
+                    One night, she stumbled upon a shivering, malnourished pup outside her apartment. She named him Scout, and nursed 
+                    him back to health with her nursing skills and unwavering love. The experience ignited a fire within Lindsay to 
+                    make a difference in the lives of dogs like Scout, who deserved better.</li>
+                <li> Mehr has a background in law had volunteered at local animal shelters for years before starting Resuce Waggin'. 
+                    She came across numerous cases where legal hurdles hindered the rescue process. Her legal expertise, combined 
+                    with a heart full of love for dogs, compelled her to co-found Rescue Waggin. She was determined to navigate the complex world of animal welfare regulations and ensure dogs in need could find refuge without obstacles.</li>
+                <li>Lucas, an experienced dog trainer, had dedicated his life to helping dogs overcome behavioral issues and find 
+                    loving homes. His dream was to create a shelter where dogs not only received love but also expert training, 
+                    ensuring a seamless transition to their forever homes.</li>
+            </ul>
+    
+            <h1>Get Involved</h1>
+            <p> You can be a part of our journey by adopting a dog, volunteering, donating, or simply spreading 
+                the word about Rescue Waggin. Together, we can make a significant impact on the lives of these 
+                incredible animals. <br><br> Thank you for visiting Rescue Waggin, where every visit, every 
+                click, and every adoption makes a difference. Together, we can change lives, one waggin' tail at a time.</p>
 
 
 
