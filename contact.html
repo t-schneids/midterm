@@ -80,6 +80,71 @@
 
         </style>
 
+        <script>
+            // validateContact
+            // Parameters: None
+            // Purpose: To validate the contact form
+            // returns: A boolean representing if the form should be submitted
+            function validateContact() {
+                userInfo = document.querySelectorAll(".userInfo");
+                for (let i = 0; i < userInfo.length; i++) {
+                    if (userInfo[i].value == "") {
+                        alert("Missing " + userInfo[i].name + ". Please enter " + userInfo[i].name + " information");
+
+                        return false;
+                    }
+                }
+
+                email =  document.getElementById("email").value;
+                emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (!email.match(emailPattern)) {
+                    alert("Email does not match specified format. Please retry")
+                    return false;
+                }
+                
+                return true;
+            }
+
+            // validateContact
+            // Parameters: None
+            // Purpose: To validate the donate form
+            // returns: A boolean representing if the form should be submitted
+            function validateDonate() {
+                var userInfo = document.querySelectorAll(".info");
+                var error = document.querySelector(".validation");
+                var message = document.querySelector("#validationMessage");
+                for (let i = 0; i < userInfo.length; i++) {
+                    if (userInfo[i].value == "") {
+                        alert("Missing " + userInfo[i].name + ". Please enter " + userInfo[i].name + " information");
+                        return false;
+                    }
+                }
+
+                var amounts = document.getElementsByName("amount");
+                var amountCheck = false;
+                for (let j = 0; j < amounts.length; j++) {
+                    if (amounts[j].checked) {
+                        amountCheck = true;
+                    }
+                }
+
+                if (!amountCheck) {
+                    alert("Please select donation amount. Try again");
+                }
+
+                email =  document.getElementById("donateEmail").value;
+                emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (!email.match(emailPattern)) {
+                    alert("Email does not match specified format. Please retry")
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>
+
     </head>
     <body>
         <button class="hamburger">
@@ -121,6 +186,7 @@
         </ul>
 
         <div class="content">
+
             <div id ="left">
                 <div id="contact-information">
                     <h1>Contact Information</h2>
@@ -135,18 +201,18 @@
                     <div id="contact-form">
                         <h2>Contact Form</h2>
                         <div class = "contactForm">
-                            <form action="process_contact_form.php" method="post">
+                            <form onsubmit="return validateContact()">
                                 <label for="name">Name:</label> <br/>
-                                <input type="text" id="name" name="name" required><br> <br/>
+                                <input class="userInfo" type="text" id="name" name="name" ><br> <br/>
                     
                                 <label for="email">Email:</label> <br/>
-                                <input type="email" id="email" name="email" required><br> <br/>
+                                <input type="email" id="email" name="email" ><br> <br/>
                     
                                 <label for="subject">Subject:</label> <br/>
-                                <input type="text" id="subject" name="subject" required><br> <br/>
+                                <input class="userInfo" type="text" id="subject" name="subject"><br> <br/>
                     
                                 <label for="message">Message:</label> <br/>
-                                <textarea id="message" name="message" rows="5" required></textarea><br> <br/>
+                                <textarea id="message" name="message" rows="5"></textarea><br> <br/>
                                 <input type="submit" value="Submit">
                             </form>
                         </div>
@@ -165,17 +231,17 @@
                 </div>
             </div>
             <div id ="right">
-                <form method="get" action="#">
+                <form onsubmit="validateDonate()" action="#">
                 <h1>Make your donation here:</h1>
                     
                 <div class="donateContainer">
                 <p1><strong> Personal Information: </strong></p1>
                 <br/>
-                <br/> <label> First name: &nbsp; </label> <br/> <input type="text" name="firstName" /> 
+                <br/> <label> First name: &nbsp; </label> <br/> <input type="text" name="first name" class="info" /> 
                 <br/>
-                <br/> <label> Last name: &nbsp; </label> <br/> <input type="text" name="lastName" /> 
+                <br/> <label> Last name: &nbsp; </label> <br/> <input type="text" name="last name" class="info"/> 
                 <br/>
-                <br/> <label>Email Address: &nbsp; </label> <br/> <input type="email" name="email" />
+                <br/> <label>Email Address: &nbsp; </label> <br/> <input type="email" name="email" id="donateEmail"/>
                     
                 <br/> <br/> <br/>
                 <p1> <strong>Donation Amount:</strong></p1>
@@ -189,10 +255,10 @@
                 <br/> <br/> <br/>
                 <p1> <strong>Payment Information:</strong></p1>
                 <br/>
-                <br/> <label>Card Number: &nbsp; </label> <input type="text" name="cardNum" />
+                <br/> <label>Card Number: &nbsp; </label> <input type="text" name="card number" class="info"/>
                 <br/>
-                <br/> <label>Expiration date: &nbsp; </label> <input type="text" name="expDate" />
-                <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" />
+                <br/> <label>Expiration date: &nbsp; </label> <input type="text" name="expiration date" class="info"/>
+                <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" class="info"/>
                     
                 <br/> <br/> 
                 <input type="submit" />
