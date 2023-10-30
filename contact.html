@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="general.js"></script>
         <style>
+            
             .content{
                 display: flex;
                 justify-content:space-evenly;
@@ -15,8 +16,6 @@
                 height: 100%;
                 flex-wrap: wrap;
                 flex-direction: row;
-                padding-left: 5px;
-                padding-right: 5px;
             }
 
             h1 {
@@ -63,6 +62,7 @@
             #img{
                 border-radius: 10%;
                 max-width: 400px;
+                height: auto;
             }
 
             body{
@@ -91,6 +91,12 @@
             @media (max-width: 725px) {
                 .content{
                     justify-content: center;
+                }
+
+                #img    {
+                border-radius: 10%;
+                max-width: 300px;
+                height: auto;
                 }
             }
 
@@ -256,35 +262,35 @@
                 <h1>Make your donation here:</h1>
                     
                 <div class="donateContainer">
-                <p1><strong> Personal Information: </strong></p1>
-                <br/>
-                <br/> <label> First name: &nbsp; </label> <br/> <input type="text" name="first name" class="info" /> 
-                <br/>
-                <br/> <label> Last name: &nbsp; </label> <br/> <input type="text" name="last name" class="info"/> 
-                <br/>
-                <br/> <label>Email Address: &nbsp; </label> <br/> <input type="email" name="email" id="donateEmail"/>
-                    
-                <br/> <br/> <br/>
-                <p1> <strong>Donation Amount:</strong></p1>
-                <br/>
+                    <p1><strong> Personal Information: </strong></p1>
+                    <br/>
+                    <br/> <label> First name: &nbsp; </label> <br/> <input type="text" name="first name" class="info" /> 
+                    <br/>
+                    <br/> <label> Last name: &nbsp; </label> <br/> <input type="text" name="last name" class="info"/> 
+                    <br/>
+                    <br/> <label>Email Address: &nbsp; </label> <br/> <input type="email" name="email" id="donateEmail"/>
+                        
+                    <br/> <br/> <br/>
+                    <p1> <strong>Donation Amount:</strong></p1>
+                    <br/>
 
-                <input type="radio" name="amount" value="five" />
-                <label> $5 </label> </br>
-                <input type="radio" name="amount" value="ten" />
-                <label> $10 </label> </br>
-                <input type="radio" name="amount" value="25" />
-                <label> $25 </label> </br>
-                <input type="radio" name="amount" value="50" />
-                <label> $50 </label> </br>
-                <input type="radio" name="amount" value="100" />
-                <label> $100 </label> </br>
-                <br/>
-                <p1> <strong>Payment Information:</strong></p1>
-                <br/>
-                <br/> <label>Card Number: &nbsp; </label> <input type="text" name="card number" class="info"/>
-                <br/>
-                <br/> <label>Expiration date: &nbsp; </label> <input type="text" name="expiration date" class="info"/>
-                <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" class="info"/>
+                    <input type="radio" name="amount" value="five" />
+                    <label> $5 </label> </br>
+                    <input type="radio" name="amount" value="ten" />
+                    <label> $10 </label> </br>
+                    <input type="radio" name="amount" value="25" />
+                    <label> $25 </label> </br>
+                    <input type="radio" name="amount" value="50" />
+                    <label> $50 </label> </br>
+                    <input type="radio" name="amount" value="100" />
+                    <label> $100 </label> </br>
+                    <br/>
+                    <p1> <strong>Payment Information:</strong></p1>
+                    <br/>
+                    <br/> <label>Card Number: &nbsp; </label> <input type="text" name="card number" class="info"/>
+                    <br/>
+                    <br/> <label>Expiration date: &nbsp; </label> <input type="text" name="expiration date" class="info"/>
+                    <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" class="info"/>
                     
                 <br/> <br/> 
                 <input id="sub" type="submit" />
