@@ -10,9 +10,11 @@
         <style>
             .content{
                 display: flex;
-                justify-content: space-evenly;
+                justify-content:space-evenly;
                 padding-top: 22px;
                 height: 100%;
+                flex-wrap: wrap;
+                flex-direction: row;
             }
 
             h1 {
@@ -44,6 +46,7 @@
                 background-color: rgba(152, 106, 79, 0.2);
                 padding: 10px;
                 border-radius: 25px;
+                margin-bottom: 5px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
@@ -54,28 +57,39 @@
             footer{
                 position: relative !important;
             }
+
             #img{
                 border-radius: 10%;
                 max-width: 400px;
             }
+
             body{
                 display: flex;
                 flex-direction: column;
             }
+
             #contact-form{
                 margin-bottom: 20px;
             }
-            #submitButtons{
+
+            #sub {
+                display: block; 
+                margin: 0 auto;
                 text-align: center;
-                width: 100%;
-                display: inline-block;
             }
+
             #middle
             {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
                 align-items: center;
+            }
+
+            @media (max-width: 725px) {
+                .content{
+                    justify-content: center;
+                }
             }
 
         </style>
@@ -192,7 +206,7 @@
                     <h1>Contact Information</h2>
                     <div class="contactContainer">
                     <p>
-                        Rescue Waggin &trade; <br/><br/>
+                        Rescue Waggin &copy; <br/><br/>
                         <strong>Phone:</strong> 1 (800) 456-7890 <br/><br>
                         <strong>Email:</strong> <a href="mailto:contact@yourrescue.org">contact@rescuewaggin.org</a><br/><br/>
                         419 Boston Avenue, Medford, MA, 02155<br> <br/> 
@@ -202,6 +216,7 @@
                         <h2>Contact Form</h2>
                         <div class = "contactForm">
                             <form onsubmit="return validateContact()">
+                            <form action="#">
                                 <label for="name">Name:</label> <br/>
                                 <input class="userInfo" type="text" id="name" name="name" ><br> <br/>
                     
@@ -212,8 +227,8 @@
                                 <input class="userInfo" type="text" id="subject" name="subject"><br> <br/>
                     
                                 <label for="message">Message:</label> <br/>
-                                <textarea id="message" name="message" rows="5"></textarea><br> <br/>
-                                <input type="submit" value="Submit">
+                                <textarea id="message" name="message" rows="5" required></textarea><br> <br/>
+                                <input id="sub" type="submit" value="Submit">
                             </form>
                         </div>
                     </div>
@@ -226,7 +241,10 @@
                     <h2>Operating Hours</h2>
                     <div class="operatingHours">
                         <p>Monday - Friday: 9:00 AM - 5:00 PM<br>
-                            Saturday - Sunday: 9:00 AM - 3:00 PM</p>
+
+                        </br>
+                        *closed on public holidays*
+                        </p>
                     </div>
                 </div>
             </div>
@@ -246,13 +264,18 @@
                 <br/> <br/> <br/>
                 <p1> <strong>Donation Amount:</strong></p1>
                 <br/>
-                <br/> <label> $5 </label> <input type="radio" name="amount" value="five" />
-                <br/> <label> $10 </label> <input type="radio" name="amount" value="ten" />
-                <br/> <label> $25 </label> <input type="radio" name="amount" value="25" />
-                <br/> <label> $50 </label> <input type="radio" name="amount" value="50" />
-                <br/> <label> $100 </label> <input type="radio" name="amount" value="100" />
-                    
-                <br/> <br/> <br/>
+
+                <input type="radio" name="amount" value="five" />
+                <label> $5 </label> </br>
+                <input type="radio" name="amount" value="ten" />
+                <label> $10 </label> </br>
+                <input type="radio" name="amount" value="25" />
+                <label> $25 </label> </br>
+                <input type="radio" name="amount" value="50" />
+                <label> $50 </label> </br>
+                <input type="radio" name="amount" value="100" />
+                <label> $100 </label> </br>
+                <br/>
                 <p1> <strong>Payment Information:</strong></p1>
                 <br/>
                 <br/> <label>Card Number: &nbsp; </label> <input type="text" name="card number" class="info"/>
@@ -261,7 +284,7 @@
                 <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" class="info"/>
                     
                 <br/> <br/> 
-                <input type="submit" />
+                <input id="sub" type="submit" />
                 </form>
                 </div>
             </div>
