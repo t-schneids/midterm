@@ -122,7 +122,10 @@
                 new Dog("Filou", "Golden Retriever", "6 months")
             )
 
-            //populate a select with options for each dog in the array
+            // validateContact
+            // Parameters: a name representing the dogs name
+            // Purpose: to create a selection dropdown with dog names
+            // returns: the html elements appended in string form
             function selectDog(name) {
                 var temp = "";
                 temp = "<select name='" + name + "' size='1'>";
@@ -137,7 +140,10 @@
                 return "<td class = '" + className + "'>" + content + "</td>";
             }
 
-            //collect all inputs in user info class and check that there is actual data there
+            // validateContact
+            // Parameters: None
+            // Purpose: To validate the adopt form
+            // returns: A boolean representing if the form should be submitted
             function validateForm() {
                 userInfo = document.querySelectorAll(".userInfo");
                 for (let i = 0; i < userInfo.length - 1; i++) {
@@ -250,7 +256,7 @@
                 <div class="column">
                     <h2>Adoption Request</h2>
                     <!-- give form event handler for submitting -->
-                    <form onsubmit="return validateForm()">
+                    <form onsubmit="return validateForm()" action="#">
 
                         <p><label>First Name*:</label> <input class="userInfo"
                             type="text"  name='first name' /></p>
@@ -261,7 +267,7 @@
                         <p><label>City*:</label> <input class="userInfo"
                             type="text" name='city' /></p>
                         <p><label>Email*:</label> <input class="userInfo"
-                            type="text"  name='email' /></p>
+                            type="email"  name='email' /></p>
         
                         <table border="0" cellpadding="3">
                           <tr>
