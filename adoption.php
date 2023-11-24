@@ -276,7 +276,7 @@
 
                         <?php
                            //establish connection info
-                            $server = "localhost";// your server
+                            $server = "0.0.0.0";// your server
                             $userid = "urre4ivsfgzys"; // your user id
                             $pw = "DogDays12!"; // your pw
                             $db= "db5nvjnj3daedb"; // your database
