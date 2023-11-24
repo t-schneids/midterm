@@ -122,8 +122,8 @@
                 new Dog("Filou", "Golden Retriever", "6 months")
             )
 
-            // validateContact
-            // Parameters: a name representing the dogs name
+            // selectDog
+            // Parameters: a name a name I can give to each dog element
             // Purpose: to create a selection dropdown with dog names
             // returns: the html elements appended in string form
             function selectDog(name) {
@@ -140,7 +140,7 @@
                 return "<td class = '" + className + "'>" + content + "</td>";
             }
 
-            // validateContact
+            // validateForm
             // Parameters: None
             // Purpose: To validate the adopt form
             // returns: A boolean representing if the form should be submitted
@@ -188,7 +188,7 @@
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.html" id="current"> ADOPTION</a>
+            <a class="tabs" href="adoption.php" id="current"> ADOPTION</a>
             </li>
             <li>
                 <a class="tabs" href="availableDogs.html"> AVAILABLE DOGS</a>
@@ -273,15 +273,41 @@
                           <tr>
                             <th>Choose a Dog!</th>
                           </tr>
-                        <script>
+
+                        <?php
+                           //establish connection info
+                            $server = "localhost";// your server
+                            $userid = "urre4ivsfgzys"; // your user id
+                            $pw = "DogDays12!"; // your pw
+                            $db= "db5nvjnj3daedb"; // your database
+                                
+                            // Create connection
+                            $conn = new mysqli($server, $userid, $pw );
                             
-                          var s = "";
-                              s += "<tr>";
-                              s += tableData(selectDog("quan"), 
-                                             "selectQuantity");
-                              s+= "</tr>";
-                          document.writeln(s);
-                        </script>
+                            // Check connection
+                            if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                            }
+                                
+                            //select the database
+                            $conn->select_db($db);
+
+                                //run a query
+                            $sql = "SELECT * FROM dogs";
+                            $result = $conn->query($sql);
+                            $output = "";
+                            $output .= "<td class = 'selectQuantity'>";
+                            $output .= "<select name= 'quan' size='1'>";
+
+                            while($row = $result->fetch_array()) 
+                            {
+                                $output .= '<option> "' . $row['dogName'] . '"' . ' the ' . $row['breed'] . ', age ' . $row['dogAge'] . '</option>';
+                            }
+
+                            $output .= "</select></td>";
+                            echo $output;
+                        ?>
+
                         </table>
 
                         <h3>Optional Services</h3>
