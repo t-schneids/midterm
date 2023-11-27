@@ -191,7 +191,7 @@
             <a class="tabs" href="adoption.php" id="current"> ADOPTION</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.html"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html"> CONTACT US</a>
@@ -276,7 +276,7 @@
 
                         <?php
                            //establish connection info
-                            $server = "0.0.0.0";// your server
+                            $server = "localhost";// your server
                             $userid = "urre4ivsfgzys"; // your user id
                             $pw = "DogDays12!"; // your pw
                             $db= "db5nvjnj3daedb"; // your database
