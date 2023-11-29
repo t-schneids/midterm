@@ -401,6 +401,7 @@
                                         temperamentElement.innerHTML = `Temperament: ${breedInfo.temperament}`;
                                         heightElement.innerHTML = `Average Height: ${breedInfo.height.imperial} inches`;
                                         weightElement.innerHTML = `Average Weight: ${breedInfo.weight.imperial} pounds`;
+                                        errorElement.innerHTML = "";
                                     } else {
                                         nameElement.innerHTML = "";
                                         bredForElement.innerHTML = "";
