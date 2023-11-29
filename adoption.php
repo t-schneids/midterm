@@ -58,6 +58,26 @@
                 flex: 50%;
                 align-items: center;
             }
+            .search-container {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            label {
+                white-space: nowrap;
+            }
+
+            #breedInput {
+                margin-left: 5px; 
+            }
+
+            label, input, button {
+                margin-right: 10px; 
+            }
+            .dog-input {
+                flex-grow: 1;
+            }
         </style>
 
         <script>
@@ -276,7 +296,7 @@
 
                         <?php
                            //establish connection info
-                            $server = "localhost";// your server
+                            $server = "35.212.69.145";// your server
                             $userid = "urre4ivsfgzys"; // your user id
                             $pw = "DogDays12!"; // your pw
                             $db= "db5nvjnj3daedb"; // your database
@@ -349,6 +369,71 @@
                         <input type ="submit" value = "Submit Order" />
                         
                         </form>
+                        <script>
+                            function getDogInfo() {
+                                const apiKey = "live_Z9Tg1JsWcpEvvoHwH0SjO8tjwBycis9SYiuEWT0CdbWNEzqKqbCz1b9F0RMWkrCY";
+                                const breedInput = document.getElementById('breedInput');
+                                const nameElement = document.getElementById("name");
+                                const bredForElement = document.getElementById("bredFor");
+                                const lifeSpanElement = document.getElementById("lifeSpan");
+                                const temperamentElement = document.getElementById("temperament");
+                                const errorElement = document.getElementById("error");
+                                const heightElement = document.getElementById("height");
+                                const weightElement = document.getElementById("weight");
+
+
+                                const breed = breedInput.value.toLowerCase();
+
+                                fetch(`https://api.thedogapi.com/v1/breeds/search?q=${breed}`, {
+                                    headers: {
+                                        'x-api-key': apiKey
+                                    }
+                                })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log('API Response:', data);
+
+                                    if (data.length > 0) {
+                                        const breedInfo = data[0];
+                                        nameElement.innerHTML = `${breedInfo.name}`;
+                                        bredForElement.innerHTML = `Bred For: ${breedInfo.bred_for}`;
+                                        lifeSpanElement.innerHTML = `Life Span: ${breedInfo.life_span}`;
+                                        temperamentElement.innerHTML = `Temperament: ${breedInfo.temperament}`;
+                                        heightElement.innerHTML = `Average Height: ${breedInfo.height.imperial} inches`;
+                                        weightElement.innerHTML = `Average Weight: ${breedInfo.weight.imperial} pounds`;
+                                    } else {
+                                        nameElement.innerHTML = "";
+                                        bredForElement.innerHTML = "";
+                                        lifeSpanElement.innerHTML = "";
+                                        temperamentElement.innerHTML = "";
+                                        heightElement.innerHTML = "";
+                                        weightElement.innerHTML = "";
+                                        errorElement.innerHTML = "Breed not found. Check spelling or try another one.";
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching breed information:', error);
+                                    alert('Error fetching breed information. Please try again.');
+                                });
+                            }
+                        </script>
+                        <h2> Learn about a dog breed! </h2>
+                        <div class="search-container">
+                            <label for="breedInput">Enter a dog breed: </label>
+                            <input class="dog-input" type="text" id="breedInput">
+                            <button onclick="getDogInfo()">Search</button>
+                        </div>
+
+                        <div class="wrapper">
+                            <div id="name" class="info"></div>
+                            <div id="bredFor" class="info"></div>
+                            <div id="lifeSpan" class="info"></div>
+                            <div id="temperament" class="info"></div>
+                            <div id="error" class="info"></div>
+                            <div id="height" class="info"></div>
+                            <div id="weight" class="info"></div>
+                        </div>
+                        
                 </div>
             </div>
 
