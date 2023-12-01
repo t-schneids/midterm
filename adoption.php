@@ -58,6 +58,26 @@
                 flex: 50%;
                 align-items: center;
             }
+            .search-container {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            label {
+                white-space: nowrap;
+            }
+
+            #breedInput {
+                margin-left: 5px; 
+            }
+
+            label, input, button {
+                margin-right: 10px; 
+            }
+            .dog-input {
+                flex-grow: 1;
+            }
         </style>
 
         <script>
@@ -122,7 +142,10 @@
                 new Dog("Filou", "Golden Retriever", "6 months")
             )
 
-            //populate a select with options for each dog in the array
+            // selectDog
+            // Parameters: a name a name I can give to each dog element
+            // Purpose: to create a selection dropdown with dog names
+            // returns: the html elements appended in string form
             function selectDog(name) {
                 var temp = "";
                 temp = "<select name='" + name + "' size='1'>";
@@ -137,7 +160,10 @@
                 return "<td class = '" + className + "'>" + content + "</td>";
             }
 
-            //collect all inputs in user info class and check that there is actual data there
+            // validateForm
+            // Parameters: None
+            // Purpose: To validate the adopt form
+            // returns: A boolean representing if the form should be submitted
             function validateForm() {
                 userInfo = document.querySelectorAll(".userInfo");
                 for (let i = 0; i < userInfo.length - 1; i++) {
@@ -182,10 +208,10 @@
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.html" id="current"> ADOPTION</a>
+            <a class="tabs" href="adoption.php" id="current"> ADOPTION</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.html"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html"> CONTACT US</a>
@@ -250,7 +276,7 @@
                 <div class="column">
                     <h2>Adoption Request</h2>
                     <!-- give form event handler for submitting -->
-                    <form onsubmit="return validateForm()">
+                    <form onsubmit="return validateForm()" action="#">
 
                         <p><label>First Name*:</label> <input class="userInfo"
                             type="text"  name='first name' /></p>
@@ -261,21 +287,47 @@
                         <p><label>City*:</label> <input class="userInfo"
                             type="text" name='city' /></p>
                         <p><label>Email*:</label> <input class="userInfo"
-                            type="text"  name='email' /></p>
+                            type="email"  name='email' /></p>
         
                         <table border="0" cellpadding="3">
                           <tr>
                             <th>Choose a Dog!</th>
                           </tr>
-                        <script>
+
+                        <?php
+                           //establish connection info
+                            $server = "localhost";// your server
+                            $userid = "urre4ivsfgzys"; // your user id
+                            $pw = "DogDays12!"; // your pw
+                            $db= "db5nvjnj3daedb"; // your database
+                                
+                            // Create connection
+                            $conn = new mysqli($server, $userid, $pw );
                             
-                          var s = "";
-                              s += "<tr>";
-                              s += tableData(selectDog("quan"), 
-                                             "selectQuantity");
-                              s+= "</tr>";
-                          document.writeln(s);
-                        </script>
+                            // Check connection
+                            if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                            }
+                                
+                            //select the database
+                            $conn->select_db($db);
+
+                                //run a query
+                            $sql = "SELECT * FROM dogs";
+                            $result = $conn->query($sql);
+                            $output = "";
+                            $output .= "<td class = 'selectQuantity'>";
+                            $output .= "<select name= 'quan' size='1'>";
+
+                            while($row = $result->fetch_array()) 
+                            {
+                                $output .= '<option> "' . $row['dogName'] . '"' . ' the ' . $row['breed'] . ', age ' . $row['dogAge'] . '</option>';
+                            }
+
+                            $output .= "</select></td>";
+                            echo $output;
+                        ?>
+
                         </table>
 
                         <h3>Optional Services</h3>
@@ -317,6 +369,72 @@
                         <input type ="submit" value = "Submit Order" />
                         
                         </form>
+                        <script>
+                            function getDogInfo() {
+                                const apiKey = "live_Z9Tg1JsWcpEvvoHwH0SjO8tjwBycis9SYiuEWT0CdbWNEzqKqbCz1b9F0RMWkrCY";
+                                const breedInput = document.getElementById('breedInput');
+                                const nameElement = document.getElementById("name");
+                                const bredForElement = document.getElementById("bredFor");
+                                const lifeSpanElement = document.getElementById("lifeSpan");
+                                const temperamentElement = document.getElementById("temperament");
+                                const errorElement = document.getElementById("error");
+                                const heightElement = document.getElementById("height");
+                                const weightElement = document.getElementById("weight");
+
+
+                                const breed = breedInput.value.toLowerCase();
+
+                                fetch(`https://api.thedogapi.com/v1/breeds/search?q=${breed}`, {
+                                    headers: {
+                                        'x-api-key': apiKey
+                                    }
+                                })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log('API Response:', data);
+
+                                    if (data.length > 0) {
+                                        const breedInfo = data[0];
+                                        nameElement.innerHTML = `${breedInfo.name}`;
+                                        bredForElement.innerHTML = `Bred For: ${breedInfo.bred_for}`;
+                                        lifeSpanElement.innerHTML = `Life Span: ${breedInfo.life_span}`;
+                                        temperamentElement.innerHTML = `Temperament: ${breedInfo.temperament}`;
+                                        heightElement.innerHTML = `Average Height: ${breedInfo.height.imperial} inches`;
+                                        weightElement.innerHTML = `Average Weight: ${breedInfo.weight.imperial} pounds`;
+                                        errorElement.innerHTML = "";
+                                    } else {
+                                        nameElement.innerHTML = "";
+                                        bredForElement.innerHTML = "";
+                                        lifeSpanElement.innerHTML = "";
+                                        temperamentElement.innerHTML = "";
+                                        heightElement.innerHTML = "";
+                                        weightElement.innerHTML = "";
+                                        errorElement.innerHTML = "Breed not found. Check spelling or try another one.";
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching breed information:', error);
+                                    alert('Error fetching breed information. Please try again.');
+                                });
+                            }
+                        </script>
+                        <h2> Learn about a dog breed! </h2>
+                        <div class="search-container">
+                            <label for="breedInput">Enter a dog breed: </label>
+                            <input class="dog-input" type="text" id="breedInput">
+                            <button onclick="getDogInfo()">Search</button>
+                        </div>
+
+                        <div class="wrapper">
+                            <div id="name" class="info"></div>
+                            <div id="bredFor" class="info"></div>
+                            <div id="lifeSpan" class="info"></div>
+                            <div id="temperament" class="info"></div>
+                            <div id="error" class="info"></div>
+                            <div id="height" class="info"></div>
+                            <div id="weight" class="info"></div>
+                        </div>
+                        
                 </div>
             </div>
 

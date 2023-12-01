@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="general.js"></script>
         <style>
+            
             .content{
                 display: flex;
 <<<<<<< HEAD
@@ -67,6 +68,7 @@
             #img{
                 border-radius: 10%;
                 max-width: 400px;
+                height: auto;
             }
 
             body{
@@ -118,9 +120,87 @@
                 .content{
                     justify-content: center;
                 }
+
+                #img    {
+                border-radius: 10%;
+                max-width: 300px;
+                height: auto;
+                }
+            }
+
+            @media (min-height: 830px) {     
+                footer {
+                    margin-top: 51px;
+                }
             }
 
         </style>
+
+        <script>
+            // validateContact
+            // Parameters: None
+            // Purpose: To validate the contact form
+            // returns: A boolean representing if the form should be submitted
+            function validateContact() {
+                userInfo = document.querySelectorAll(".userInfo");
+                for (let i = 0; i < userInfo.length; i++) {
+                    if (userInfo[i].value == "") {
+                        alert("Missing " + userInfo[i].name + ". Please enter " + userInfo[i].name + " information");
+
+                        return false;
+                    }
+                }
+
+                email =  document.getElementById("email").value;
+                emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (!email.match(emailPattern)) {
+                    alert("Email does not match specified format. Please retry")
+                    return false;
+                }
+                
+                return true;
+            }
+
+            // validateContact
+            // Parameters: None
+            // Purpose: To validate the donate form
+            // returns: A boolean representing if the form should be submitted
+            function validateDonate() {
+                var userInfo = document.querySelectorAll(".info");
+                var error = document.querySelector(".validation");
+                var message = document.querySelector("#validationMessage");
+                for (let i = 0; i < userInfo.length; i++) {
+                    if (userInfo[i].value == "") {
+                        alert("Missing " + userInfo[i].name + ". Please enter " + userInfo[i].name + " information");
+                        return false;
+                    }
+                }
+
+                var amounts = document.getElementsByName("amount");
+                var amountCheck = false;
+                for (let j = 0; j < amounts.length; j++) {
+                    if (amounts[j].checked) {
+                        amountCheck = true;
+                    }
+                }
+
+                if (!amountCheck) {
+                    alert("Please select donation amount. Try again");
+                    return false;
+                }
+
+                email =  document.getElementById("donateEmail").value;
+                emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (!email.match(emailPattern)) {
+                    alert("Email does not match specified format. Please retry")
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>
 
     </head>
     <body>
@@ -149,10 +229,10 @@
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.html"> ADOPTION</a>
+            <a class="tabs" href="adoption.php"> ADOPTION</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.html"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html" id="current"> CONTACT US</a>
@@ -163,6 +243,7 @@
         </ul>
 
         <div class="content">
+
             <div id ="left">
                 <div id="contact-information">
                     <h1>Contact Information</h2>
@@ -203,15 +284,16 @@
                     <div id="contact-form">
                         <h2>Contact Form</h2>
                         <div class = "contactForm">
-                            <form action="#" method="post">
+                            <form onsubmit="return validateContact()">
+                            <form action="#">
                                 <label for="name">Name:</label> <br/>
-                                <input type="text" id="name" name="name" required><br> <br/>
+                                <input class="userInfo" type="text" id="name" name="name" ><br> <br/>
                     
                                 <label for="email">Email:</label> <br/>
-                                <input type="email" id="email" name="email" required><br> <br/>
+                                <input type="email" id="email" name="email" ><br> <br/>
                     
                                 <label for="subject">Subject:</label> <br/>
-                                <input type="text" id="subject" name="subject" required><br> <br/>
+                                <input class="userInfo" type="text" id="subject" name="subject"><br> <br/>
                     
                                 <label for="message">Message:</label> <br/>
                                 <textarea id="message" name="message" rows="5" required></textarea><br> <br/>
@@ -249,39 +331,39 @@
                 </div>
             </div>
             <div id ="right">
-                <form method="get" action="#">
+                <form onsubmit="validateDonate()" action="#">
                 <h1>Make your donation here:</h1>
                     
                 <div class="donateContainer">
-                <p1><strong> Personal Information: </strong></p1>
-                <br/>
-                <br/> <label> First name: &nbsp; </label> <br/> <input type="text" name="firstName" /> 
-                <br/>
-                <br/> <label> Last name: &nbsp; </label> <br/> <input type="text" name="lastName" /> 
-                <br/>
-                <br/> <label>Email Address: &nbsp; </label> <br/> <input type="email" name="email" />
-                    
-                <br/> <br/> <br/>
-                <p1> <strong>Donation Amount:</strong></p1>
-                <br/>
+                    <p1><strong> Personal Information: </strong></p1>
+                    <br/>
+                    <br/> <label> First name: &nbsp; </label> <br/> <input type="text" name="first name" class="info" /> 
+                    <br/>
+                    <br/> <label> Last name: &nbsp; </label> <br/> <input type="text" name="last name" class="info"/> 
+                    <br/>
+                    <br/> <label>Email Address: &nbsp; </label> <br/> <input type="email" name="email" id="donateEmail"/>
+                        
+                    <br/> <br/> <br/>
+                    <p1> <strong>Donation Amount:</strong></p1>
+                    <br/>
 
-                <input type="radio" name="amount" value="five" />
-                <label> $5 </label> </br>
-                <input type="radio" name="amount" value="ten" />
-                <label> $10 </label> </br>
-                <input type="radio" name="amount" value="25" />
-                <label> $25 </label> </br>
-                <input type="radio" name="amount" value="50" />
-                <label> $50 </label> </br>
-                <input type="radio" name="amount" value="100" />
-                <label> $100 </label> </br>
-                <br/>
-                <p1> <strong>Payment Information:</strong></p1>
-                <br/>
-                <br/> <label>Card Number: &nbsp; </label> <input type="text" name="cardNum" />
-                <br/>
-                <br/> <label>Expiration date: &nbsp; </label> <input type="text" name="expDate" />
-                <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" />
+                    <input type="radio" name="amount" value="five" />
+                    <label> $5 </label> </br>
+                    <input type="radio" name="amount" value="ten" />
+                    <label> $10 </label> </br>
+                    <input type="radio" name="amount" value="25" />
+                    <label> $25 </label> </br>
+                    <input type="radio" name="amount" value="50" />
+                    <label> $50 </label> </br>
+                    <input type="radio" name="amount" value="100" />
+                    <label> $100 </label> </br>
+                    <br/>
+                    <p1> <strong>Payment Information:</strong></p1>
+                    <br/>
+                    <br/> <label>Card Number: &nbsp; </label> <input type="text" name="card number" class="info"/>
+                    <br/>
+                    <br/> <label>Expiration date: &nbsp; </label> <input type="text" name="expiration date" class="info"/>
+                    <label>CVV: &nbsp; </label> <input type="text" name="CVV" size="3" class="info"/>
                     
                 <br/> <br/> 
                 <input id="sub" type="submit" />
