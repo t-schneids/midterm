@@ -219,6 +219,9 @@
             <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
+            <li>
+                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
+            </li>
         </ul>
 
         <button class="hamburger">
@@ -296,7 +299,7 @@
 
                         <?php
                            //establish connection info
-                            $server = "localhost";// your server
+                            $server = "35.212.69.145";// your server
                             $userid = "urre4ivsfgzys"; // your user id
                             $pw = "DogDays12!"; // your pw
                             $db= "db5nvjnj3daedb"; // your database
