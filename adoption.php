@@ -219,7 +219,7 @@
             <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
-            <li>
+<li>
                 <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>
@@ -271,6 +271,7 @@
                     <h3>Additional Questions and Information</h3>
                     <div class="contact">
                     <a href="contact.html">Contact Us!</a>
+                    
                 </div>
 
 
@@ -299,7 +300,7 @@
 
                         <?php
                            //establish connection info
-                            $server = "35.212.69.145";// your server
+                            $server = "localhost";// your server
                             $userid = "urre4ivsfgzys"; // your user id
                             $pw = "DogDays12!"; // your pw
                             $db= "db5nvjnj3daedb"; // your database
