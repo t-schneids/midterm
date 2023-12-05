@@ -1,6 +1,7 @@
-<?php
+<!-- <?php
 session_start();
-?>
+?> -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +12,7 @@ session_start();
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="general.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+        
         <style>
             footer {
                 position: relative !important;
@@ -82,7 +83,40 @@ session_start();
                 flex-grow: 1;
             }
         </style>
+
         <script>
+            //handling db_response asynchronously in order not to refresh page
+
+            $(document).ready(function(){
+                $('#login_form').on('submit', function(e){
+                    e.preventDefault(); // Prevent form submission
+
+                    // AJAX call to handle form submission
+                    if(validate()){
+                        $.ajax({
+                            type: 'POST',
+                            url: 'processLogin.php', // Send request to the same PHP file
+                            data: $(this).serialize(), // Serialize form data
+                            dataType: 'json', // Expect JSON response
+                            success: function(response){
+                                if (response.found) {
+                                    // User found, display user data or perform necessary actions
+                                    alert('user found');
+                                    $('#messageDiv').html("Account found!");
+                                } else {
+                                    // No user found, display the message
+                                    $('#messageDiv').html("No account found with this email/password combination.");
+                                }
+                            },
+                            error: function(xhr, status, error){
+                                console.error(xhr.responseText); // Log the error to console
+                                // Handle the error or debug the issue
+                            }
+                        });
+                    }
+
+                });
+            });
 
             // validateForm
             // Parameters: None
@@ -150,44 +184,19 @@ session_start();
             <div class="closeIcon material-icons"> close</div>
         </button>
 
-        
-      
-            <?php
-                if(isset($_POST['First_Name']) && isset($_POST['Last_Name']) && isset($_POST['password']) && isset($_POST['email'])){
-                    //establish connection info
-                    $server = "35.212.69.145";// your server
-                    $userid = "urre4ivsfgzys"; // your user id
-                    $pw = "DogDays12!"; // your pw
-                    $db= "db5nvjnj3daedb"; // your database
-                        
-                    // Create connection
-                    $conn = new mysqli($server, $userid, $pw );
-                    
-                    // Check connection
-                    if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                    }
-                    else{
-                        echo "connected succesfully";
-                    }
 
-                    $conn->select_db($db);
-                    extract($_POST);
-                    $query = "INSERT INTO users (userID, firstName, lastName, email, password) VALUES (NULL, '$First_Name', '$Last_Name', '$email', '$password')";
-                    $conn->query($query);
-                    $conn->close();
-                }
-                    
-            ?>
-            <div>
-                <form method="POST" id="signup_form" name="signup_form" action="signup.php" onsubmit="return validate()">
-                <h1>Sign Up</h1>
-                  First Name:  <input id='fname' type='text' name='First Name' class="userInfo"/> <br/>
-                  Last Name:   <input id="lname" type="text" name="Last Name" class="userInfo"/> <br/>
+            <div id='loginDiv'>
+                <form method="POST" id="login_form" name="login_form">
+                <h1>Login</h1>
                   Email:  <input id='email' type='text' name='email' class="userInfo"/> <br/>
                   Password:  <input id="password" type="password" name="password" class="userInfo"/> <br/>
                     <input id='submit_button' type='submit' name='submit_button' class="userInfo"><br/>
                 </form>
+            </div>
+            <div id='messageDiv'>
+            </div>
+            <div id='signupDiv'>
+                Don't have an account? Sign Up <a href='signup.php'> HERE! </a>
             </div>
 
             <footer>
