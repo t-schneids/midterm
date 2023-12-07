@@ -92,7 +92,7 @@
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.php"> ADOPTION</a>
+            <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
             </li>
             <li>
                 <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
