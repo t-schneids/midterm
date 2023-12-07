@@ -52,6 +52,24 @@
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
+            #information {
+                /* padding-left: 40px; */
+                margin-left: 30px;
+            }
+
+            #information h2 {
+                text-align: center;
+            }
+
+            #information h3 {
+                text-align: center;
+            }
+
+            .button {
+                justify-content: center;
+                display: flex;
+            }
+
             .column {
                 display: flex;
                 flex-direction: column;
@@ -77,6 +95,48 @@
             }
             .dog-input {
                 flex-grow: 1;
+            }
+
+            .breeds h2  {
+                text-align: center;
+                margin-bottom: -10px;
+            }
+
+            .breeds h3  {
+                text-align: center;
+            }
+
+            .breeds {
+                background-color: rgba(209,21,28, 0.15);
+                padding: 10px;
+                border-radius: 25px;
+                max-width: 415px; 
+                width: 100%;  
+                flex: 1;   
+                
+            }
+
+            .breed-wrapper {
+                justify-content: center;
+                display: flex;
+                max-height: 200px;
+                height: 100%;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            }
+
+            .wrapper {
+                max-width: 415px; 
+                width: 100%;     
+                background-color: rgba(209,21,28, 0.15);
+                padding: 10px;
+                border-radius: 25px;
+                margin-left: 20px;
+                flex: 1;
+            }
+
+            .dogName {
+                color: rgb(209,21,28);
             }
         </style>
 
@@ -193,7 +253,7 @@
             <div class="logo">
                 <li> 
                     <a href="index.html"> 
-                        <img src="logo.png" alt="company logo">
+                        <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
             </div> 
@@ -208,7 +268,7 @@
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.php" id="current"> ADOPTION</a>
+            <a class="tabs" href="adoption.php" id="current"> ADOPT A DOG</a>
             </li>
             <li>
                 <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
@@ -229,50 +289,126 @@
         
         <div class="content">
             <h1>Adopt a Dog!</h1>
+            <script>
+                function getDogInfo() {
+                    const apiKey = "live_Z9Tg1JsWcpEvvoHwH0SjO8tjwBycis9SYiuEWT0CdbWNEzqKqbCz1b9F0RMWkrCY";
+                    const breedInput = document.getElementById('breedInput');
+                    const nameElement = document.getElementById("name");
+                    const bredForElement = document.getElementById("bredFor");
+                    const lifeSpanElement = document.getElementById("lifeSpan");
+                    const temperamentElement = document.getElementById("temperament");
+                    const errorElement = document.getElementById("error");
+                    const heightElement = document.getElementById("height");
+                    const weightElement = document.getElementById("weight");
+                    const titleElement = document.getElementById("title");
+
+
+                    const breed = breedInput.value.toLowerCase();
+
+                    fetch(`https://api.thedogapi.com/v1/breeds/search?q=${breed}`, {
+                        headers: {
+                            'x-api-key': apiKey
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('API Response:', data);
+
+                        if (data.length > 0) {
+                            const breedInfo = data[0];
+                            titleElement.innerHTML = "<br>";
+                            nameElement.innerHTML = `<b class="dogName">${breedInfo.name}</b>`;
+                            bredForElement.innerHTML = `<b> Bred For: </b> ${breedInfo.bred_for}`;
+                            lifeSpanElement.innerHTML = `<b>Life Span: </b>${breedInfo.life_span}`;
+                            temperamentElement.innerHTML = `<b>Temperament: </b>${breedInfo.temperament}`;
+                            heightElement.innerHTML = `<b>Average Height: </b>${breedInfo.height.imperial} inches`;
+                            weightElement.innerHTML = `<b>Average Weight: </b>${breedInfo.weight.imperial} pounds`;
+                            errorElement.innerHTML = "";
+                        } else {
+                            titleElement.innerHTML = "<br>";
+                            nameElement.innerHTML = "";
+                            bredForElement.innerHTML = "";
+                            lifeSpanElement.innerHTML = "";
+                            temperamentElement.innerHTML = "";
+                            heightElement.innerHTML = "";
+                            weightElement.innerHTML = "";
+                            errorElement.innerHTML = "Breed not found. Check spelling or try another one.";
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching breed information:', error);
+                        alert('Error fetching breed information. Please try again.');
+                    });
+                }
+            </script>
+            <div class="breed-wrapper">
+                <div class="breeds">
+                    <h2> Not sure which dog breed is right for you? </h2>
+                    <h3> Learn more about one you're interested in here. </h3>
+                    <div class="search-container">
+                        <label for="breedInput">Enter a dog breed: </label>
+                        <input class="dog-input" type="text" id="breedInput">
+                        <button onclick="getDogInfo()">Search</button>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div id="title" class="info" style="text-align: center; font-weight: bold; font-size: 20px;">Breed information loads here</div>
+                    <div id="name" class="info"></div>
+                    <div id="bredFor" class="info"></div>
+                    <div id="lifeSpan" class="info"></div>
+                    <div id="temperament" class="info"></div>
+                    <div id="error" class="info"></div>
+                    <div id="height" class="info"></div>
+                    <div id="weight" class="info"></div>
+                </div>    
+            </div>
+            
             <div class="row" id="row1">
                 <div class="column">
-                    <h2>Adoption Responsibilities and Guidelines:</h2>
-                    <p>Welcome to our dog adoption page! We're thrilled that you're considering adopting a furry friend. Dog adoption is a rewarding experience, but it also comes with significant responsibilities. This page is designed to guide you through the adoption process and allow you to submit a request for adoption</p>
+                    <div id="information">
+                        <h2>Adoption Responsibilities and Guidelines:</h2>
+                        <p>Welcome to our dog adoption page! We're thrilled that you're considering adopting a furry friend. Dog adoption is a rewarding experience, but it also comes with significant responsibilities. This page is designed to guide you through the adoption process and allow you to submit a request for adoption</p>
 
-                    <h3>Adoption Process Overview</h3>
-                    <p>Adopting a dog is a multi-step process to ensure the best fit for both you and the dog. Here's a brief overview of what to expect:</p>
-                    <ol>
-                        <li><strong>Application Submission: </strong>Start by submitting an adoption application on our website.</li>
-                        <li><strong>Screening:</strong> Our team will review your application and may conduct a home visit.</li>
-                        <li><strong>Approval:</strong> If your application is approved, you can proceed with adopting a dog</li>
-                    </ol>
+                        <h3>Adoption Process Overview</h3>
+                        <p>Adopting a dog is a multi-step process to ensure the best fit for both you and the dog. Here's a brief overview of what to expect:</p>
+                        <ol>
+                            <li><strong>Application Submission: </strong>Start by submitting an adoption application on our website.</li>
+                            <li><strong>Screening:</strong> Our team will review your application and may conduct a home visit.</li>
+                            <li><strong>Approval:</strong> If your application is approved, you can proceed with adopting a dog</li>
+                        </ol>
 
-                    <h3>Dog Adoption Criteria</h3>
-                    <p>To adopt a dog, you should meet the following criteria:</p>
-                    <ol>
-                        <li><strong>Age:</strong> You must be at least 18 years old to adopt.</li>
-                        <li><strong>Residence:</strong> You should have a stable living environment suitable for a dog.</li>
-                    </ol>
+                        <h3>Dog Adoption Criteria</h3>
+                        <p>To adopt a dog, you should meet the following criteria:</p>
+                        <ol>
+                            <li><strong>Age:</strong> You must be at least 18 years old to adopt.</li>
+                            <li><strong>Residence:</strong> You should have a stable living environment suitable for a dog.</li>
+                        </ol>
 
-                    <h3>Choosing the Right Dog</h3>
-                    <p>Selecting the right dog for your lifestyle is crucial. Consider factors like size, breed, energy level, and temperament when making your decision.</p>
+                        <h3>Choosing the Right Dog</h3>
+                        <p>Selecting the right dog for your lifestyle is crucial. Consider factors like size, breed, energy level, and temperament when making your decision.</p>
 
-                    <h3>Time Commitment</h3>
-                    <p>Dogs require daily care, including feeding, grooming, exercise, and training. Plan to spend several hours each day with your new companion.</p>
+                        <h3>Time Commitment</h3>
+                        <p>Dogs require daily care, including feeding, grooming, exercise, and training. Plan to spend several hours each day with your new companion.</p>
 
-                    <h3>Financial Responsibility</h3>
-                    <p>Adoption fees are just the beginning. Be prepared for ongoing costs, including food, veterinary care, grooming, and unexpected expenses.</p>
+                        <h3>Financial Responsibility</h3>
+                        <p>Adoption fees are just the beginning. Be prepared for ongoing costs, including food, veterinary care, grooming, and unexpected expenses.</p>
 
-                    <h3>Exercise, Play, and Nutrition</h3>
-                    <p>Dogs need daily exercise and playtime to stay happy and healthy. Daily walks and interactive play are important.Also choose high-quality dog food and establish a regular feeding schedule. Consult with your vet for dietary recommendations.
-                    </p>
+                        <h3>Exercise, Play, and Nutrition</h3>
+                        <p>Dogs need daily exercise and playtime to stay happy and healthy. Daily walks and interactive play are important.Also choose high-quality dog food and establish a regular feeding schedule. Consult with your vet for dietary recommendations.
+                        </p>
 
-                    <h3>Veterinary Care</h3>
-                    <p>Regular vet visits for vaccinations, check-ups, and preventive care are essential. Spaying or neutering is also crucial for your dog's health and well-being.</p>
+                        <h3>Veterinary Care</h3>
+                        <p>Regular vet visits for vaccinations, check-ups, and preventive care are essential. Spaying or neutering is also crucial for your dog's health and well-being.</p>
 
-                    <h3>Additional Questions and Information</h3>
-                    <div class="contact">
-                    <a href="contact.html">Contact Us!</a>
+                        <h3>Additional Questions and Information</h3>
+                        <div class="button">
+                            <div class="contact">
+                                <a href="contact.html">Contact Us!</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-
-
-                </div>
                 <div class="column">
                     <h2>Adoption Request</h2>
                     <!-- give form event handler for submitting -->
@@ -312,7 +448,7 @@
                             //select the database
                             $conn->select_db($db);
 
-                                //run a query
+                            //run a query
                             $sql = "SELECT * FROM dogs";
                             $result = $conn->query($sql);
                             $output = "";
@@ -369,71 +505,9 @@
                         <input type ="submit" value = "Submit Order" />
                         
                         </form>
-                        <script>
-                            function getDogInfo() {
-                                const apiKey = "live_Z9Tg1JsWcpEvvoHwH0SjO8tjwBycis9SYiuEWT0CdbWNEzqKqbCz1b9F0RMWkrCY";
-                                const breedInput = document.getElementById('breedInput');
-                                const nameElement = document.getElementById("name");
-                                const bredForElement = document.getElementById("bredFor");
-                                const lifeSpanElement = document.getElementById("lifeSpan");
-                                const temperamentElement = document.getElementById("temperament");
-                                const errorElement = document.getElementById("error");
-                                const heightElement = document.getElementById("height");
-                                const weightElement = document.getElementById("weight");
+                        
 
-
-                                const breed = breedInput.value.toLowerCase();
-
-                                fetch(`https://api.thedogapi.com/v1/breeds/search?q=${breed}`, {
-                                    headers: {
-                                        'x-api-key': apiKey
-                                    }
-                                })
-                                .then(res => res.json())
-                                .then(data => {
-                                    console.log('API Response:', data);
-
-                                    if (data.length > 0) {
-                                        const breedInfo = data[0];
-                                        nameElement.innerHTML = `${breedInfo.name}`;
-                                        bredForElement.innerHTML = `Bred For: ${breedInfo.bred_for}`;
-                                        lifeSpanElement.innerHTML = `Life Span: ${breedInfo.life_span}`;
-                                        temperamentElement.innerHTML = `Temperament: ${breedInfo.temperament}`;
-                                        heightElement.innerHTML = `Average Height: ${breedInfo.height.imperial} inches`;
-                                        weightElement.innerHTML = `Average Weight: ${breedInfo.weight.imperial} pounds`;
-                                        errorElement.innerHTML = "";
-                                    } else {
-                                        nameElement.innerHTML = "";
-                                        bredForElement.innerHTML = "";
-                                        lifeSpanElement.innerHTML = "";
-                                        temperamentElement.innerHTML = "";
-                                        heightElement.innerHTML = "";
-                                        weightElement.innerHTML = "";
-                                        errorElement.innerHTML = "Breed not found. Check spelling or try another one.";
-                                    }
-                                })
-                                .catch(error => {
-                                    console.error('Error fetching breed information:', error);
-                                    alert('Error fetching breed information. Please try again.');
-                                });
-                            }
-                        </script>
-                        <h2> Learn about a dog breed! </h2>
-                        <div class="search-container">
-                            <label for="breedInput">Enter a dog breed: </label>
-                            <input class="dog-input" type="text" id="breedInput">
-                            <button onclick="getDogInfo()">Search</button>
-                        </div>
-
-                        <div class="wrapper">
-                            <div id="name" class="info"></div>
-                            <div id="bredFor" class="info"></div>
-                            <div id="lifeSpan" class="info"></div>
-                            <div id="temperament" class="info"></div>
-                            <div id="error" class="info"></div>
-                            <div id="height" class="info"></div>
-                            <div id="weight" class="info"></div>
-                        </div>
+                        
                         
                 </div>
             </div>

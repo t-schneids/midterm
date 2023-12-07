@@ -74,7 +74,7 @@
             <div class="logo">
                 <li> 
                     <a href="index.html"> 
-                        <img src="logo.png" alt="company logo">
+                        <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
             </div> 
@@ -89,7 +89,7 @@
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.php"> ADOPTION</a>
+            <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
             </li>
             <li>
                 <a class="tabs" href="availableDogs.php" id="current"> AVAILABLE DOGS</a>
@@ -112,7 +112,7 @@
             <!-- BEGIN CARDS-->
             <?php
                 //establish connection info
-                $server = "localhost";// your server
+                $server = "35.212.69.145";// your server
                 $userid = "urre4ivsfgzys"; // your user id
                 $pw = "DogDays12!"; // your pw
                 $db= "db5nvjnj3daedb"; // your database
