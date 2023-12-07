@@ -34,6 +34,7 @@
             border-radius: 25px;
             width: 95%;
             height: 280px;
+            max-width: 400px;
         }
 
         .description {
@@ -70,39 +71,44 @@
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
         }
 
-            h1 {
-                color: rgb(209,21,28);
+        h1 {
+            color: rgb(209, 21, 28);
+        }
+
+        @media (max-width: 600px) {
+            img {
+                max-width: 300px;
             }
-            @media (max-width: 600px){
-                img{
-                    max-width: 300px;
-                }
-                .card{
-                    max-width: 300px;
-                }
+
+            .card {
+                max-width: 300px;
             }
-            @media (max-width: 1460px){
-                .card{
-                    max-width: 300px;
-                }
-                img{
-                    max-width: 300px;
-                }
+        }
+
+        @media (max-width: 1460px) {
+            .card {
+                max-width: 300px;
             }
-        </style>
-    </head>
-    <body>
-        <nav class="nav">
-            <ul class="navlist">
-            <div class="logo">
-                <li> 
-                    <a href="index.html"> 
-                        <img src="logo.png" alt="company logo">
-                    </a> 
-                </li>
-            </div> 
-            </ul>
-        </nav>
+
+            img {
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="nav">
+    <ul class="navlist">
+        <div class="logo">
+            <li>
+                <a href="index.html">
+                    <img src="logo.png" alt="company logo">
+                </a>
+            </li>
+        </div>
+    </ul>
+</nav>
 
 <ul class="tabGroup">
     <li>
@@ -127,29 +133,6 @@
         <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
     </li>
 </ul>
-        <ul class="tabGroup">
-            <li> 
-                <a class="tabs" href="aboutUs.html" > OUR STORY</a> 
-            </li>
-            <li>
-                <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
-            </li>
-            <li>
-            <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
-            </li>
-            <li>
-                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
-            </li>
-            <li>
-                <a class="tabs" href="contact.html"> CONTACT US</a>
-            </li>
-            <li>
-                <a class="tabs" href="events.html"> EVENTS </a>
-            </li>
-            <li>
-                <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
-            </li>
-        </ul>
 
 <button class="hamburger">
     <div class="menuIcon material-icons"> menu</div>
@@ -161,7 +144,7 @@
     <!-- BEGIN CARDS-->
     <?php
     //establish connection info
-    $server = "35.212.69.145";// your server
+    $server = "localhost";// your server
     $userid = "urre4ivsfgzys"; // your user id
     $pw = "DogDays12!"; // your pw
     $db= "db5nvjnj3daedb"; // your database
@@ -176,26 +159,6 @@
 
     //select the database
     $conn->select_db($db);
-        <h1 style="text-align: center">Dog Products</h1>
-        <div class="content">
-            <!-- BEGIN CARDS-->
-            <?php
-                //establish connection info
-                $server = "localhost";// your server
-                $userid = "urre4ivsfgzys"; // your user id
-                $pw = "DogDays12!"; // your pw
-                $db= "db5nvjnj3daedb"; // your database
-                                
-                // Create connection
-                $conn = new mysqli($server, $userid, $pw );
-                            
-                // Check connection
-                 if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                                
-                 //select the database
-                $conn->select_db($db);
 
     //run a query
     $sql = "SELECT * FROM DogProducts";
