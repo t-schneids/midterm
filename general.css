@@ -122,7 +122,6 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    /* color: rgb(15, 6, 82); */
     color: black;
     font-size: 13px;
     text-align: center;
@@ -137,7 +136,6 @@ footer ul.nav {
 }
 
 footer li {
-    /* color: rgb(15, 6, 82); */
     color: black;
     font-size: 13px;
     text-decoration: none;
