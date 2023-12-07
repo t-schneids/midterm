@@ -32,7 +32,7 @@
                 /* padding: 10px;
                 /* object-fit: cover; */
                 /* width: 98%;
-                height: 280px; */ */
+                height: 280px; */
             }
     
             .description {
