@@ -77,7 +77,7 @@
             <div class="logo">
                 <li> 
                     <a href="index.html"> 
-                        <img src="logo.png" alt="company logo">
+                        <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
             </div> 
