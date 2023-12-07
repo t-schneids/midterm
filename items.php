@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Available Dogs</title>
+        <title> Dog Products </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="general.css">
         <!-- links library for hamburger and close icons -->
@@ -27,6 +27,9 @@
             }
 
             .content img {
+                border-radius: 25px;
+                background-color: rgba(152, 106, 79, 0.2);
+                padding: 10px;
                 border-radius: 25px;
             }
     
@@ -74,7 +77,7 @@
             <div class="logo">
                 <li> 
                     <a href="index.html"> 
-                        <img src="wagonLogo.png" alt="company logo">
+                        <img src="logo.png" alt="company logo">
                     </a> 
                 </li>
             </div> 
@@ -89,10 +92,10 @@
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
+            <a class="tabs" href="adoption.php"> ADOPTION</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.php" id="current"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html"> CONTACT US</a>
@@ -101,7 +104,7 @@
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
             <li>
-                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
+                <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
             </li>
         </ul>
 
@@ -110,7 +113,7 @@
             <div class="closeIcon material-icons"> close</div>
         </button>
 
-        <h1 style="text-align: center">Available Dogs</h1>
+        <h1 style="text-align: center">Dog Products</h1>
         <div class="content">
             <!-- BEGIN CARDS-->
             <?php
@@ -131,15 +134,15 @@
                  //select the database
                 $conn->select_db($db);
 
-                    //run a query
-                $sql = "SELECT * FROM dogs";
+                //run a query
+                $sql = "SELECT * FROM DogProducts";
                 $result = $conn->query($sql);
                 $output = "";
                 $count = 1;
 
                 while($row = $result->fetch_array()) 
                 {
-                    $output .= '<div id="card"'. $count . ' class="card"> <img src="' . $row['dogImgPath'] . '" alt="Dog ' . $count . '"> <h2>' . $row['dogName'] . '</h2>' . '<div class="description"> <p>Age: ' . $row['dogAge'] . '</p> <p>' . $row['dogDescription'] . '</p> </div> </div>';
+                    $output .= '<div id="card"'. $count . ' class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Age: ' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> </div> </div>';
 
                     $count += 1;
                 }
