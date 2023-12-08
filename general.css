@@ -30,6 +30,11 @@ body {
     backdrop-filter: blur(20px);
 }
 
+.logo {
+    display: flex;
+    flex-direction: row;
+}
+
 .logo img{
     vertical-align: middle;
     width: 92px;
@@ -48,7 +53,7 @@ body {
 #companyName {
     font-size: xx-large;
     font-weight: 800;
-
+    padding: 14px 16px;
 }
 
 /* new tab group style */
