@@ -34,7 +34,7 @@
             border-radius: 25px;
             width: 95%;
             height: 280px;
-            max-width: 400px;
+            max-width: 394px;
         }
 
         .description {
@@ -56,7 +56,7 @@
             text-decoration: none;
             color: black;
             border-radius: 5px;
-            cursor: pointer; /* Add cursor style */
+            cursor: pointer;
         }
 
         footer {
@@ -72,7 +72,10 @@
         }
 
         h1 {
-            color: rgb(209, 21, 28);
+            color: rgb(209,21,28);
+            margin: 10px;
+            font-size: 40px;
+            text-align: center;
         }
 
         @media (max-width: 600px) {
