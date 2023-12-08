@@ -95,6 +95,24 @@
             }
         }
     </style>
+    <script>
+        function addToCart(productID) {
+            var formData = $('#form' + productID).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: 'process_form.php',
+                data: formData,
+                success: function(response) {
+                    alert('Item added to cart!');
+                    // You can update the UI or perform other actions here
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -168,8 +186,25 @@
 
     while($row = $result->fetch_array())
     {
-        $output .= '<div id="card' . $count . '" class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Pirce: $' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> <div class="button-container">
-                    <a href="#" class="button addToCartButton" data-user-id="123" data-item="' . $row['Item'] . '"> Add to Cart </a> </div> </div> </div>';
+        $output .= '<div id="card' . $count . '" class="card">';
+        $output .= '<form method="post" action="processForm.php" class="cart-form" id="form' . $row['productID'] . '">';
+        $output .= '<img src="' . $row['Image'] . '" alt="Dog ' . $count . '">';
+        $output .= '<h2>' . $row['Item'] . '</h2>';
+        $output .= '<div class="description">';
+        $output .= '<p>Price: $' . $row['Price'] . '</p>';
+        $output .= '<p>' . $row['Description'] . '</p>';
+        $output .= '<div class="quantity-container">';
+        $output .= '<label for="quantity' . $count . '">Quantity:</label>';
+        $output .= '<select name="quantity" id="quantity' . $count . '">';
+        for ($i = 0; $i <= 10; $i++) {
+            $output .= '<option value="' . $i . '">' . $i . '</option>';
+        }
+        $output .= '</select>';
+        $output .= '</div>';
+        $output .= '<div class="button-container">';
+        $output .= '<input type="hidden" name="productID" value="' . $row['productID'] . '">';
+        $output .= '<button type="button" class="button addToCartButton" onclick="addToCart(' . $row['productID'] . ')">Add to Cart</button>';
+        $output .= '</div> </div> </form> </div>';
 
         $count += 1;
     }

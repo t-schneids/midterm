@@ -37,8 +37,8 @@ body {
 
 .logo img{
     vertical-align: middle;
-    width: 92px;
-    height: 83px;
+    width: 82px;
+    height: 73px;
     background-color: transparent;
     padding-bottom: 3px;
     padding-top: 2px;
@@ -53,7 +53,7 @@ body {
 #companyName {
     font-size: xx-large;
     font-weight: 800;
-    padding: 14px 16px;
+    padding: 14px 5px;
 }
 
 /* new tab group style */
@@ -63,7 +63,7 @@ body {
     position: absolute;
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-right: 11px;
     top: 0;
     right: 50px;
@@ -93,7 +93,7 @@ body {
 .tabGroup {
     list-style-type: none;
     font-size: large;
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     transform: translateY(-200%); 
