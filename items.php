@@ -168,7 +168,7 @@
 
     while($row = $result->fetch_array())
     {
-        $output .= '<div id="card' . $count . '" class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Age: ' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> <div class="button-container">
+        $output .= '<div id="card' . $count . '" class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Pirce: $' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> <div class="button-container">
                     <a href="#" class="button addToCartButton" data-user-id="123" data-item="' . $row['Item'] . '"> Add to Cart </a> </div> </div> </div>';
 
         $count += 1;
