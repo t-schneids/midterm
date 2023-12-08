@@ -101,115 +101,122 @@
 </head>
 
 <body>
-<nav class="nav">
-    <ul class="navlist">
-        <div class="logo">
-            <li>
-                <a href="index.html">
-                    <img src="wagonLogo.png" alt="company logo">
-                </a>
-            </li>
-        </div>
-    </ul>
-</nav>
-
-<ul class="tabGroup">
-    <li>
-        <a class="tabs" href="aboutUs.html"> OUR STORY</a>
-    </li>
-    <li>
-        <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
-    </li>
-    <li>
-        <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
-    </li>
-    <li>
-        <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
-    </li>
-    <li>
-        <a class="tabs" href="contact.html"> CONTACT US</a>
-    </li>
-    <li>
-        <a class="tabs" href="events.html"> EVENTS </a>
-    </li>
-    <li>
-        <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
-    </li>
-</ul>
-
-<button class="hamburger">
-    <div class="menuIcon material-icons"> menu</div>
-    <div class="closeIcon material-icons"> close</div>
-</button>
-
-<h1 style="text-align: center">Dog Products</h1>
-<div class="content">
-    <!-- BEGIN CARDS-->
-    <?php
-    //establish connection info
-    $server = "35.212.69.145";// your server
-    $userid = "urre4ivsfgzys"; // your user id
-    $pw = "DogDays12!"; // your pw
-    $db= "db5nvjnj3daedb"; // your database
-
-    // Create connection
-    $conn = new mysqli($server, $userid, $pw );
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    //select the database
-    $conn->select_db($db);
-
-    //run a query
-    $sql = "SELECT * FROM DogProducts";
-    $result = $conn->query($sql);
-    $output = "";
-    $count = 1;
-
-    while($row = $result->fetch_array())
-    {
-        $output .= '<div id="card' . $count . '" class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Price: $' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> <div class="button-container">
-                    <a href="#" class="button addToCartButton" data-user-id="123" data-item="' . $row['Item'] . '"> Add to Cart </a> </div> </div> </div>';
-
-        $count += 1;
-    }
-
-    echo $output;
-    ?>
-
-    <!-- END -->
-</div>
-
-<footer>
-    <h4> &copy; 2017 Rescue Waggin' </h4>
-    <ul class="nav">
-        <ul class="nav">
-            <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
-            <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>
-            <li> <a href="https://www.facebook.com"><img src="images/facebookLogo.png" style="width:20px;height:20px;"></a> </li>
+    <nav class="nav">
+        <ul class="navlist">
+            <div class="logo">
+                <li>
+                    <a href="index.html">
+                        <img src="wagonLogo.png" alt="company logo">
+                    </a>
+                </li>
+                <li class="newTabs" id="companyName"> Rescue Waggin</li>
+            </div>
         </ul>
+    </nav>
+
+    <ul class="profile">
+        <li>
+            <a class="newTabs" href="#">LOGIN</a>
+        </li>
     </ul>
-</footer>
 
-<script>
-    $(document).ready(function() {
-        $('.addToCartButton').on('click', function(event) {
-            // Get the user id and item from data attributes
-            var userId = $(this).data('user-id');
-            var item = $(this).data('item');
+    <ul class="tabGroup">
+        <li>
+            <a class="tabs" href="aboutUs.html"> OUR STORY</a>
+        </li>
+        <li>
+            <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
+        </li>
+        <li>
+            <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
+        </li>
+        <li>
+            <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
+        </li>
+        <li>
+            <a class="tabs" href="contact.html"> CONTACT US</a>
+        </li>
+        <li>
+            <a class="tabs" href="events.html"> EVENTS </a>
+        </li>
+        <li>
+            <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
+        </li>
+    </ul>
 
-            addToCart(userId, item);
-        });
+    <button class="hamburger">
+        <div class="menuIcon material-icons"> menu</div>
+        <div class="closeIcon material-icons"> close</div>
+    </button>
 
-        function addToCart(userId, item) {
-            // add logic to add to cart
-            console.log('Adding to cart - User ID:', userId, 'Item:', item);
+    <h1 style="text-align: center">Dog Products</h1>
+    <div class="content">
+        <!-- BEGIN CARDS-->
+        <?php
+        //establish connection info
+        $server = "35.212.69.145";// your server
+        $userid = "urre4ivsfgzys"; // your user id
+        $pw = "DogDays12!"; // your pw
+        $db= "db5nvjnj3daedb"; // your database
+
+        // Create connection
+        $conn = new mysqli($server, $userid, $pw );
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-    });
-</script>
+
+        //select the database
+        $conn->select_db($db);
+
+        //run a query
+        $sql = "SELECT * FROM DogProducts";
+        $result = $conn->query($sql);
+        $output = "";
+        $count = 1;
+
+        while($row = $result->fetch_array())
+        {
+            $output .= '<div id="card' . $count . '" class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Pirce: $' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> <div class="button-container">
+                        <a href="#" class="button addToCartButton" data-user-id="123" data-item="' . $row['Item'] . '"> Add to Cart </a> </div> </div> </div>';
+
+            $count += 1;
+        }
+
+        echo $output;
+        ?>
+
+        <!-- END -->
+    </div>
+
+    <footer>
+        <h4> &copy; 2017 Rescue Waggin' </h4>
+        <ul class="nav">
+            <ul class="nav">
+                <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
+                <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>
+                <li> <a href="https://www.facebook.com"><img src="images/facebookLogo.png" style="width:20px;height:20px;"></a> </li>
+            </ul>
+        </ul>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('.addToCartButton').on('click', function(event) {
+                // Get the user id and item from data attributes
+                var userId = $(this).data('user-id');
+                var item = $(this).data('item');
+
+                addToCart(userId, item);
+            });
+
+            function addToCart(userId, item) {
+                // add logic to add to cart
+                console.log('Adding to cart - User ID:', userId, 'Item:', item);
+            }
+        });
+    </script>
 
 </body>
 </html>
