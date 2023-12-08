@@ -256,10 +256,16 @@
                         <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
+                <li class="newTabs" id="companyName"> Rescue Waggin</li>
             </div> 
             </ul>
         </nav>
 
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="#">LOGIN</a>
+            </li>
+        </ul>
         <ul class="tabGroup">
             <li> 
                 <a class="tabs" href="aboutUs.html" > OUR STORY</a> 
@@ -279,7 +285,7 @@
             <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
-<li>
+            <li>
                 <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>

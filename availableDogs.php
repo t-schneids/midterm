@@ -82,10 +82,16 @@
                         <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
+                <li class="newTabs" id="companyName"> Rescue Waggin</li>
             </div> 
             </ul>
         </nav>
 
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="#">LOGIN</a>
+            </li>
+        </ul>
         <ul class="tabGroup">
             <li> 
                 <a class="tabs" href="aboutUs.html" > OUR STORY</a> 
@@ -120,7 +126,7 @@
             <!-- BEGIN CARDS-->
             <?php
                 //establish connection info
-                $server = "localhost";// your server
+                $server = "35.212.69.145";// your server
                 $userid = "urre4ivsfgzys"; // your user id
                 $pw = "DogDays12!"; // your pw
                 $db= "db5nvjnj3daedb"; // your database
