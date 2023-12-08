@@ -11,7 +11,7 @@ $email = $_SESSION['user'];
 
 
 // Establish connection info
-$server = "35.212.69.145"; 
+$server = "localhost"; 
 $userid = "urre4ivsfgzys"; 
 $pw = "DogDays12!"; 
 $db = "db5nvjnj3daedb"; 

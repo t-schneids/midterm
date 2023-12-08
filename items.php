@@ -101,10 +101,11 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'process_form.php',
+                url: 'processForm.php',
                 data: formData,
                 success: function(response) {
-                    alert('Item added to cart!');
+                    alert("Successfully added to cart!");
+                    alert(response);
                     // You can update the UI or perform other actions here
                 },
                 error: function(error) {
@@ -162,7 +163,7 @@
     <!-- BEGIN CARDS-->
     <?php
     //establish connection info
-    $server = "35.212.69.145";// your server
+    $server = "localhost";// your server
     $userid = "urre4ivsfgzys"; // your user id
     $pw = "DogDays12!"; // your pw
     $db= "db5nvjnj3daedb"; // your database
@@ -225,23 +226,6 @@
         </ul>
     </ul>
 </footer>
-
-<script>
-    $(document).ready(function() {
-        $('.addToCartButton').on('click', function(event) {
-            // Get the user id and item from data attributes
-            var userId = $(this).data('user-id');
-            var item = $(this).data('item');
-
-            addToCart(userId, item);
-        });
-
-        function addToCart(userId, item) {
-            // add logic to add to cart
-            console.log('Adding to cart - User ID:', userId, 'Item:', item);
-        }
-    });
-</script>
 
 </body>
 </html>

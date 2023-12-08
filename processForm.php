@@ -1,5 +1,11 @@
 <?php
     session_start();
+    
+    
+    if (!isset($_SESSION['user']) || !isset($_SESSION['logged'])) {
+        header("Location: login.php");
+        exit();
+    }
 
     
 
@@ -25,15 +31,24 @@
         // Retrieve form data
         $productID = $_POST['productID'];
         $quantity = $_POST['quantity'];
+        $userID = $_SESSION['userID'];
 
 
-
+        $output = "";
+        $output .= $productID . " is productID.";
         //run a query
-        $sql = "SELECT * FROM DogProducts where 'productID' = $productID";
+        $sql = "INSERT INTO cart (userID, productID, quantity) VALUES ('$userID', '$productID', '$quantity')";
+
+        //  $output .= 'user id is ' . $userid;
+        // $sql = "SELECT * FROM cart";
+
         $result = $conn->query($sql);
-
-        echo 'success';
-
+        // while($row = $result->fetch_assoc())
+        // {
+        //     // $output .= ' The product is ' . $row['Item'] . '. Ordered with quanitity ' . $quantity . '.' . "userID is " . $userid . '.';
+        // }
+        
+        echo $output;
         // Close the database connection 
         $conn->close();
     } else {

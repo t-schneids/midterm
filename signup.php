@@ -5,7 +5,7 @@ session_start();
 <?php
         if(isset($_POST['First_Name']) && isset($_POST['Last_Name']) && isset($_POST['password']) && isset($_POST['email'])){
             //establish connection info
-            $server = "35.212.69.145";
+            $server = "localhost";
             $userid = "urre4ivsfgzys"; 
             $pw = "DogDays12!"; 
             $db= "db5nvjnj3daedb"; 
