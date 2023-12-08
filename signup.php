@@ -1,6 +1,34 @@
 <?php
 session_start();
 ?>
+
+<?php
+        if(isset($_POST['First_Name']) && isset($_POST['Last_Name']) && isset($_POST['password']) && isset($_POST['email'])){
+            //establish connection info
+            $server = "35.212.69.145";
+            $userid = "urre4ivsfgzys"; 
+            $pw = "DogDays12!"; 
+            $db= "db5nvjnj3daedb"; 
+                
+            // Create connection
+            $conn = new mysqli($server, $userid, $pw );
+            
+            // Check connection
+            if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+            }
+            else{
+                echo "connected succesfully";
+            }
+
+            $conn->select_db($db);
+            extract($_POST);
+            $query = "INSERT INTO users (userID, firstName, lastName, email, password) VALUES (NULL, '$First_Name', '$Last_Name', '$email', '$password')";
+            $conn->query($query);
+            $conn->close();
+        }
+            
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -150,35 +178,7 @@ session_start();
             <div class="closeIcon material-icons"> close</div>
         </button>
 
-        
-      
-            <?php
-                if(isset($_POST['First_Name']) && isset($_POST['Last_Name']) && isset($_POST['password']) && isset($_POST['email'])){
-                    //establish connection info
-                    $server = "35.212.69.145";// your server
-                    $userid = "urre4ivsfgzys"; // your user id
-                    $pw = "DogDays12!"; // your pw
-                    $db= "db5nvjnj3daedb"; // your database
-                        
-                    // Create connection
-                    $conn = new mysqli($server, $userid, $pw );
-                    
-                    // Check connection
-                    if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                    }
-                    else{
-                        echo "connected succesfully";
-                    }
 
-                    $conn->select_db($db);
-                    extract($_POST);
-                    $query = "INSERT INTO users (userID, firstName, lastName, email, password) VALUES (NULL, '$First_Name', '$Last_Name', '$email', '$password')";
-                    $conn->query($query);
-                    $conn->close();
-                }
-                    
-            ?>
             <div>
                 <form method="POST" id="signup_form" name="signup_form" action="signup.php" onsubmit="return validate()">
                 <h1>Sign Up</h1>
@@ -186,7 +186,7 @@ session_start();
                   Last Name:   <input id="lname" type="text" name="Last Name" class="userInfo"/> <br/>
                   Email:  <input id='email' type='text' name='email' class="userInfo"/> <br/>
                   Password:  <input id="password" type="password" name="password" class="userInfo"/> <br/>
-                    <input id='submit_button' type='submit' name='submit_button' class="userInfo"><br/>
+                    <input id='submit_button' type='submit' name='submit_button' class="userInfo" value="Sign Up"><br/>
                 </form>
             </div>
 

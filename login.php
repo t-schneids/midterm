@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
 session_start();
-?> -->
+?>
 
 <!DOCTYPE html>
 <html>
@@ -87,36 +87,40 @@ session_start();
         <script>
             //handling db_response asynchronously in order not to refresh page
 
-            $(document).ready(function(){
-                $('#login_form').on('submit', function(e){
-                    e.preventDefault(); // Prevent form submission
+            // $(document).ready(function(){
+            //     $('#login_form').on('submit', function(e){
+            //         e.preventDefault(); // Prevent form submission
 
-                    // AJAX call to handle form submission
-                    if(validate()){
-                        $.ajax({
-                            type: 'POST',
-                            url: 'processLogin.php', // Send request to the same PHP file
-                            data: $(this).serialize(), // Serialize form data
-                            dataType: 'json', // Expect JSON response
-                            success: function(response){
-                                if (response.found) {
-                                    // User found, display user data or perform necessary actions
-                                    alert('user found');
-                                    $('#messageDiv').html("Account found!");
-                                } else {
-                                    // No user found, display the message
-                                    $('#messageDiv').html("No account found with this email/password combination.");
-                                }
-                            },
-                            error: function(xhr, status, error){
-                                console.error(xhr.responseText); // Log the error to console
-                                // Handle the error or debug the issue
-                            }
-                        });
-                    }
+            //         // AJAX call to handle form submission
+            //         if(validate()){
+            //             $.ajax({
+            //                 type: 'POST',
+            //                 url: 'processLogin.php', // Send request to the same PHP file
+            //                 data: $(this).serialize(), // Serialize form data
+            //                 dataType: 'json', // Expect JSON response
+            //                 success: function(response){
+            //                     if (response.found) {
+            //                         // User found, display user data or perform necessary actions
+            //                         alert('user found');
+            //                         $('#messageDiv').html("Account found!");
+            //                         form = $(this);
+            //                         form.off('submit'); // Remove previous submit handler to avoid infinite loop
+            //                         form.submit(); // Submit the form
+                                    
+            //                     } else {
+            //                         // No user found, display the message
+            //                         $('#messageDiv').html("No account found with this email/password combination.");
+            //                     }
+            //                 },
+            //                 error: function(xhr, status, error){
+            //                     console.error(xhr.responseText); // Log the error to console
+            //                     // Handle the error or debug the issue
+            //                 }
+            //             });
+            //         }
 
-                });
-            });
+            //     });
+            // });
 
             // validateForm
             // Parameters: None
@@ -186,7 +190,7 @@ session_start();
 
 
             <div id='loginDiv'>
-                <form method="POST" id="login_form" name="login_form">
+                <form method="POST" id="login_form" name="login_form" action="processLogin.php" onsubmit="return validate()">
                 <h1>Login</h1>
                   Email:  <input id='email' type='text' name='email' class="userInfo"/> <br/>
                   Password:  <input id="password" type="password" name="password" class="userInfo"/> <br/>

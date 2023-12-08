@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //establish connection info
         $server = "35.212.69.145";// your server
@@ -22,15 +23,15 @@
         $response = array(); // Initialize a response array
 
         if ($result->num_rows > 0) {
-            $response['found'] = true;
+            $row = $result->fetch_assoc();
+            $_SESSION['user'] = $email;
+            $_SESSION['logged'] = true;
+            $_SESSION['userID'] = $row['userID'];
+            header('Location: dashboard.php');
         } 
         else {
-            // If no user found, set the 'found' flag to false
-            $response['found'] = false;
+            header('Location: login.php');
         }
-        // Send the JSON-encoded response
-        header('Content-Type: application/json');
-        echo json_encode($response);
         $conn->close();
         
     }
