@@ -144,7 +144,7 @@
     <!-- BEGIN CARDS-->
     <?php
     //establish connection info
-    $server = "localhost";// your server
+    $server = "35.212.69.145";// your server
     $userid = "urre4ivsfgzys"; // your user id
     $pw = "DogDays12!"; // your pw
     $db= "db5nvjnj3daedb"; // your database
@@ -168,7 +168,7 @@
 
     while($row = $result->fetch_array())
     {
-        $output .= '<div id="card' . $count . '" class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Pirce: $' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> <div class="button-container">
+        $output .= '<div id="card' . $count . '" class="card"> <img src="' . $row['Image'] . '" alt="Dog ' . $count . '"> <h2>' . $row['Item'] . '</h2>' . '<div class="description"> <p>Price: $' . $row['Price'] . '</p> <p>' . $row['Description'] . '</p> <div class="button-container">
                     <a href="#" class="button addToCartButton" data-user-id="123" data-item="' . $row['Item'] . '"> Add to Cart </a> </div> </div> </div>';
 
         $count += 1;
