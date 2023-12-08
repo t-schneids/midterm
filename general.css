@@ -30,6 +30,11 @@ body {
     backdrop-filter: blur(20px);
 }
 
+.logo {
+    display: flex;
+    flex-direction: row;
+}
+
 .logo img{
     vertical-align: middle;
     width: 92px;
@@ -45,7 +50,14 @@ body {
     padding-top: 15px;
 }
 
-.tabGroup {
+#companyName {
+    font-size: xx-large;
+    font-weight: 800;
+    padding: 14px 16px;
+}
+
+/* new tab group style */
+.profile {
     list-style-type: none;
     font-size: large;
     position: absolute;
@@ -54,12 +66,48 @@ body {
     margin-top: 20px;
     margin-right: 11px;
     top: 0;
+    right: 50px;
+    width: fit-content;
+    height: auto;
+    z-index: 99;
+    background: transparent;
+    border-radius: 5%;
+}
+
+.profile li a {
+    text-decoration: none;
+    color: black;
+    padding:  14px 16px;
+}
+
+.profile li {
+    padding:  14px 16px;
+    
+}
+
+.profile li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+}
+
+.tabGroup {
+    list-style-type: none;
+    font-size: large;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-200%); 
+    transition: transform 0.5s;
+    margin-top: 42px;
+    margin-right: 11px;
+    top: 0;
     right: 0;
     width: fit-content;
     height: auto;
     z-index: 99;
-    background: transparent; 
+    background: navy; 
     border-radius: 5%;
+    opacity: 0;
 }
 
 
@@ -67,7 +115,8 @@ body {
 .tabGroup li a{
     float: right;
     transition-duration: 0.4s;
-    color: black;
+    /* color: black; */
+    color: white;
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
@@ -75,11 +124,12 @@ body {
 
 /* Make the current page's tab red */
 #current {
-    color: rgb(209,21,28);
+    /* color: rgb(209,21,28); */
+    color: yellow;
 }
 
 .tabGroup li a:hover {
-    background-color: rgba(255, 255, 255, 0.348);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 25px;
 }
 
@@ -98,7 +148,12 @@ body {
     border: black solid 1px;
     background-color: white;
     cursor: pointer;
-    transform: translateY(-200%);
+    transform: translateY(0);
+    transition: transform 0.5s;
+}
+
+.showMenu {
+    transform: translateY(0);
 }
 
 .closeIcon {
@@ -152,7 +207,7 @@ footer li {
         font-size: 30px;
     }
 
-    .hamburger {
+    /* .hamburger {
         transform: translateY(0);
         transition: transform 0.5s;
     }
@@ -190,7 +245,7 @@ footer li {
     }
 
     /* Class added and removed by JS for hamburger menu */
-    .showMenu {
+    /* .showMenu {
         transform: translateY(0);
-    }
+    //}  */
 }

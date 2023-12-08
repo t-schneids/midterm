@@ -34,6 +34,7 @@
             border-radius: 25px;
             width: 95%;
             height: 280px;
+            max-width: 400px;
         }
 
         .description {
@@ -143,7 +144,7 @@
     <!-- BEGIN CARDS-->
     <?php
     //establish connection info
-    $server = "35.212.69.145";// your server
+    $server = "localhost";// your server
     $userid = "urre4ivsfgzys"; // your user id
     $pw = "DogDays12!"; // your pw
     $db= "db5nvjnj3daedb"; // your database
