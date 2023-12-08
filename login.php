@@ -152,25 +152,36 @@ session_start();
     <body>
         <nav class="nav">
             <ul class="navlist">
-            <div class="logo">
-                <li> 
-                    <a href="index.html"> 
-                        <img src="logo.png" alt="company logo">
-                    </a> 
-                </li>
-            </div> 
+                <div class="logo">
+                    <li>
+                        <a href="index.html">
+                            <img src="wagonLogo.png" alt="company logo">
+                        </a>
+                    </li>
+                    <li class="newTabs" id="companyName"> Rescue Waggin</li>
+                </div>
             </ul>
         </nav>
 
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="dashboard.php">Dashboard</a>
+            </li>
+        </ul>
+        <ul class="cart">
+                <li>
+                    <a class="newTabs" href="index.html"><img src="images/cart.png" width="20"></a>
+                </li>
+        </ul>
         <ul class="tabGroup">
-            <li> 
-                <a class="tabs" href="aboutUs.html" > OUR STORY</a> 
+            <li>
+                <a class="tabs" href="aboutUs.html"> OUR STORY</a>
             </li>
             <li>
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.php" id="current"> ADOPTION</a>
+                <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
             </li>
             <li>
                 <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
@@ -180,6 +191,9 @@ session_start();
             </li>
             <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
+            </li>
+            <li>
+                <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
             </li>
         </ul>
 
