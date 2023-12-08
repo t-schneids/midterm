@@ -19,6 +19,10 @@ body {
     z-index: 99;
 }
 
+h1 {
+    font-size: 40px;;
+}
+
 .navlist {
     overflow: hidden;
     list-style-type: none;

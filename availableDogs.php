@@ -54,6 +54,10 @@
 
             h1 {
                 color: rgb(209,21,28);
+                margin: 10px;
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 5px;
             }
             @media (max-width: 600px){
                 img{

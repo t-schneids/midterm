@@ -14,8 +14,10 @@
                 position: relative !important;
             }
             h1 {
-                text-align: center;
                 color: rgb(209,21,28);
+                margin: 10px;
+                font-size: 40px;
+                text-align: center;
             }
 
             label {
