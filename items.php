@@ -78,6 +78,10 @@
             text-align: center;
         }
 
+        .quantity-container {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+        }
+
         @media (max-width: 600px) {
             img {
                 max-width: 300px;
@@ -154,7 +158,7 @@
             <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
         </li>
         <li>
-            <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
+            <a class="tabs" href="availableDogs.php"> SEE OUR DOGS </a>
         </li>
         <li>
             <a class="tabs" href="contact.html"> CONTACT US</a>
