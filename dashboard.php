@@ -86,6 +86,26 @@
                 text-align: center;
             }
 
+            .logout a {
+                text-decoration: none;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: 800;
+                color: black;
+            }
+
+            .logout {
+                width: fit-content;
+                background-color: rgba(209,21,28, 0.6);
+                padding: 14px 16px;
+            }
+
+            .button {
+                justify-content: center;
+                display: flex;
+                margin-bottom: 15px;
+                margin-top: 7px;
+            }
+
             @media (max-width: 1200px) {     
                 td {
                     text-align: center;
