@@ -83,8 +83,11 @@ $(document).ready(function(){
 });
 </script>";
 
+//Header for output page
 $head = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<link rel='stylesheet' href='general.css'>
 <script src='https://code.jquery.com/jquery-3.7.1.min.js' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script>$script
+
 <style type='text/css'>
     .prodImgs{
         max-width : 50px;
@@ -96,9 +99,112 @@ $head = "<head><meta name='viewport' content='width=device-width, initial-scale=
     body{
         text-align: center;
     }
+
+    .button {
+        display: inline-block;
+        padding: 10px;
+        background-color: rgba(209, 21, 27, 0.394);
+        text-decoration: none;
+        color: black;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    p {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+    }
+
+    h2 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+    }
+
+    h1 {
+        color: rgb(209,21,28);
+        margin: 10px;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    @media (max-width: 600px) {
+        img {
+            max-width: 300px;
+        }
+
+        .card {
+            max-width: 300px;
+        }
+    }
+
+    @media (max-width: 1460px) {
+        .card {
+            max-width: 300px;
+        }
+
+        img {
+            max-width: 300px;
+        }
+    }
 </style></head>";
 
-$output_page = "<html>$head<body><h1>Shopping Cart</h1>";
+//final output page string
+$output_page = "<html>$head <body>
+<nav class='nav'>
+    <ul class='navlist'>
+        <div class='logo'>
+            <li>
+                <a href='index.html'>
+                    <img src='wagonLogo.png' alt='company logo'>
+                </a>
+            </li>
+            <li class='newTabs' id='companyName'> Rescue Waggin</li>
+        </div>
+    </ul>
+</nav>
+
+<ul class='profile'>
+    <li>
+        <a class='newTabs' href='dashboard.php'>Dashboard</a>
+    </li>
+</ul>
+<ul class='cart'>
+        <li>
+            <a class='newTabs' href='shoppingCart.php'><img src='images/cart.png' width='20'></a>
+        </li>
+</ul>
+<ul class='tabGroup'>
+    <li>
+        <a class='tabs' href='aboutUs.html'> OUR STORY</a>
+    </li>
+    <li>
+        <a class='tabs' href='rescues.html'> RECENT RESCUES</a>
+    </li>
+    <li>
+        <a class='tabs' href='adoption.php'> ADOPT A DOG</a>
+    </li>
+    <li>
+        <a class='tabs' href='availableDogs.php'> AVAILABLE DOGS</a>
+    </li>
+    <li>
+        <a class='tabs' href='contact.html'> CONTACT US</a>
+    </li>
+    <li>
+        <a class='tabs' href='events.html'> EVENTS </a>
+    </li>
+    <li>
+        <a class='tabs' href='items.php' id='current'> DOG PRODUCTS </a>
+    </li>
+</ul>
+
+<button class='hamburger'>
+    <div class='menuIcon material-icons'> menu</div>
+    <div class='closeIcon material-icons'> close</div>
+</button>
+
+<h1>Shopping Cart</h1>";
 
 $cartTable = "<table id='cartTable'>";
 
@@ -128,6 +234,16 @@ $cartTable .= "</table>";
 $output_page .= "$cartTable <br/>
 <div id='totalOrderPriceDiv'>Order Total: $totalOrderPrice</div>
 <button id='completePurchaseButton'>Checkout</button>
+<footer>
+<h4> &copy; 2017 Rescue Waggin' </h4>
+<ul class='nav'>
+    <ul class='nav'>
+        <li> <a href='https://www.gmail.com'><img src='images/gmailLogo.png' style='width:25px;height:20px;'></a> </li>
+        <li> <a href='https://www.instagram.com'><img src='images/instagramLogo.png' style='width:20px;height:20px;'></a> </li>
+        <li> <a href='https://www.facebook.com'><img src='images/facebookLogo.png' style='width:20px;height:20px;'></a> </li>
+    </ul>
+</ul>
+</footer>
 </body>
 </html>";
 
