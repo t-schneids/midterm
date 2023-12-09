@@ -11,7 +11,7 @@ $email = $_SESSION['user'];
 
 
 // Establish connection info
-$server = "35.212.69.145"; 
+$server = "localhost"; 
 $userid = "urre4ivsfgzys"; 
 $pw = "DogDays12!"; 
 $db = "db5nvjnj3daedb"; 
@@ -132,6 +132,16 @@ if ($result->num_rows > 0) {
             </div> 
             </ul>
         </nav>
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="dashboard.php">Dasboard</a>
+            </li>
+        </ul>
+        <ul class="cart">
+            <li>
+                <a class="newTabs" href="shoppingCart.php"><img src="images/cart.png" width="20"></a>
+            </li>
+        </ul>
 
         <ul class="tabGroup">
             <li> 
@@ -151,6 +161,9 @@ if ($result->num_rows > 0) {
             </li>
             <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
+            </li>
+            <li>
+                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>
 

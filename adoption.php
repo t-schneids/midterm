@@ -270,7 +270,7 @@
         </ul>
         <ul class="cart">
             <li>
-                <a class="newTabs" href="index.html"><img src="images/cart.png" width="20"></a>
+                <a class="newTabs" href="shoppingCart.php"><img src="images/cart.png" width="20"></a>
             </li>
         </ul>
         <ul class="tabGroup">
@@ -448,7 +448,7 @@
 
                         <?php
                            //establish connection info
-                            $server = "35.212.69.145";// your server
+                            $server = "localhost";// your server
                             $userid = "urre4ivsfgzys"; // your user id
                             $pw = "DogDays12!"; // your pw
                             $db= "db5nvjnj3daedb"; // your database
