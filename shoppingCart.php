@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-$output_page .= "<ul>
+$output_page .= "</ul>
 </body>
 </html>";
 echo $output_page;
