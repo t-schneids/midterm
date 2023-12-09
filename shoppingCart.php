@@ -127,6 +127,7 @@ $cartTable .= "</table>";
 
 $output_page .= "$cartTable <br/>
 <div id='totalOrderPriceDiv'>Order Total: $totalOrderPrice</div>
+<button id='completePurchaseButton'>Checkout</button>
 </body>
 </html>";
 
