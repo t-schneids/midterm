@@ -299,8 +299,7 @@
                     </div>
                     <div id="contact-form">
                         <div class = "contactForm">
-                            <form onsubmit="return validateContact()">
-                            <form action="#">
+                            <form onsubmit="return validateContact()" >
                                 <label for="name">Name:</label> <br/>
                                 <input class="userInfo" type="text" id="name" name="name" ><br> <br/>
                     
@@ -333,8 +332,9 @@
                 </div>
             </div>
             <div id ="right">
-                <form onsubmit="validateDonate()" action="#">
-                <div id = "titles" > Make your donation here:</div>
+                <form onsubmit="validateDonate()" method="post" action="processDonation.php">
+                <h1>Make your donation here:</h1>
+                    
                 <div class="donateContainer">
                     <p1><strong> Personal Information: </strong></p1>
                     <br/>
@@ -349,15 +349,15 @@
                     <br/>
 
                     <input type="radio" name="amount" value="five" />
-                    <label> $5 </label> </br>
+                    <label name="amount"> $5 </label> </br>
                     <input type="radio" name="amount" value="ten" />
-                    <label> $10 </label> </br>
+                    <label name="amount"> $10 </label> </br>
                     <input type="radio" name="amount" value="25" />
-                    <label> $25 </label> </br>
+                    <label name="amount"> $25 </label> </br>
                     <input type="radio" name="amount" value="50" />
-                    <label> $50 </label> </br>
+                    <label name="amount"> $50 </label> </br>
                     <input type="radio" name="amount" value="100" />
-                    <label> $100 </label> </br>
+                    <label name="amount"> $100 </label> </br>
                     <br/>
                     <p1> <strong>Payment Information:</strong></p1>
                     <br/>
@@ -372,6 +372,7 @@
                 </div>
             </div>
         </div>
+        
 
         <footer>
             <h4> &copy; 2017 Rescue Waggin' </h4>

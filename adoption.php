@@ -428,7 +428,7 @@
                 <div class="column">
                     <h2>Adoption Request</h2>
                     <!-- give form event handler for submitting -->
-                    <form onsubmit="return validateForm()" action="#">
+                    <form onsubmit="return validateForm()" method="post" action="processAdoption.php">
 
                         <p><label>First Name*:</label> <input class="userInfo"
                             type="text"  name='first name' /></p>
@@ -473,7 +473,7 @@
 
                             while($row = $result->fetch_array()) 
                             {
-                                $output .= '<option> "' . $row['dogName'] . '"' . ' the ' . $row['breed'] . ', age ' . $row['dogAge'] . '</option>';
+                                $output .= '<option name="dog"> "' . $row['dogName'] . '"' . ' the ' . $row['breed'] . ', age ' . $row['dogAge'] . '</option>';
                             }
 
                             $output .= "</select></td>";
@@ -518,7 +518,7 @@
                                    id="total" readonly/>
                         </p>
                         
-                        <input type ="submit" value = "Submit Order" />
+                        <input type ="submit" value = "Submit Adoption Request" />
                         
                         </form>
                         
