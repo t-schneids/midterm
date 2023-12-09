@@ -11,7 +11,7 @@ $email = $_SESSION['user'];
 
 
 // Establish connection info
-$server = "localhost"; 
+$server = "35.212.69.145"; 
 $userid = "urre4ivsfgzys"; 
 $pw = "DogDays12!"; 
 $db = "db5nvjnj3daedb"; 
@@ -154,7 +154,7 @@ if ($result->num_rows > 0) {
             <a class="tabs" href="adoption.php" id="current"> ADOPTION</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> SEE OUR DOGS </a>
             </li>
             <li>
                 <a class="tabs" href="contact.html"> CONTACT US</a>

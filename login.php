@@ -14,75 +14,59 @@ session_start();
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         
         <style>
-            footer {
-                position: relative !important;
-            }
-            h1 {
-                text-align: center;
-                color: rgb(209,21,28);
-            }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
 
-            label {
-                width: 130px;
-                display: flex;
-            }
+    form {
+        background-color: rgba(152, 106, 79, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin: 55px auto 0;
+    }
 
-            form {
-                background-color: rgba(152, 106, 79, 0.2);
-                padding: 10px;
-                border-radius: 25px;
-            }
+    h1 {
+        text-align: center;
+        color: rgb(209, 21, 28);
+    }
 
-            .contact a {
-                text-decoration: none;
-                font-weight: 800;
-                color: black;
-            }
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
 
-            .contact {
-                width: fit-content;
-                background-color: rgb(246, 207, 66);
-                border-radius: 25px;
-                padding: 14px 16px;
-            }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-            .row {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                padding-left: 10px;
-                padding-right: 5px;
-                padding-bottom: 30px;
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            }
+    button {
+        background-color: #d1151c;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-            .column {
-                display: flex;
-                flex-direction: column;
-                flex: 50%;
-                align-items: center;
-            }
-            .search-container {
-                display: flex;
-                align-items: center;
-                margin-bottom: 10px;
-            }
+    #signupDiv {
+        text-align: center;
+        margin-top: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
 
-            label {
-                white-space: nowrap;
-            }
+    footer {
+        position: relative !important;
+    }
+</style>
 
-            #breedInput {
-                margin-left: 5px; 
-            }
-
-            label, input, button {
-                margin-right: 10px; 
-            }
-            .dog-input {
-                flex-grow: 1;
-            }
-        </style>
 
         <script>
             //handling db_response asynchronously in order not to refresh page

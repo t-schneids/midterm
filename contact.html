@@ -8,7 +8,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="general.js"></script>
         <style>
-            
             .content{
                 display: flex;
                 justify-content:space-evenly;
@@ -23,6 +22,22 @@
                 margin: 10px;
                 font-size: 40px;
                 text-align: center;
+            }
+
+            #titles {
+                color: black;
+                padding-bottom: 5px;
+                font-size: 35px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            #subtitle {
+                text-align: center;
+                font-size: 20px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: lighter;
+                margin: -12px;
+                padding-bottom: -4px;
             }
 
             h2 {
@@ -40,21 +55,28 @@
             
             .contactForm {
                 background-color: rgba(152, 106, 79, 0.2);
+                text-align: left;
                 padding: 10px;
+                top: -30px;
                 border-radius: 25px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
+
+            #operating-hours h2 {
+                margin-top: 20px; 
+            }
+
 
             .donateContainer {
                 background-color: rgba(152, 106, 79, 0.2);
                 padding: 10px;
+                margin-bottom: 10px;
                 border-radius: 25px;
-                margin-bottom: 5px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
             .contactContainer p {
-                text-align: center;
+                text-align: left;
             }
 
             footer{
@@ -65,6 +87,8 @@
                 border-radius: 10%;
                 max-width: 400px;
                 height: auto;
+                position: relative;
+                top: -15px;
             }
 
             body{
@@ -72,6 +96,7 @@
                 flex-direction: column;
             }
             #contactForm{
+                padding-top: 10px;
                 display: table;
             }
             #contactForm p{
@@ -94,14 +119,19 @@
                 text-align: center;
             }
 
+            #operating-hours {
+                top: -35px;
+                position: relative;
+            }
+
             #contact-form{
                 margin-bottom: 20px;
             }
 
             #sub {
                 display: block; 
-                margin: 0 auto;
-                text-align: center;
+                margin: px 0;
+                text-align: left;
             }
 
             #middle
@@ -239,7 +269,7 @@
             <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> SEE OUR DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html" id="current"> CONTACT US</a>
@@ -251,12 +281,14 @@
                 <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>
+    
+        <h1> Contact Us! </h1>
+        <div id = "subtitle"> <p> Your One-Stop Hub for Hassle-Free Communication! </p> </div>
 
         <div class="content">
-
             <div id ="left">
                 <div id="contact-information">
-                    <h1>Contact Information</h2>
+                    <div id = "titles"> Contact Information</div>
                     <div class="contactContainer">
                     <p>
                         Rescue Waggin &copy; <br/><br/>
@@ -266,7 +298,6 @@
                     </p>
                     </div>
                     <div id="contact-form">
-                        <h2>Contact Form</h2>
                         <div class = "contactForm">
                             <form onsubmit="return validateContact()">
                             <form action="#">
@@ -303,8 +334,7 @@
             </div>
             <div id ="right">
                 <form onsubmit="validateDonate()" action="#">
-                <h1>Make your donation here:</h1>
-                    
+                <div id = "titles" > Make your donation here:</div>
                 <div class="donateContainer">
                     <p1><strong> Personal Information: </strong></p1>
                     <br/>

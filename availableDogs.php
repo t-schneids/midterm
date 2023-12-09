@@ -112,7 +112,7 @@
             <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.php" id="current"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php" id="current"> SEE OUR DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html"> CONTACT US</a>
@@ -130,12 +130,12 @@
             <div class="closeIcon material-icons"> close</div>
         </button>
 
-        <h1 style="text-align: center">Available Dogs</h1>
+        <h1 style="text-align: center"> See Our Dogs</h1>
         <div class="content">
             <!-- BEGIN CARDS-->
             <?php
                 //establish connection info
-                $server = "localhost";// your server
+                $server = "35.212.69.145";// your server
                 $userid = "urre4ivsfgzys"; // your user id
                 $pw = "DogDays12!"; // your pw
                 $db= "db5nvjnj3daedb"; // your database
