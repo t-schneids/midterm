@@ -15,10 +15,10 @@
             }
 
             h1 {
-                margin: 10px;
                 color: rgb(209,21,28);
-                text-align: center;
+                margin: 10px;
                 font-size: 40px;
+                text-align: center;
             }
 
             p {
@@ -55,16 +55,20 @@
                 text-align: center;
             }
             
-            .facts {
+            .wrap {
+                padding-top: 20px;
+                padding-bottom: 25px;
+                align-items:center;
                 text-align: center;
-                margin: 0 auto; 
-                width: 65%; 
                 background-color: rgba(152, 106, 79, 0.2);
-                border-radius: 25px;
-                margin-bottom: 30px;
             }
 
-            /* HEHEHE */
+            .facts {
+                margin: 0 auto;
+                width: 65%; 
+                text-align: center;
+            }
+
             footer {
                 position: relative;
             }
@@ -127,6 +131,7 @@
 
             .textOverlay h1 {
                 color: black;
+                margin-bottom: 10px;
             }
 
             .textOverlaySmall {
@@ -137,7 +142,31 @@
             }
 
             .involved {
-                margin: 15px;
+                margin-left: 40px;
+                margin-right: 40px;
+                margin-top: 20px;
+            }
+
+            #clickHere {
+                color: rgb(209,21,28);
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            #countdown {
+                /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+                font-weight: lighter;
+                font-size: 50px;
+                text-align: center;
+                color: rgb(209,21,28);
+            }
+
+            .countWrap {
+                text-align: center;
+                align-items: center;
+                padding-top: 30px;
+                padding-bottom: 35px;
+                background-color: rgba(152, 106, 79, 0.2);
             }
 
             /* media query for responsive design */
@@ -166,6 +195,7 @@
                     display: none;
                 }
 
+
                 .textOverlaySmall {
                     margin: 10px;
                     display: block;
@@ -179,6 +209,7 @@
 
                 .textOverlaySmall h1 {
                     color: black;
+                    
                 }
 
                 #slide img {
@@ -229,10 +260,21 @@
                         <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
+                <li class="newTabs" id="companyName"> Rescue Waggin</li>
             </div> 
             </ul>
         </nav>
 
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="dashboard.php">Dashboard</a>
+            </li>
+        </ul>
+        <ul class="cart">
+            <li>
+                <a class="newTabs" href="index.html"><img src="images/cart.png" width="20"></a>
+            </li>
+        </ul>
         <ul class="tabGroup">
             <li> 
                 <a class="tabs" href="aboutUs.html" > OUR STORY</a> 
@@ -271,34 +313,32 @@
                         <img src="images/slideshow4.jpg"/>
                     </div>
                     <div class="textOverlay">
-                        <h1>We are Rescue Waggin'</h1>
-                        <p>A dog loving organization dedicated to the rescue,
+                        <h1>Rescue Waggin'</h1>
+                        <p>We are a dog loving organization dedicated to the rescue,
                             rehabilitation, and re-homing of dogs in need.
                         </p>
                     </div>
             </div>
 
-            <div class="textOverlaySmall">
-                <h1>We are Rescue Waggin'</h1>
-                <p>A dog loving organization dedicated to the rescue,
+            <!-- <div class="textOverlaySmall">
+                <h1>Rescue Waggin'</h1>
+                <p> We are a dog loving organization dedicated to the rescue,
                     rehabilitation, and re-homing of dogs in need.
                 </p>
-            </div>
+            </div> -->
 
             <table class="about">
                 <tr>
                     <td>
-                        <h1>Our Mission</h1>
+                        <h1 class="heading">Our Mission</h1>
                         <p> At Rescue Waggin', we believe that every dog deserves a second 
                             chance at a happy, loving home. Our mission is simple yet profound: 
                             to rescue, rehabilitate, and rehome dogs in need, creating 
                             heartwarming tales of transformation and wagging tails that inspire 
                             hope and bring joy to both dogs and the people who adopt them.</p>
                     </td>
-                    <td>
-                        <!-- <img src="adoptMe.jpg" height="300"> -->
-    
-                        <h1>What We Do</h1>
+                    <td>    
+                        <h1 class="heading">What We Do</h1>
                         <p>Our dedicated team of animal lovers works tirelessly to rescue dogs from a variety of 
                             situations, providing them with the care and attention they deserve. We nurse them back 
                             to health, both physically and emotionally, ensuring that they are ready for their forever 
@@ -309,31 +349,31 @@
                 </tr>
             </table>
     
+            <div class="wrap">
+                <h1 class="heading">Our Impact</h1>
     
-            <h1>Our Impact</h1>
-    
-            <table class="facts">
-                <tr>
-                    <td>
-                        <img src="images/heartPaw.jpg" height="200">
-                        <p>Over 2,000 dogs have been rescued</p>
-                    </td>
-                    <td>
-                        <img src="images/Phone.jpg" height="210">
-                        <p>We recieve over 20 calls per week about dogs in need </p>
-                    </td>
-                    <td>
-                        <img src="images/homeHeart.jpg" height="210">
-                        <p>Over 1,500 dogs re-homed </p>
-                    </td>
-                </tr>
-            </table>
+                <table class="facts">
+                    <tr>
+                        <td>
+                            <img src="images/heartPaw.jpg" height="200">
+                            <p>Over 2,000 dogs have been rescued</p>
+                        </td>
+                        <td>
+                            <img src="images/Phone.jpg" height="210">
+                            <p>We recieve over 20 calls per week about dogs in need </p>
+                        </td>
+                        <td>
+                            <img src="images/homeHeart.jpg" height="210">
+                            <p>Over 1,500 dogs re-homed </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
             
-    
             <table class="about" style="margin-left: 20px;">
                 <tr>
                     <td>
-                        <h1>Why Choose Rescue Waggin'</h1>
+                        <h1 class="heading">Why Choose Rescue Waggin'</h1>
                         <p> When you adopt from Rescue Waggin, you're not just giving a dog a home; you're giving 
                             them a second chance at a life filled with happiness and security. We take pride in matching 
                             dogs with families, making sure it's a perfect fit for both. Our goal is to create countless 
@@ -346,13 +386,55 @@
                     </td>
                 </tr>
             </table>
+            
+            <div class="countWrap">
+                <!-- <h1>Countdown to Next Event!</h1> -->
+                
+                <div id="countdown"></div>
+                <p> Until our next event! It is a Dog Adoption Day celebration on January 27, 2024 </p>
+                <p> <a id="clickHere" href="events.html"> Click here </a> to learn more about this events and others. </p>
+
+            </div>
+            
+
+            <script>
+                // Set the date we're counting down to (January 27, 2024)
+                var countDownDate = new Date("Jan 27, 2024 00:00:00").getTime();
+        
+                // Update the countdown every 1 second
+                var x = setInterval(function () {
+            
+                    // Get the current date and time
+                    var now = new Date().getTime();
+            
+                    // Calculate the time remaining
+                    var distance = countDownDate - now;
+            
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+                    document.getElementById("countdown").innerHTML = days + " days, " + hours + " hours, "
+                        + minutes + " minutes, " + seconds + " seconds";
+            
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "EXPIRED";
+                    }
+                }, 1000);
+            </script>
+
             <div class="involved">
-                <h1>Get Involved</h1>
+                <h1 class="heading">Get Involved</h1>
                 <p> You can be a part of our journey by adopting a dog, volunteering, donating, or simply spreading 
                     the word about Rescue Waggin. Together, we can make a significant impact on the lives of these 
-                    incredible animals. <br><br> Thank you for visiting Rescue Waggin, where every visit, every 
-                    click, and every adoption makes a difference. Together, we can change lives, one waggin' tail at a time.</p>
+                    incredible animals. Your support is a beacon of hope for these deserving animals, and we appreciate your role in our shared journey.
+                    <br><br> Thank you for visiting and exploring Rescue Waggin. You have the power to make a difference by adopting a dog, volunteering, donating, 
+                    or spreading the word. Every visit, click, and adoption, no matter the size, contributes to our mission. 
+                    Together, we can change lives, one waggin' tail at a time.</p>
             </div>
+
 
             <footer>
                 <h4> &copy; 2017 Rescue Waggin' </h4>

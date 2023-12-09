@@ -14,8 +14,10 @@
                 position: relative !important;
             }
             h1 {
-                text-align: center;
                 color: rgb(209,21,28);
+                margin: 10px;
+                font-size: 40px;
+                text-align: center;
             }
 
             label {
@@ -256,10 +258,21 @@
                         <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
+                <li class="newTabs" id="companyName"> Rescue Waggin</li>
             </div> 
             </ul>
         </nav>
 
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="dashboard.php">Dashboard</a>
+            </li>
+        </ul>
+        <ul class="cart">
+            <li>
+                <a class="newTabs" href="index.html"><img src="images/cart.png" width="20"></a>
+            </li>
+        </ul>
         <ul class="tabGroup">
             <li> 
                 <a class="tabs" href="aboutUs.html" > OUR STORY</a> 
@@ -279,7 +292,7 @@
             <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
-<li>
+            <li>
                 <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>

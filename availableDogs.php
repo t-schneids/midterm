@@ -54,6 +54,10 @@
 
             h1 {
                 color: rgb(209,21,28);
+                margin: 10px;
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 5px;
             }
             @media (max-width: 600px){
                 img{
@@ -82,10 +86,21 @@
                         <img src="wagonLogo.png" alt="company logo">
                     </a> 
                 </li>
+                <li class="newTabs" id="companyName"> Rescue Waggin</li>
             </div> 
             </ul>
         </nav>
 
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="dashboard.php">Dashboard</a>
+            </li>
+        </ul>
+        <ul class="cart">
+            <li>
+                <a class="newTabs" href="index.html"><img src="images/cart.png" width="20"></a>
+            </li>
+        </ul>
         <ul class="tabGroup">
             <li> 
                 <a class="tabs" href="aboutUs.html" > OUR STORY</a> 

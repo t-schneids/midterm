@@ -34,7 +34,7 @@
             border-radius: 25px;
             width: 95%;
             height: 280px;
-            max-width: 400px;
+            max-width: 394px;
         }
 
         .description {
@@ -56,7 +56,7 @@
             text-decoration: none;
             color: black;
             border-radius: 5px;
-            cursor: pointer; /* Add cursor style */
+            cursor: pointer;
         }
 
         footer {
@@ -72,7 +72,10 @@
         }
 
         h1 {
-            color: rgb(209, 21, 28);
+            color: rgb(209,21,28);
+            margin: 10px;
+            font-size: 40px;
+            text-align: center;
         }
 
         @media (max-width: 600px) {
@@ -117,73 +120,84 @@
 </head>
 
 <body>
-<nav class="nav">
-    <ul class="navlist">
-        <div class="logo">
-            <li>
-                <a href="index.html">
-                    <img src="wagonLogo.png" alt="company logo">
-                </a>
-            </li>
-        </div>
+    <nav class="nav">
+        <ul class="navlist">
+            <div class="logo">
+                <li>
+                    <a href="index.html">
+                        <img src="wagonLogo.png" alt="company logo">
+                    </a>
+                </li>
+                <li class="newTabs" id="companyName"> Rescue Waggin</li>
+            </div>
+        </ul>
+    </nav>
+
+    <ul class="profile">
+        <li>
+            <a class="newTabs" href="dashboard.php">Dashboard</a>
+        </li>
     </ul>
-</nav>
+    <ul class="cart">
+            <li>
+                <a class="newTabs" href="index.html"><img src="images/cart.png" width="20"></a>
+            </li>
+    </ul>
+    <ul class="tabGroup">
+        <li>
+            <a class="tabs" href="aboutUs.html"> OUR STORY</a>
+        </li>
+        <li>
+            <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
+        </li>
+        <li>
+            <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
+        </li>
+        <li>
+            <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
+        </li>
+        <li>
+            <a class="tabs" href="contact.html"> CONTACT US</a>
+        </li>
+        <li>
+            <a class="tabs" href="events.html"> EVENTS </a>
+        </li>
+        <li>
+            <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
+        </li>
+    </ul>
 
-<ul class="tabGroup">
-    <li>
-        <a class="tabs" href="aboutUs.html"> OUR STORY</a>
-    </li>
-    <li>
-        <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
-    </li>
-    <li>
-        <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
-    </li>
-    <li>
-        <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
-    </li>
-    <li>
-        <a class="tabs" href="contact.html"> CONTACT US</a>
-    </li>
-    <li>
-        <a class="tabs" href="events.html"> EVENTS </a>
-    </li>
-    <li>
-        <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
-    </li>
-</ul>
+    <button class="hamburger">
+        <div class="menuIcon material-icons"> menu</div>
+        <div class="closeIcon material-icons"> close</div>
+    </button>
 
-<button class="hamburger">
-    <div class="menuIcon material-icons"> menu</div>
-    <div class="closeIcon material-icons"> close</div>
-</button>
+    <h1 style="text-align: center">Dog Products</h1>
+    <div class="content">
+        <!-- BEGIN CARDS-->
+        <?php
+        //establish connection info
+        $server = "35.212.69.145";// your server
+        $userid = "urre4ivsfgzys"; // your user id
+        $pw = "DogDays12!"; // your pw
+        $db= "db5nvjnj3daedb"; // your database
 
-<h1 style="text-align: center">Dog Products</h1>
-<div class="content">
-    <!-- BEGIN CARDS-->
-    <?php
-    //establish connection info
-    $server = "localhost";// your server
-    $userid = "urre4ivsfgzys"; // your user id
-    $pw = "DogDays12!"; // your pw
-    $db= "db5nvjnj3daedb"; // your database
+        // Create connection
+        $conn = new mysqli($server, $userid, $pw );
 
-    // Create connection
-    $conn = new mysqli($server, $userid, $pw );
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+        //select the database
+        $conn->select_db($db);
 
-    //select the database
-    $conn->select_db($db);
-
-    //run a query
-    $sql = "SELECT * FROM DogProducts";
-    $result = $conn->query($sql);
-    $output = "";
-    $count = 1;
+        //run a query
+        $sql = "SELECT * FROM DogProducts";
+        $result = $conn->query($sql);
+        $output = "";
+        $count = 1;
 
     while($row = $result->fetch_array())
     {
@@ -207,14 +221,14 @@
         $output .= '<button type="button" class="button addToCartButton" onclick="addToCart(' . $row['productID'] . ')">Add to Cart</button>';
         $output .= '</div> </div> </form> </div>';
 
-        $count += 1;
-    }
+            $count += 1;
+        }
 
-    echo $output;
-    ?>
+        echo $output;
+        ?>
 
-    <!-- END -->
-</div>
+        <!-- END -->
+    </div>
 
 <footer>
     <h4> &copy; 2017 Rescue Waggin' </h4>
