@@ -57,7 +57,7 @@
 
     label {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 7px;
     }
 
     input {
