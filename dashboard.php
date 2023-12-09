@@ -36,9 +36,13 @@
         // Display the dashboard with the user's information
     }
 
-    // SQL query for donation information
+    // SQL query for all donation information
     $query2 = "SELECT * FROM donations WHERE userID='$userID'";
     $result2 = $conn->query($query2);
+
+    // SQL query for all adoption status information
+    $query3 = "SELECT * FROM adoptionStatus WHERE userID='$userID'";
+    $result3 = $conn->query($query3);
 ?>
 
 <html>
@@ -74,7 +78,6 @@
 
             .info {
                 height: 500px;
-                border-radius: 25px;
                 background-color: rgba(152, 106, 79, 0.2);
                 width: 360px;
                 max-width: 360px;
@@ -120,6 +123,11 @@
                     align-items: center;
                     justify-content: center;
                 }
+            }
+
+            #donation p {
+                margin: 0;
+                padding: 0;
             }
         </style>
 
@@ -185,12 +193,12 @@
             <tr>
                 <td> 
                     <div class="title"> Recent Donations </div>
-                    <div id = "donation" class="info"> 
-                        <h3>You Donated: </h3>
+                    <div id = "donation" class="info">
+                        <h3 style="margin-top:0;">You Donated: </h3>
                         <?php
                             while($row2 = $result2->fetch_assoc()) 
                             {
-                                echo '<p>$' . $row2['amount'] . ' -- ' . $row2['theDate'] . '</p>';
+                                echo '<p>$' . $row2['amount'] . ' on  ' . $row2['theDate'] . '</p>';
                                 echo '<hr>';
                             }
                         ?>
@@ -198,16 +206,39 @@
                 </td>
                 <td> 
                     <div class="title"> Recent Purchases </div>
-                    <div class="info"> </div>
+                    <div class="info"> 
+                        
+                    </div>
                 </td>
                 <td> 
-                    <div class="title"> Adoption Status </div>
-                    <div class="info"> </div>
+                    <div class="title"> Adoption Status</div>
+                    <div class="info"> 
+                    <?php
+                            while($row3 = $result3->fetch_assoc()) 
+                            {
+                                 // SQL query for all dog info relating to adoption info
+                                $dogID = $row3['dogID']; // get dog ID
+                                $query4  = "SELECT * FROM dogs WHERE dogID= '$dogID'";
+
+                                $result4 = $conn->query($query4);
+                                while($row4 = $result4->fetch_assoc())
+                                {
+                                    echo '<p> Adoption request submitted for ' . $row4['dogName'] . ' the ' . $row4['breed'] . ' on ' . $row3['theDate'] . '. The status of this request is ' . $row3['theStatus'] . '. </p>';
+                                    echo '<hr>';
+                                }
+
+                            }
+                        ?>
+                    </div>
                 </td>
             </tr>
         </table>
 
-        <a id="logout" href="logout.php">Log Out</a>
+        <div class="button">
+            <div class ="logout">
+                <a href="logout.php"> Log Out </a>
+            </div>
+        </div>
 
         <footer>
             <h4> &copy; 2017 Rescue Waggin' </h4>

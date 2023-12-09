@@ -473,7 +473,7 @@
 
                             while($row = $result->fetch_array()) 
                             {
-                                $output .= '<option> "' . $row['dogName'] . '"' . ' the ' . $row['breed'] . ', age ' . $row['dogAge'] . '</option>';
+                                $output .= '<option name="dog"> "' . $row['dogName'] . '"' . ' the ' . $row['breed'] . ', age ' . $row['dogAge'] . '</option>';
                             }
 
                             $output .= "</select></td>";
