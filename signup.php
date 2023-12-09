@@ -1,33 +1,28 @@
 <?php
-session_start();
-?>
+    session_start();
 
-<?php
-        if(isset($_POST['First_Name']) && isset($_POST['Last_Name']) && isset($_POST['password']) && isset($_POST['email'])){
-            //establish connection info
-            $server = "35.212.69.145";
-            $userid = "urre4ivsfgzys"; 
-            $pw = "DogDays12!"; 
-            $db= "db5nvjnj3daedb"; 
-                
-            // Create connection
-            $conn = new mysqli($server, $userid, $pw );
+    if(isset($_POST['First_Name']) && isset($_POST['Last_Name']) && isset($_POST['password']) && isset($_POST['email'])){
+        //establish connection info
+        $server = "35.212.69.145";
+        $userid = "urre4ivsfgzys"; 
+        $pw = "DogDays12!"; 
+        $db= "db5nvjnj3daedb"; 
             
-            // Check connection
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-            else{
-                echo "connected succesfully";
-            }
-
-            $conn->select_db($db);
-            extract($_POST);
-            $query = "INSERT INTO users (userID, firstName, lastName, email, password) VALUES (NULL, '$First_Name', '$Last_Name', '$email', '$password')";
-            $conn->query($query);
-            $conn->close();
+        // Create connection
+        $conn = new mysqli($server, $userid, $pw );
+        
+        // Check connection
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
         }
-            
+
+        $conn->select_db($db);
+        extract($_POST);
+        $query = "INSERT INTO users (userID, firstName, lastName, email, password) VALUES (NULL, '$First_Name', '$Last_Name', '$email', '$password')";
+        $conn->query($query);
+        $conn->close();
+        header('Location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html>
