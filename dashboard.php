@@ -43,6 +43,9 @@
     // SQL query for all adoption status information
     $query3 = "SELECT * FROM adoptionStatus WHERE userID='$userID'";
     $result3 = $conn->query($query3);
+
+    $query4 = "SELECT * FROM purchases WHERE userID = '$userID' ORDER BY date DESC";
+    $result4 = $conn->query($query4);
 ?>
 
 <html>
@@ -214,7 +217,27 @@
                 <td> 
                     <div class="title"> Recent Purchases </div>
                     <div class="info"> 
-                        
+                        <?php 
+                            if ($result4->num_rows >0){
+                                $curDate = 0;
+                                while ($row4 = $result4->fetch_assoc()){
+                                    $itemName = $row4['Item'];
+                                    $quantity = $row4['quantity'];
+                                    $orderDate = $row4['date'];
+
+                                    if ($curDate != $orderDate){
+                                        $curDate = $orderDate;
+                                        echo "<hr>";
+                                        echo "<h3>$orderDate</h3>";
+                                        echo "$quantity x $itemName";
+                                    }
+                                    else{
+                                        echo "<br/>$quantity x $itemName";
+                                    }
+                                }
+                                echo "<hr>";
+                            }
+                        ?>
                     </div>
                 </td>
                 <td> 
