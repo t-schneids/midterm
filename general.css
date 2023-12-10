@@ -240,8 +240,9 @@ footer li {
 
 /* Media Queries for responsive design */
 @media (max-width: 995px) {
-    .CompanyName {
-        font-size: 30px;
+    #companyName a {
+        /* font-size: 30px; */
+        display: none;
     }
 
     /* .hamburger {

@@ -220,7 +220,7 @@
         $output .= '<p>Price: $' . $row['Price'] . '</p>';
         $output .= '<p>' . $row['Description'] . '</p>';
         $output .= '<div class="quantity-container">';
-        $output .= '<label for="quantity' . $count . '">Quantity:</label>';
+        $output .= '<label for="quantity' . $count . '">Quantity: </label>';
         $output .= '<select name="quantity" id="quantity' . $count . '">';
         for ($i = 0; $i <= 10; $i++) {
             $output .= '<option value="' . $i . '">' . $i . '</option>';
@@ -242,7 +242,7 @@
     </div>
 
 <footer>
-    <h4> &copy; 2017 Rescue Waggin' </h4>
+    <h4> &copy; 2017 Rescue Waggin </h4>
     <ul class="nav">
         <ul class="nav">
             <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>

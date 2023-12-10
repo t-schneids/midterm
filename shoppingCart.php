@@ -174,7 +174,7 @@ $output_page .= "$cartTable <br/>
     <button id='completePurchaseButton'>Checkout</button>
     
     <footer>
-        <h4>&copy; 2017 Rescue Waggin'</h4>
+        <h4>&copy; 2017 Rescue Waggin</h4>
         <ul class='nav'>
             <ul class='nav'>
                 <li><a href='https://www.gmail.com'><img src='images/gmailLogo.png' style='width:25px;height:20px;'></a></li>
