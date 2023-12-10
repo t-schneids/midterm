@@ -146,7 +146,7 @@
         </button>
 
         <h1 style="text-align: center"> See Our Dogs</h1>
-        <p style="text-align: center"> These are the dogs we have available for adoption! If you want one of them to be yours, 
+        <p style="font-size: 17px; margin: 0px 15px; text-align: center"> These are the dogs we have available for adoption! If you want one of them to be yours, 
             <a id="clickHere" href="adoption.php"> click here </a>to fill out an adoption request form! </p>
         <div class="content">
             <!-- BEGIN CARDS-->
