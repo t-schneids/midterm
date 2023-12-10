@@ -92,3 +92,7 @@ h1 {
 #completePurchaseButton:hover {
     background-color: #a40f14;
 }
+
+.price::before {
+    content: "$"; /* Adding the "$" symbol */
+  }
