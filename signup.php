@@ -81,6 +81,19 @@
     footer {
         position: relative !important;
     }
+
+    .menuIcon {
+        color: black;
+    }
+
+    .hamburger {
+        border-radius: 0px
+    }
+
+    #companyName a {
+        text-decoration: none;
+        color: black;
+    }
 </style>
 
         <script>
@@ -113,36 +126,52 @@
 
     </head>
     <body>
-        <nav class="nav">
+    <nav class="nav">
             <ul class="navlist">
-            <div class="logo">
-                <li> 
-                    <a href="index.html"> 
-                        <img src="logo.png" alt="company logo">
-                    </a> 
-                </li>
-            </div> 
+                <div class="logo">
+                    <li> 
+                        <a href="index.html"> 
+                            <img src="wagonLogo.png" alt="company logo">
+                        </a> 
+                    </li>
+                    <li class="newTabs" id="companyName"> 
+                        <a href="index.html"> Rescue Waggin </a>
+                    </li>
+                </div> 
             </ul>
         </nav>
 
+        <ul class="profile">
+            <li>
+                <a class="newTabs" href="dashboard.php">Dashboard</a>
+            </li>
+        </ul>
+        <ul class="cart">
+            <li>
+                <a class="newTabs" href="shoppingCart.php"><img src="images/cart.png" width="20"></a>
+            </li>
+        </ul>
         <ul class="tabGroup">
             <li> 
-                <a class="tabs" href="aboutUs.html" > OUR STORY</a> 
+                <a class="tabs" href="aboutUs.html"  id="current"> OUR STORY</a> 
             </li>
             <li>
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
             </li>
             <li>
-            <a class="tabs" href="adoption.php" id="current"> ADOPTION</a>
+            <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> SEE OUR DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html"> CONTACT US</a>
             </li>
             <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
+            </li>
+            <li>
+                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>
 

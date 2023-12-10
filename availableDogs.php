@@ -59,6 +59,12 @@
                 text-align: center;
                 margin-bottom: 5px;
             }
+
+            #companyName a {
+                text-decoration: none;
+                color: black;
+            }
+            
             @media (max-width: 600px){
                 img{
                     max-width: 300px;
@@ -79,15 +85,17 @@
     </head>
     <body>
         <nav class="nav">
-            <ul class="navlist">
-            <div class="logo">
-                <li> 
-                    <a href="index.html"> 
-                        <img src="wagonLogo.png" alt="company logo">
-                    </a> 
-                </li>
-                <li class="newTabs" id="companyName"> Rescue Waggin</li>
-            </div> 
+        <ul class="navlist">
+                <div class="logo">
+                    <li> 
+                        <a href="index.html"> 
+                            <img src="wagonLogo.png" alt="company logo">
+                        </a> 
+                    </li>
+                    <li class="newTabs" id="companyName"> 
+                        <a href="index.html"> Rescue Waggin </a>
+                    </li>
+                </div> 
             </ul>
         </nav>
 

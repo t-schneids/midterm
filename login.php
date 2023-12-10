@@ -17,7 +17,7 @@ session_start();
     body {
         margin: 0;
         padding: 0;
-        font-family: 'Arial', sans-serif;
+        /* font-family: 'Arial', sans-serif; */
     }
 
     form {
@@ -62,8 +62,17 @@ session_start();
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
-    footer {
-        position: relative !important;
+    .menuIcon {
+        color: black;
+    }
+
+    .hamburger {
+        border-radius: 0px
+    }
+
+    #companyName a {
+        text-decoration: none;
+        color: black;
     }
 </style>
 
@@ -137,13 +146,15 @@ session_start();
         <nav class="nav">
             <ul class="navlist">
                 <div class="logo">
-                    <li>
-                        <a href="index.html">
+                    <li> 
+                        <a href="index.html"> 
                             <img src="wagonLogo.png" alt="company logo">
-                        </a>
+                        </a> 
                     </li>
-                    <li class="newTabs" id="companyName"> Rescue Waggin</li>
-                </div>
+                    <li class="newTabs" id="companyName"> 
+                        <a href="index.html"> Rescue Waggin </a>
+                    </li>
+                </div> 
             </ul>
         </nav>
 
@@ -187,11 +198,11 @@ session_start();
         </button>
 
 
-            <div id='loginDiv'>
+        <div id='loginDiv'>
                 <form method="POST" id="login_form" name="login_form" action="processLogin.php" onsubmit="return validate()">
                 <h1>Login</h1>
-                  Email:  <input id='email' type='text' name='email' class="userInfo"/> <br/>
-                  Password:  <input id="password" type="password" name="password" class="userInfo"/> <br/>
+                    Email:  <input id='email' type='text' name='email' class="userInfo"/> <br/>
+                    Password:  <input id="password" type="password" name="password" class="userInfo"/> <br/>
                     <input id='submit_button' type='submit' name='submit_button' class="userInfo"><br/>
                 </form>
             </div>
@@ -200,15 +211,16 @@ session_start();
             <div id='signupDiv'>
                 Don't have an account? Sign Up <a href='signup.php'> HERE! </a>
             </div>
-
-            <footer>
-                <h4> &copy; 2017 Rescue Waggin' </h4>
-                <ul class="nav">
-                    <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
-                    <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>
-                    <li> <a href="https://www.facebook.com"><img src="images/facebookLogo.png" style="width:20px;height:20px;"></a> </li>
-                </ul>
-            </footer>
         </div>
+
+        <footer>
+            <h4> &copy; 2017 Rescue Waggin' </h4>
+            <ul class="nav">
+                <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
+                <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>
+                <li> <a href="https://www.facebook.com"><img src="images/facebookLogo.png" style="width:20px;height:20px;"></a> </li>
+            </ul>
+        </footer>
+        
     </body>
 </html>
