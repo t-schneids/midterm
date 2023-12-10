@@ -111,6 +111,7 @@
         function addToCart(productID) {
             var quantity = $('#quantity' + productID).val();
 
+<<<<<<< HEAD
             if (quantity > 0) {
                 var formData = $('#form' + productID).serialize();
                 $.ajax({
@@ -128,6 +129,20 @@
             } else {
                 alert("Please select a quantity greater than 0.");
             }
+=======
+            $.ajax({
+                type: 'POST',
+                url: 'processForm.php',
+                data: formData,
+                success: function(response) {
+                    alert("Successfully added to cart!");
+                    // You can update the UI or perform other actions here
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+>>>>>>> main
         }
     </script>
 </head>
