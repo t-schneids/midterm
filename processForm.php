@@ -34,21 +34,11 @@
         $userID = $_SESSION['userID'];
 
 
-        $output = "";
-        $output .= $productID . " is productID.";
         //run a query
         $sql = "INSERT INTO cart (userID, productID, quantity) VALUES ('$userID', '$productID', '$quantity')";
 
-        //  $output .= 'user id is ' . $userid;
-        // $sql = "SELECT * FROM cart";
-
         $result = $conn->query($sql);
-        // while($row = $result->fetch_assoc())
-        // {
-        //     // $output .= ' The product is ' . $row['Item'] . '. Ordered with quanitity ' . $quantity . '.' . "userID is " . $userid . '.';
-        // }
-        
-        echo $output;
+     
         // Close the database connection 
         $conn->close();
     } else {
