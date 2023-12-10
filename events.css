@@ -58,6 +58,11 @@ footer {
         align-items: center;
     }
 
+    #companyName a {
+        text-decoration: none;
+        color: black;
+    }
+
     @media (max-width: 1150px) {     
         td {
             /* display: flex; */

@@ -78,6 +78,11 @@
             text-align: center;
         }
 
+        #companyName a {
+                text-decoration: none;
+                color: black;
+            }
+
         .quantity-container {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
         }
@@ -127,13 +132,15 @@
     <nav class="nav">
         <ul class="navlist">
             <div class="logo">
-                <li>
-                    <a href="index.html">
+                <li> 
+                    <a href="index.html"> 
                         <img src="wagonLogo.png" alt="company logo">
-                    </a>
+                    </a> 
                 </li>
-                <li class="newTabs" id="companyName"> Rescue Waggin</li>
-            </div>
+                <li class="newTabs" id="companyName"> 
+                    <a href="index.html"> Rescue Waggin </a>
+                </li>
+            </div> 
         </ul>
     </nav>
 
