@@ -109,21 +109,25 @@
     </style>
     <script>
         function addToCart(productID) {
-            var formData = $('#form' + productID).serialize();
+            var quantity = $('#quantity' + productID).val();
 
-            $.ajax({
-                type: 'POST',
-                url: 'processForm.php',
-                data: formData,
-                success: function(response) {
-                    alert("Successfully added to cart!");
-                    alert(response);
-                    // You can update the UI or perform other actions here
-                },
-                error: function(error) {
-                    console.log('Error:', error);
-                }
-            });
+            if (quantity > 0) {
+                var formData = $('#form' + productID).serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: 'processForm.php',
+                    data: formData,
+                    success: function(response) {
+                        alert("Successfully added to cart!");
+                        alert(response);
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                    }
+                });
+            } else {
+                alert("Please select a quantity greater than 0.");
+            }
         }
     </script>
 </head>
