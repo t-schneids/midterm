@@ -99,42 +99,38 @@
                 flex-grow: 1;
             }
 
-            .breeds h2  {
+            #breeds h2  {
                 text-align: center;
                 margin-bottom: -10px;
             }
 
-            .breeds h3  {
+            #breeds h3  {
                 text-align: center;
             }
 
-            .breeds {
-                background-color: rgba(209,21,28, 0.15);
+            #breeds {
+                background-color: rgba(209, 21, 28, 0.15);
                 padding: 10px;
                 border-radius: 25px;
-                max-width: 415px; 
-                width: 100%;  
-                flex: 1;   
-                
+                max-width: 415px;
+                width: 100%;
             }
 
-            .breed-wrapper {
+            #breed-wrapper {
+                display: flex; 
                 justify-content: center;
-                display: flex;
                 max-height: 200px;
-                height: 100%;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
             }
 
-            .wrapper {
-                max-width: 415px; 
-                width: 100%;     
-                background-color: rgba(209,21,28, 0.15);
+            #wrapper {
+                max-width: 415px;
+                width: 100%;
+                background-color: rgba(209, 21, 28, 0.15);
                 padding: 10px;
                 border-radius: 25px;
                 margin-left: 20px;
-                flex: 1;
+                /* flex: 1; */
             }
 
             .dogName {
@@ -376,8 +372,8 @@
                     });
                 }
             </script>
-            <div class="breed-wrapper">
-                <div class="breeds">
+            <div id="breed-wrapper" class="row" >
+                <div id="breeds" class="column" >
                     <h2> Not sure which dog breed is right for you? </h2>
                     <h3> Learn more about one you're interested in here. </h3>
                     <div class="search-container">
@@ -386,7 +382,7 @@
                         <button onclick="getDogInfo()">Search</button>
                     </div>
                 </div>
-                <div class="wrapper">
+                <div id="wrapper" class="column">
                     <div id="title" class="info" style="text-align: center; font-weight: bold; font-size: 20px;">Breed information loads here</div>
                     <div id="name" class="info"></div>
                     <div id="bredFor" class="info"></div>

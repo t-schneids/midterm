@@ -156,7 +156,7 @@
 
         <ul class="profile">
             <li>
-                <a class="newTabs" href="dashboard.php">Dashboard</a>
+                <a class="newTabs" href="dashboard.php" id="current">Dashboard</a>
             </li>
         </ul>
         <ul class="cart">

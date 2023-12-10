@@ -117,7 +117,6 @@
                 data: formData,
                 success: function(response) {
                     alert("Successfully added to cart!");
-                    alert(response);
                     // You can update the UI or perform other actions here
                 },
                 error: function(error) {
