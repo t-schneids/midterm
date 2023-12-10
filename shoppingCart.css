@@ -1,0 +1,98 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navlist {
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    background-color: rgba(152, 106, 79, 0.2);
+    padding: 0;
+    font-size: large;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.logo img {
+    width: 50px;
+}
+
+.newTabs {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.profile, .cart, .tabGroup {
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+}
+
+.profile li, .cart li, .tabGroup li {
+    margin-right: 20px;
+}
+
+.tabs, .newTabs {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+h1 {
+    color: rgb(209, 21, 28);
+    margin: 10px;
+    font-size: 40px;
+    text-align: center;
+}
+
+#cartTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#cartTable th, #cartTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#cartTable th {
+    background-color: #f2f2f2;
+}
+
+.prodImgs {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#cartTable td {
+    vertical-align: middle; /* Align text in the middle of the cell */
+}
+
+.totalOrderPrice {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#completePurchaseButton {
+    padding: 10px;
+    background-color: #d1151b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#completePurchaseButton:hover {
+    background-color: #a40f14;
+}
+
+.price::before {
+    content: "$"; /* Adding the "$" symbol */
+  }
