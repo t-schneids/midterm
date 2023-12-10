@@ -66,7 +66,7 @@ $script = "<script>
                 success: function(response){
                     $('#cartRow' + itemID).css('display', 'none');
                     $('#cartRow' + itemID).remove();
-                    $('#totalOrderPriceDiv').html(getTotalPrice());
+                    $('#totalOrderPriceSpan').html(getTotalPrice().toFixed(2));
                 },
                 error: function(){alert('error removing item ' + itemID);}
             });
@@ -130,11 +130,12 @@ $output_page = "<html>$head <body>
 
 $cartTable = "<table id='cartTable'>
     <tr>
+        <th>&nbsp;</th>
         <th>Item</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Total Price</th>
-        <th>Action</th>
+        <th>Remove</th>
     </tr>";
 
 $result = $conn->query($showAllQuery);
@@ -149,15 +150,18 @@ if ($result->num_rows > 0) {
         $quantity = $row['quantity'];
         $price = $row['Price'];
         $image = $row['Image'];
-        $totalprice = $quantity * $price;
-        $totalOrderPrice += $totalprice;
+        $totalPrice = $quantity * $price;
+        $totalOrderPrice += $totalPrice;
+        $price = number_format($price, 2);
+        $totalOrderPrice = number_format($totalOrderPrice, 2);
+        $totalPrice = number_format($totalPrice, 2);
 
         $cartTable .= "<tr id='cartRow$itemID'>
             <td><img class='prodImgs' src='$image'/></td>
-            <td>$quantity</td>
             <td>$item</td>
-            <td>$price</td>
-            <td class='totalPriceCell'>$totalprice</td>
+            <td>$quantity</td>
+            <td class='price'>$price</td>
+            <td class='totalPriceCell price'>$totalPrice</td>
             <td><button class='removeItemButton' id='$itemID'>&#128465;</button></td>
         </tr>";
     }
@@ -166,7 +170,7 @@ if ($result->num_rows > 0) {
 $cartTable .= "</table>";
 
 $output_page .= "$cartTable <br/>
-    <div id='totalOrderPriceDiv'>Order Total: $totalOrderPrice</div>
+    <div id='totalOrderDiv'>Order Total: <span id='totalOrderPriceSpan' class='price'>$totalOrderPrice<span></div>
     <button id='completePurchaseButton'>Checkout</button>
     
     <footer>
