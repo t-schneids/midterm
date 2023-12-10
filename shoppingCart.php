@@ -38,12 +38,29 @@ if (isset($_GET['removeItem'])){
     $query = removeItemQuery($itemID);
     $result = $conn->query($query);
     echo "success";
+    exit();
 }
+// function insertIntoOrdersTable($userID, $itemName, $quantity, $date){
+//     return "INSERT "
+// }
 
-function generateCartRowByID($itemID){
-    return "<tr id='cartRow$itemID'></tr>";
+//if checkout is set, run script below to submit order and exit
+if (isset($_GET['checkout']) && $_GET['checkout']){
+    //get items from shopping cart
+    $result = $conn->query($showAllQuery);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()){
+            $itemID = $row['productID'];
+            $item = $row['Item']; 
+            $quantity = $row['quantity'];
+            $date = date('m/d/Y');
+            $conn->query("INSERT INTO purchases (userID, item, quantity, date) VALUES ('$userID', '$item', '$quantity', '$date')");
+            $conn->query(removeItemQuery($itemID));
+        }
+    }
+    echo "success";
+    exit();
 }
-
 // Event handling script
 $script = "<script>
     function getTotalPrice() {
@@ -58,6 +75,19 @@ $script = "<script>
     }
 
     $(document).ready(function(){
+        $('#completePurchaseButton').click(function(){
+                itemID = $(this).attr('id');
+                $.ajax({
+                    type: 'GET', 
+                    data: {'checkout' : true}, 
+                    success: function(response){
+                        alert('Thank you for your support! Your order has been submitted');
+                        window.location = 'dashboard.php';
+                    },
+                    error: function(){alert('Sorry, we cannot complete your purchase at the moment.' + itemID);}
+                });
+        });
+
         $('.removeItemButton').click(function(){
             itemID = $(this).attr('id');
             $.ajax({
@@ -88,16 +118,18 @@ $head = "<head>
 // Final output page string
 $output_page = "<html>$head <body>
     <nav class='nav'>
-        <ul class='navlist'>
-            <div class='logo'>
-                <li>
-                    <a href='index.html'>
-                        <img src='wagonLogo.png' alt='company logo'>
-                    </a>
-                </li>
-                <li class='newTabs' id='companyName'>Rescue Waggin</li>
-            </div>
-        </ul>
+    <ul class='navlist'>
+    <div class='logo'>
+        <li> 
+            <a href='index.html'> 
+                <img src='wagonLogo.png' alt='company logo'>
+            </a> 
+        </li>
+        <li class='newTabs' id='companyName'> 
+            <a href='index.html'> Rescue Waggin </a>
+        </li>
+    </div> 
+</ul>
     </nav>
 
     <ul class='profile'>
@@ -139,6 +171,7 @@ $cartTable = "<table id='cartTable'>
         <th>Remove</th>
     </tr>";
 
+//run query to display cart table. 
 $result = $conn->query($showAllQuery);
 
 $totalOrderPrice = 0;
@@ -171,7 +204,7 @@ if ($result->num_rows > 0) {
 $cartTable .= "</table>";
 
 $output_page .= "$cartTable <br/>
-    <div id='totalOrderDiv'>Order Total: <span id='totalOrderPriceSpan' class='price'>$totalOrderPrice<span></div>
+    <div id='totalOrderDiv'>Order Total: <span id='totalOrderPriceSpan' class='price'>$totalOrderPrice</span></div>
     <button id='completePurchaseButton'>Checkout</button>
     
     <footer>
@@ -190,4 +223,8 @@ $output_page .= "$cartTable <br/>
 echo $output_page;
     
 $conn->close();
+
+
 ?>
+
+</script>
