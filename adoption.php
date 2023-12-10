@@ -99,39 +99,51 @@
                 flex-grow: 1;
             }
 
-            #breeds h2  {
+            .breeds h2  {
                 text-align: center;
                 margin-bottom: -10px;
             }
 
-            #breeds h3  {
+            .breeds h3  {
                 text-align: center;
             }
 
-            #breeds {
+            .breeds {
                 background-color: rgba(209, 21, 28, 0.15);
                 padding: 10px;
                 border-radius: 25px;
                 max-width: 415px;
-                width: 100%;
-            }
-
-            #breed-wrapper {
-                display: flex; 
-                justify-content: center;
-                max-height: 200px;
+                margin-left: 50px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
-            #wrapper {
+            .wrapper {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                 max-width: 415px;
-                width: 100%;
+                width: 415px;
+                height: 179px;
+                margin-right: 50px;
                 background-color: rgba(209, 21, 28, 0.15);
-                padding: 10px;
                 border-radius: 25px;
-                margin-left: 20px;
-                /* flex: 1; */
+                padding: 10px;
             }
+
+            @media (max-width: 997px) {
+               .wrapper {
+                    margin: 0px;
+                }
+
+                .breeds {
+                    margin: 0px;
+                }
+            }
+
+            @media (max-width: 900px) {
+               .wrapper {
+                    margin-top: 10px;
+                }
+            }
+
 
             .dogName {
                 color: rgb(209,21,28);
@@ -360,8 +372,9 @@
                     });
                 }
             </script>
-            <div id="breed-wrapper" class="row" >
-                <div id="breeds" class="column" >
+            <div class="row">
+                <div class="column">
+                <div class="breeds" >
                     <h2> Not sure which dog breed is right for you? </h2>
                     <h3> Learn more about one you're interested in here. </h3>
                     <div class="search-container">
@@ -370,16 +383,19 @@
                         <button onclick="getDogInfo()">Search</button>
                     </div>
                 </div>
-                <div id="wrapper" class="column">
+                </div>
+                <div class="column">
+                <div class="wrapper">
                     <div id="title" class="info" style="text-align: center; font-weight: bold; font-size: 20px;">Breed information loads here</div>
-                    <div id="name" class="info"></div>
-                    <div id="bredFor" class="info"></div>
-                    <div id="lifeSpan" class="info"></div>
-                    <div id="temperament" class="info"></div>
-                    <div id="error" class="info"></div>
-                    <div id="height" class="info"></div>
-                    <div id="weight" class="info"></div>
-                </div>    
+                    <div id="name" class="info"><br/></div>
+                    <div id="bredFor" class="info"><br/></div>
+                    <div id="lifeSpan" class="info"><br/></div>
+                    <div id="temperament" class="info"><br/></div>
+                    <div id="error" class="info"><br/></div>
+                    <div id="height" class="info"><br/></div>
+                    <div id="weight" class="info"><br/></div>
+                </div>  
+                </div>  
             </div>
             
             <div class="row" id="row1">
