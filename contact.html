@@ -142,6 +142,11 @@
                 align-items: center;
             }
 
+            #companyName a {
+                text-decoration: none;
+                color: black;
+            }
+
             @media (max-width: 725px) {
                 .content{
                     justify-content: center;
@@ -237,14 +242,16 @@
         
         <nav class="nav">
             <ul class="navlist">
-            <div class="logo">
-                <li> 
-                    <a href="index.html"> 
-                        <img src="wagonLogo.png" alt="company logo">
-                    </a> 
-                </li>
-                <li class="newTabs" id="companyName"> Rescue Waggin</li>
-            </div> 
+                <div class="logo">
+                    <li> 
+                        <a href="index.html"> 
+                            <img src="wagonLogo.png" alt="company logo">
+                        </a> 
+                    </li>
+                    <li class="newTabs" id="companyName"> 
+                        <a href="index.html"> Rescue Waggin </a>
+                    </li>
+                </div> 
             </ul>
         </nav>
 
@@ -348,9 +355,9 @@
                     <p1> <strong>Donation Amount:</strong></p1>
                     <br/>
 
-                    <input type="radio" name="amount" value="five" />
+                    <input type="radio" name="amount" value="5" />
                     <label name="amount"> $5 </label> </br>
-                    <input type="radio" name="amount" value="ten" />
+                    <input type="radio" name="amount" value="10" />
                     <label name="amount"> $10 </label> </br>
                     <input type="radio" name="amount" value="25" />
                     <label name="amount"> $25 </label> </br>

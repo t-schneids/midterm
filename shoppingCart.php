@@ -110,6 +110,7 @@ $head = "<head>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
     <link rel='stylesheet' href='general.css'>
     <link rel='stylesheet' href='shoppingCart.css'>
+    <script src='general.js'></script>
     <script src='https://code.jquery.com/jquery-3.7.1.min.js' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script>
     $script
 </head>";
@@ -137,7 +138,7 @@ $output_page = "<html>$head <body>
     
     <ul class='cart'>
         <li>
-            <a class='newTabs' href='shoppingCart.php'><img src='images/cart.png' width='20'></a>
+            <a class='newTabs' href='shoppingCart.php' id='current'><img src='images/cart.png' width='20'></a>
         </li>
     </ul>
     
@@ -148,7 +149,7 @@ $output_page = "<html>$head <body>
         <li><a class='tabs' href='availableDogs.php'>SEE OUR DOGS</a></li>
         <li><a class='tabs' href='contact.html'>CONTACT US</a></li>
         <li><a class='tabs' href='events.html'>EVENTS</a></li>
-        <li><a class='tabs' href='items.php' id='current'>DOG PRODUCTS</a></li>
+        <li><a class='tabs' href='items.php'>DOG PRODUCTS</a></li>
     </ul>
 
     <button class='hamburger'>
