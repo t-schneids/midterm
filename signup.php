@@ -78,9 +78,9 @@
         cursor: pointer;
     }
 
-    footer {
+    /* footer {
         position: relative !important;
-    }
+    } */
 
     .menuIcon {
         color: black;
@@ -157,7 +157,7 @@
         </ul>
         <ul class="tabGroup">
             <li> 
-                <a class="tabs" href="aboutUs.html"  id="current"> OUR STORY</a> 
+                <a class="tabs" href="aboutUs.html"> OUR STORY</a> 
             </li>
             <li>
                 <a class="tabs" href="rescues.html"> RECENT RESCUES</a>
