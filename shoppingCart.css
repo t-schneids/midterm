@@ -45,6 +45,10 @@
     font-size: 16px;
 }
 
+#totalOrderDiv {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #completePurchaseButton:hover {
     background-color: #a40f14;
 }
