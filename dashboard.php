@@ -73,6 +73,7 @@
                 text-align: center;
                 display: flex;
                 justify-content: center;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
             td {
@@ -204,8 +205,9 @@
                 <td> 
                     <div class="title"> Recent Donations </div>
                     <div id = "donation" class="info">
-                        <h3 style="margin-top:0;">You Donated: </h3>
+                        <!-- <h3 style="margin-top:0;">You Donated: </h3> -->
                         <?php
+                            echo '<hr>';
                             while($row2 = $result2->fetch_assoc()) 
                             {
                                 echo '<p>$' . $row2['amount'] . ' on  ' . $row2['theDate'] . '</p>';
@@ -243,7 +245,8 @@
                 <td> 
                     <div class="title"> Adoption Status</div>
                     <div class="info"> 
-                    <?php
+                        <?php
+                            echo '<hr>';
                             while($row3 = $result3->fetch_assoc()) 
                             {
                                  // SQL query for all dog info relating to adoption info
@@ -271,7 +274,7 @@
         </div>
 
         <footer>
-            <h4> &copy; 2017 Rescue Waggin' </h4>
+            <h4> &copy; 2017 Rescue Waggin </h4>
             <ul class="nav">
                 <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
                 <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>

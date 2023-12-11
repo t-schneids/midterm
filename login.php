@@ -74,6 +74,17 @@ session_start();
         text-decoration: none;
         color: black;
     }
+
+    .closeIcon {
+        color: black;
+    }
+
+    #signupDiv a {
+        color: rgb(209,21,28);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-decoration: none;
+        font-weight: 600;
+    }
 </style>
 
 
@@ -179,7 +190,7 @@ session_start();
                 <a class="tabs" href="adoption.php"> ADOPT A DOG</a>
             </li>
             <li>
-                <a class="tabs" href="availableDogs.php"> AVAILABLE DOGS</a>
+                <a class="tabs" href="availableDogs.php"> SEE OUR DOGS</a>
             </li>
             <li>
                 <a class="tabs" href="contact.html"> CONTACT US</a>
@@ -188,7 +199,7 @@ session_start();
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
             <li>
-                <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
+                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>
 
@@ -209,12 +220,12 @@ session_start();
             <div id='messageDiv'>
             </div>
             <div id='signupDiv'>
-                Don't have an account? Sign Up <a href='signup.php'> HERE! </a>
+                Don't have an account? Sign Up <a href='signup.php'> here! </a>
             </div>
         </div>
 
         <footer>
-            <h4> &copy; 2017 Rescue Waggin' </h4>
+            <h4> &copy; 2017 Rescue Waggin </h4>
             <ul class="nav">
                 <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
                 <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>

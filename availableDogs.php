@@ -45,11 +45,11 @@
             }
 
             p {
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
             h2 {
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
             h1 {
@@ -64,7 +64,14 @@
                 text-decoration: none;
                 color: black;
             }
-            
+
+            #clickHere {
+                color: rgb(209,21,28);
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
             @media (max-width: 600px){
                 img{
                     max-width: 300px;
@@ -139,6 +146,8 @@
         </button>
 
         <h1 style="text-align: center"> See Our Dogs</h1>
+        <p style="font-size: 17px; margin: 0px 15px; text-align: center"> These are the dogs we have available for adoption! If you want one of them to be yours, 
+            <a id="clickHere" href="adoption.php"> click here </a>to fill out an adoption request form! </p>
         <div class="content">
             <!-- BEGIN CARDS-->
             <?php
@@ -179,7 +188,7 @@
         </div>
 
         <footer>
-            <h4> &copy; 2017 Rescue Waggin' </h4>
+            <h4> &copy; 2017 Rescue Waggin </h4>
             <ul class="nav">
                 <ul class="nav">
                     <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>

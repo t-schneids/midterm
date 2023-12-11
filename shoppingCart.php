@@ -159,7 +159,7 @@ $output_page = "<html>$head <body>
         <div class='closeIcon material-icons'>close</div>
     </button>
 
-    <h1>Shopping Cart</h1>";
+    <h1 style='text-align: center; color: rgb(209,21,28);' >Shopping Cart</h1>";
 
 $cartTable = "<table id='cartTable'>
     <tr>
@@ -204,11 +204,11 @@ if ($result->num_rows > 0) {
 $cartTable .= "</table>";
 
 $output_page .= "$cartTable <br/>
-    <div id='totalOrderDiv'>Order Total: <span id='totalOrderPriceSpan' class='price'>$totalOrderPrice</span></div>
-    <button id='completePurchaseButton'>Checkout</button>
+    <div id='totalOrderDiv' style='text-align:center; margin-bottom:10px;' >Order Total: <span id='totalOrderPriceSpan' class='price'>$totalOrderPrice</span></div>
+    <button id='completePurchaseButton' style='margin: 0 auto; display: block;'>Checkout</button>
     
     <footer>
-        <h4>&copy; 2017 Rescue Waggin'</h4>
+        <h4>&copy; 2017 Rescue Waggin</h4>
         <ul class='nav'>
             <ul class='nav'>
                 <li><a href='https://www.gmail.com'><img src='images/gmailLogo.png' style='width:25px;height:20px;'></a></li>

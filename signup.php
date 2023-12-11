@@ -94,6 +94,10 @@
         text-decoration: none;
         color: black;
     }
+
+    .closeIcon {
+        color: black;
+    }
 </style>
 
         <script>
@@ -193,7 +197,7 @@
             </div>
 
             <footer>
-                <h4> &copy; 2017 Rescue Waggin' </h4>
+                <h4> &copy; 2017 Rescue Waggin </h4>
                 <ul class="nav">
                     <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
                     <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>
