@@ -199,7 +199,7 @@ session_start();
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
             <li>
-                <a class="tabs" href="items.php" id="current"> DOG PRODUCTS </a>
+                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
             </li>
         </ul>
 
