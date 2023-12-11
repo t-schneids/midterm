@@ -130,13 +130,13 @@
                 <a class="tabs" href="availableDogs.php" id="current"> SEE OUR DOGS</a>
             </li>
             <li>
-                <a class="tabs" href="contact.html"> CONTACT US</a>
-            </li>
-            <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
             <li>
-                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
+                <a class="tabs" href="items.php"> SEE OUR ITEMS </a>
+            </li>
+            <li>
+                <a class="tabs" href="contact.html"> CONTACT US</a>
             </li>
         </ul>
 

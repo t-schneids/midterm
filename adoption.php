@@ -99,51 +99,39 @@
                 flex-grow: 1;
             }
 
-            .breeds h2  {
+            #breeds h2  {
                 text-align: center;
                 margin-bottom: -10px;
             }
 
-            .breeds h3  {
+            #breeds h3  {
                 text-align: center;
             }
 
-            .breeds {
+            #breeds {
                 background-color: rgba(209, 21, 28, 0.15);
                 padding: 10px;
                 border-radius: 25px;
                 max-width: 415px;
-                margin-left: 50px;
+                width: 100%;
+            }
+
+            #breed-wrapper {
+                display: flex; 
+                justify-content: center;
+                max-height: 200px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
 
-            .wrapper {
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            #wrapper {
                 max-width: 415px;
-                width: 415px;
-                height: 179px;
-                margin-right: 50px;
+                width: 100%;
                 background-color: rgba(209, 21, 28, 0.15);
-                border-radius: 25px;
                 padding: 10px;
+                border-radius: 25px;
+                margin-left: 20px;
+                /* flex: 1; */
             }
-
-            @media (max-width: 997px) {
-               .wrapper {
-                    margin: 0px;
-                }
-
-                .breeds {
-                    margin: 0px;
-                }
-            }
-
-            @media (max-width: 900px) {
-               .wrapper {
-                    margin-top: 10px;
-                }
-            }
-
 
             .dogName {
                 color: rgb(209,21,28);
@@ -153,18 +141,6 @@
                 text-decoration: none;
                 color: black;
             }
-
-            /* @media (max-width: 900px) {
-                .breeds-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    flex-wrap: wrap;
-                    padding-left: 10px;
-                    padding-right: 5px;
-                    padding-bottom: 30px;
-                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                }
-            } */
         </style>
 
         <script>
@@ -314,13 +290,13 @@
                 <a class="tabs" href="availableDogs.php"> SEE OUR DOGS </a>
             </li>
             <li>
-                <a class="tabs" href="contact.html"> CONTACT US</a>
-            </li>
-            <li>
                 <a class="tabs" href="events.html"> EVENTS </a>
             </li>
             <li>
-                <a class="tabs" href="items.php"> DOG PRODUCTS </a>
+                <a class="tabs" href="items.php"> SEE OUR ITEMS </a>
+            </li>
+            <li>
+                <a class="tabs" href="contact.html"> CONTACT US</a>
             </li>
         </ul>
 
@@ -331,6 +307,7 @@
 
         
         <div class="content">
+            
             <h1>Adopt a Dog!</h1>
             <script>
                 function getDogInfo() {
@@ -384,9 +361,8 @@
                     });
                 }
             </script>
-            <div class="row">
-                <div class="column">
-                <div class="breeds" >
+            <div id="breed-wrapper" class="row" >
+                <div id="breeds" class="column" >
                     <h2> Not sure which dog breed is right for you? </h2>
                     <h3> Learn more about one you're interested in here. </h3>
                     <div class="search-container">
@@ -395,19 +371,16 @@
                         <button onclick="getDogInfo()">Search</button>
                     </div>
                 </div>
-                </div>
-                <div class="column">
-                <div class="wrapper">
+                <div id="wrapper" class="column">
                     <div id="title" class="info" style="text-align: center; font-weight: bold; font-size: 20px;">Breed information loads here</div>
-                    <div id="name" class="info"><br/></div>
-                    <div id="bredFor" class="info"><br/></div>
-                    <div id="lifeSpan" class="info"><br/></div>
-                    <div id="temperament" class="info"><br/></div>
-                    <div id="error" class="info"><br/></div>
-                    <div id="height" class="info"><br/></div>
-                    <div id="weight" class="info"><br/></div>
-                </div>  
-                </div>  
+                    <div id="name" class="info"></div>
+                    <div id="bredFor" class="info"></div>
+                    <div id="lifeSpan" class="info"></div>
+                    <div id="temperament" class="info"></div>
+                    <div id="error" class="info"></div>
+                    <div id="height" class="info"></div>
+                    <div id="weight" class="info"></div>
+                </div>    
             </div>
             
             <div class="row" id="row1">
@@ -560,7 +533,7 @@
             </div>
 
             <footer>
-                <h4> &copy; 2017 Rescue Waggin </h4>
+                <h4> &copy; 2017 Rescue Waggin' </h4>
                 <ul class="nav">
                     <li> <a href="https://www.gmail.com"><img src="images/gmailLogo.png" style="width:25px;height:20px;"></a> </li>
                     <li> <a href="https://www.instagram.com"><img src="images/instagramLogo.png" style="width:20px;height:20px;"></a> </li>
