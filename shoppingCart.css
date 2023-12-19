@@ -1,11 +1,13 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+#container-div{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height:95vh;
 }
 
 #cartTable {
-    width: 100%;
+    /* width: 100%; */
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -60,4 +62,8 @@
 #companyName a {
     text-decoration: none;
     color: black;
+}
+
+footer{
+    position: relative;
 }
