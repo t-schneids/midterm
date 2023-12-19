@@ -158,7 +158,7 @@ $output_page = "<html>$head <body>
         <div class='menuIcon material-icons'>menu</div>
         <div class='closeIcon material-icons'>close</div>
     </button>
-
+    <div id='container-div'>
     <h1 style='text-align: center; color: rgb(209,21,28);' >Shopping Cart</h1>";
 
 $cartTable = "<table id='cartTable'>
@@ -203,10 +203,13 @@ if ($result->num_rows > 0) {
 
 $cartTable .= "</table>";
 
-$output_page .= "$cartTable <br/>
-    <div id='totalOrderDiv' style='text-align:center; margin-bottom:10px;' >Order Total: <span id='totalOrderPriceSpan' class='price'>$totalOrderPrice</span></div>
+$output_page .= "$cartTable 
+    <div id='totalOrderDiv' style='text-align:center; margin-bottom:10px;' >
+        <br/><br/>
+        Order Total: <span id='totalOrderPriceSpan' class='price'>$totalOrderPrice</span>
+    </div>
     <button id='completePurchaseButton' style='margin: 0 auto; display: block;'>Checkout</button>
-    
+    </div>
     <footer>
         <h4>&copy; 2017 Rescue Waggin</h4>
         <ul class='nav'>
@@ -226,5 +229,3 @@ $conn->close();
 
 
 ?>
-
-</script>
